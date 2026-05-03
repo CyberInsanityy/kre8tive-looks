@@ -1,5 +1,3 @@
-/* FILE: script.js */
-
 const products = [
   {
     id: "halo-vrgo",
@@ -10,7 +8,7 @@ const products = [
     price: 14.99,
     description: "An oversized halo silhouette with polished metal arms and a confident finish built for statement entrances.",
     features: ["Oversized round silhouette", "Metal arm detailing", "Gradient lens presence", "UV400 protection noted in source sheet"],
-    colors: ["1", "2", "3", "5", "6"],
+    colors: ["Brown", "Black Fade", "Blue", "Rose", "Smoke"],
     images: [
       "./KL_8VG29589-1.jpg",
       "./KL_8VG29589-2.jpg",
@@ -48,7 +46,7 @@ const products = [
     price: 17.99,
     description: "A sculpted halo frame with refined metal lines and an effortless day-to-night finish.",
     features: ["Slim metal arm profile", "Classic curved lens shape", "Elevated neutral palette", "UV protection callout"],
-    colors: ["Silver Smoke", "Black Gold", "Green Gold", "Brown Tortoise", "Jet Black"],
+    colors: ["Silver Smoke", "Black Gold", "Green Gold", "Brown", "Jet Black"],
     images: [
       "./KL_PZ-GSL28319-1SLVR.jpg",
       "./KL_PZ-GSL28319-2BLKGLD.jpg",
@@ -226,23 +224,6 @@ const products = [
     ]
   },
   {
-    id: "flight-everyday-icon",
-    name: "Everyday Icon Aviator",
-    collection: "Flight Collection",
-    collectionKey: "flight",
-    itemCode: "KL_PZ-AF101",
-    price: 12.99,
-    description: "An easy luxury aviator built for daily polish with balanced metal lines and clean tonal finishes.",
-    features: ["Daily-wear aviator", "Balanced frame shape", "Polished metal temple line", "Clean luxury styling"],
-    colors: ["Silver Grey", "Gold Green", "Black", "Black Green"],
-    images: [
-      "./KL_PZ-AF101-1-SLVRGRY.jpg",
-      "./KL_PZ-AF101-2-GLDGRN.jpg",
-      "./KL_PZ-AF101-3-BLKBLK.jpg",
-      "./KL_PZ-AF101-4-BLKGRN.jpg"
-    ]
-  },
-  {
     id: "flight-exec-8",
     name: "EXEC 8",
     collection: "Flight Collection",
@@ -269,7 +250,7 @@ const products = [
     price: 11.99,
     description: "A clean aviator essential with versatile mirrored and classic lens tones.",
     features: ["Classic aviator shape", "Lightweight profile", "Everyday luxury", "Versatile mirrored finishes"],
-    colors: ["1", "2", "3", "4", "5", "6"],
+    colors: ["Rose Gold", "Green", "Dark Grey", "Silver Grey", "Gunmetal Grey", "Silver"],
     images: [
       "./KL_8AF125-1.jpg",
       "./KL_8AF125-2.jpg",
@@ -288,7 +269,7 @@ const products = [
     price: 15.99,
     description: "A bold command-frame aviator with strong bridge presence and polished metal detailing.",
     features: ["Commanding navigator line", "Modern bridge bar", "Strong lens presence", "Statement luxury frame"],
-    colors: ["1", "2", "3", "4", "5", "6"],
+    colors: ["Silver Grey", "Gold Green", "Black Black", "Black Green", "Purple Tint", "Blue Fade"],
     images: [
       "./KL_PZ-AF101-CM1.jpg",
       "./KL_PZ-AF101-CM2.jpg",
@@ -315,6 +296,23 @@ const products = [
       "./KL_PZ-AF112-RV-GLD.jpg",
       "./KL_PZ-AF112-RV-GRN.jpg",
       "./KL_PZ-AF112-RV-ORA.jpg"
+    ]
+  },
+  {
+    id: "flight-everyday-icon",
+    name: "Everyday Icon Aviator",
+    collection: "Flight Collection",
+    collectionKey: "flight",
+    itemCode: "KL_PZ-AF101",
+    price: 12.99,
+    description: "An easy luxury aviator built for daily polish with balanced metal lines and clean tonal finishes.",
+    features: ["Daily-wear aviator", "Balanced frame shape", "Polished metal temple line", "Clean luxury styling"],
+    colors: ["Silver Grey", "Gold Green", "Black", "Black Green"],
+    images: [
+      "./KL_PZ-AF101-1-SLVRGRY.jpg",
+      "./KL_PZ-AF101-2-GLDGRN.jpg",
+      "./KL_PZ-AF101-3-BLKBLK.jpg",
+      "./KL_PZ-AF101-4-BLKGRN.jpg"
     ]
   },
   {
@@ -525,6 +523,7 @@ function renderProducts() {
   getVisibleProducts().forEach((product) => {
     const card = document.createElement("article");
     card.className = "product-card";
+
     card.innerHTML = `
       <div class="product-image">
         <img src="${product.images[0]}" alt="${product.name}" loading="lazy">
@@ -539,7 +538,7 @@ function renderProducts() {
         </div>
         <p>${product.description}</p>
         <div class="color-tags">
-          ${product.colors.slice(0, 5).map((color) => `<span>${color}</span>`).join("")}
+          ${product.colors.slice(0, 5).map((color) => `<span title="${color}">${color}</span>`).join("")}
           ${product.colors.length > 5 ? `<span>+${product.colors.length - 5} more</span>` : ""}
         </div>
         <div class="card-actions">
@@ -575,7 +574,7 @@ function openProduct(product) {
 
   if (dialogMainImage) {
     dialogMainImage.src = product.images[0];
-    dialogMainImage.alt = product.name;
+    dialogMainImage.alt = `${product.name} view 1`;
   }
 
   if (dialogThumbs) {
@@ -599,7 +598,7 @@ function openProduct(product) {
   }
 
   if (dialogColors) {
-    dialogColors.innerHTML = product.colors.map((color) => `<span>${color}</span>`).join("");
+    dialogColors.innerHTML = product.colors.map((color) => `<span title="${color}">${color}</span>`).join("");
   }
 
   if (dialogFeatures) {
