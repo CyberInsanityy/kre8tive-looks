@@ -309,7 +309,7 @@ const products = [
     features: ["Squared flight profile", "Bold luxury proportion", "Mirrored color assortment", "Editorial statement wear"],
     colors: ["Rose Gold", "Blue", "Blue Sky", "Gold", "Green", "Orange"],
     images: [
-      "./KL_PZ-AF112-RV-RGLD.jpg",
+      "./KL_PZ-AF112-RV -RGLD.jpg",
       "./KL_PZ-AF112-RV-BLU.jpg",
       "./KL_PZ-AF112-RV-BLU_SKY.jpg",
       "./KL_PZ-AF112-RV-GLD.jpg",
