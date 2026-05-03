@@ -1,3 +1,4 @@
+<!-- FILE: index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,15 +18,18 @@
         <span>Luxury Eyewear House</span>
         <span>Where Style Is Curated &amp; Vision Elev8ed</span>
       </div>
+
       <div class="nav-row">
         <nav class="main-nav" aria-label="Primary">
           <a href="#shop">Shop</a>
           <a href="#collections">Collections</a>
           <a href="#about">About</a>
         </nav>
+
         <a class="brand-lockup" href="#top" aria-label="Kre8tive Looks home">
-          <img src="./assets/brand/luxurious-gold-kl-logo-design.png" alt="Kre8tive Looks KL monogram">
+          <img src="./kre8tive-looks-transparent-hero.png" alt="Kre8tive Looks logo">
         </a>
+
         <nav class="main-nav nav-right" aria-label="Secondary">
           <a href="#faq">FAQ</a>
           <a href="#contact">Contact</a>
@@ -38,28 +42,33 @@
       <section class="hero">
         <div class="hero-copy">
           <p class="eyebrow">Curated Luxury</p>
+
           <div class="hero-brand" aria-label="Kre8tive Looks">
-            <img src="./assets/brand/kre8tive-looks-transparent-hero.png" alt="Kre8tive Looks logo with tagline">
+            <img src="./kre8tive-looks-transparent-hero.png" alt="Kre8tive Looks logo">
           </div>
+
           <p class="hero-text">
             Kre8tive Looks brings together statement sunglasses collections for every look, every entrance, and every point of view.
           </p>
+
           <div class="hero-actions">
             <a class="button button-gold" href="#shop">Shop All Styles</a>
             <a class="button button-ghost" href="#collections">Explore Collections</a>
           </div>
+
           <ul class="hero-stats" aria-label="Store overview">
-            <li><strong id="stat-products">22</strong><span>Styles</span></li>
+            <li><strong id="stat-products">0</strong><span>Styles</span></li>
             <li><strong id="stat-variants">0</strong><span>Colorways</span></li>
-            <li><strong>6</strong><span>Collections</span></li>
+            <li><strong id="stat-collections">0</strong><span>Collections</span></li>
           </ul>
         </div>
+
         <div class="hero-stage">
           <div class="hero-card">
             <p class="eyebrow">House Edit</p>
             <h2>Luxury shape, polished finish, confident presence.</h2>
             <p>
-              Build a sharper look through Halo minimalism, Flight statement aviators, Allure glamour, and Kids Club essentials.
+              Build a sharper look through Halo minimalism, Flight aviators, Allure glamour, Angles geometry, and Kids Club essentials.
             </p>
           </div>
         </div>
@@ -81,6 +90,7 @@
             <p class="eyebrow">Shop The House</p>
             <h2>Curated luxury across every collection.</h2>
           </div>
+
           <div class="shop-tools">
             <label class="shop-select">
               <span>Sort</span>
@@ -93,6 +103,7 @@
             </label>
           </div>
         </div>
+
         <div class="product-grid" id="product-grid"></div>
       </section>
 
@@ -104,6 +115,7 @@
             Kre8tive Looks is built around confident self-expression. Every collection is selected to deliver presence, polish, and personality without losing wearability.
           </p>
         </article>
+
         <article class="panel" id="faq">
           <p class="eyebrow">FAQ</p>
           <h2>Quick answers before checkout.</h2>
@@ -111,9 +123,10 @@
             <li><strong>Shipping:</strong> Standard fulfillment timelines and tracking details can be shared at launch.</li>
             <li><strong>Returns:</strong> Return policy copy can be finalized before publish.</li>
             <li><strong>UV Protection:</strong> Product sheets indicate UV400 protection where provided.</li>
-            <li><strong>Colorways:</strong> All color options are shown on each product card and detail view.</li>
+            <li><strong>Colorways:</strong> All available color options are shown on each product card and detail view.</li>
           </ul>
         </article>
+
         <article class="panel" id="contact">
           <p class="eyebrow">Contact</p>
           <h2>Reach the house.</h2>
@@ -130,10 +143,12 @@
           <p class="eyebrow">Shipping &amp; Returns</p>
           <p>Refined service copy can be finalized before launch. This section is ready for your final shipping and return terms.</p>
         </article>
+
         <article class="policy-card">
           <p class="eyebrow">Privacy Policy</p>
           <p>Placeholder privacy copy area for your final business policy text.</p>
         </article>
+
         <article class="policy-card">
           <p class="eyebrow">Terms of Service</p>
           <p>Placeholder terms copy area for your final store terms.</p>
@@ -142,7 +157,7 @@
     </main>
 
     <footer class="site-footer">
-      <img class="footer-logo" src="./assets/brand/kre8tive-looks-full-new.png" alt="Kre8tive Looks">
+      <img class="footer-logo" src="./kre8tive-looks-transparent-hero.png" alt="Kre8tive Looks">
       <p>Kre8tive Looks is a luxury eyewear house shaped around confident entrances, curated style, and polished finish.</p>
       <div class="footer-links">
         <a href="#shop">Shop</a>
@@ -156,11 +171,13 @@
 
   <dialog class="product-dialog" id="product-dialog">
     <button class="dialog-close" id="dialog-close" aria-label="Close product view">×</button>
+
     <div class="dialog-body">
       <div class="dialog-gallery">
         <img id="dialog-main-image" alt="">
         <div class="dialog-thumbs" id="dialog-thumbs"></div>
       </div>
+
       <div class="dialog-copy">
         <p class="eyebrow" id="dialog-collection"></p>
         <h2 id="dialog-title"></h2>
