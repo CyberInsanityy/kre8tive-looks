@@ -1,3 +1,5 @@
+/* FILE: script.js */
+
 const products = [
   {
     id: "halo-vrgo",
@@ -10,11 +12,11 @@ const products = [
     features: ["Oversized round silhouette", "Metal arm detailing", "Gradient lens presence", "UV400 protection noted in source sheet"],
     colors: ["1", "2", "3", "5", "6"],
     images: [
-      "./assets/products/halo-vrgo/KL_8VG29589-1.jpg",
-      "./assets/products/halo-vrgo/KL_8VG29589-2.jpg",
-      "./assets/products/halo-vrgo/KL_8VG29589-3.jpg",
-      "./assets/products/halo-vrgo/KL_8VG29589-5.jpg",
-      "./assets/products/halo-vrgo/KL_8VG29589-6.jpg"
+      "./KL_8VG29589-1.jpg",
+      "./KL_8VG29589-2.jpg",
+      "./KL_8VG29589-3.jpg",
+      "./KL_8VG29589-5.jpg",
+      "./KL_8VG29589-6.jpg"
     ]
   },
   {
@@ -28,13 +30,13 @@ const products = [
     features: ["Rounded fashion frame", "Everyday wear profile", "UV400 lens note", "Multiple tonal finishes"],
     colors: ["Black Fade", "Jet Black", "Desert", "Black Silver", "Brown", "Grey Black", "Flame"],
     images: [
-      "./assets/products/halo-everyday/KL_8GSL22731-1BLKBLK.jpg",
-      "./assets/products/halo-everyday/KL_8GSL22731-2BLCK.jpg",
-      "./assets/products/halo-everyday/KL_8GSL22731-3DSRT.jpg",
-      "./assets/products/halo-everyday/KL_8GSL22731-4BLKSLR.jpg",
-      "./assets/products/halo-everyday/KL_8GSL22731-5BRWN.jpg",
-      "./assets/products/halo-everyday/KL_8GSL22731-6GRBLK.jpg",
-      "./assets/products/halo-everyday/KL_8GSL22731-7FLME.jpg"
+      "./KL_8GSL22731-1BLKBLK.jpg",
+      "./KL_8GSL22731-2BLCK.jpg",
+      "./KL_8GSL22731-3DSRT.jpg",
+      "./KL_8GSL22731-4BLKSLR.jpg",
+      "./KL_8GSL22731-5BRWN.jpg",
+      "./KL_8GSL22731-6GRBLK.jpg",
+      "./KL_8GSL22731-7FLME.jpg"
     ]
   },
   {
@@ -48,11 +50,11 @@ const products = [
     features: ["Slim metal arm profile", "Classic curved lens shape", "Elevated neutral palette", "UV protection callout"],
     colors: ["Silver Smoke", "Black Gold", "Green Gold", "Brown Tortoise", "Jet Black"],
     images: [
-      "./assets/products/halo-classic-curve/KL_PZ-GSL28319-1SLVR.jpg",
-      "./assets/products/halo-classic-curve/KL_PZ-GSL28319-2BLKGLD.jpg",
-      "./assets/products/halo-classic-curve/KL_PZ-GSL28319-3GRGLD.jpg",
-      "./assets/products/halo-classic-curve/KL_PZ-GSL28319-4BRWN.jpg",
-      "./assets/products/halo-classic-curve/KL_PZ-GSL28319-5BLK.jpg"
+      "./KL_PZ-GSL28319-1SLVR.jpg",
+      "./KL_PZ-GSL28319-2BLKGLD.jpg",
+      "./KL_PZ-GSL28319-3GRGLD.jpg",
+      "./KL_PZ-GSL28319-4BRWN.jpg",
+      "./KL_PZ-GSL28319-5BLK.jpg"
     ]
   },
   {
@@ -66,12 +68,12 @@ const products = [
     features: ["Angular oversized profile", "Fashion-forward geometry", "Statement color mixes", "Editorial finish"],
     colors: ["Brown Edge", "Black Smoke", "Black Red", "Rose Gold", "Black Purple", "Grey Blue"],
     images: [
-      "./assets/products/angles-attitude/KL_8GSL28304-1BRWNE.jpg",
-      "./assets/products/angles-attitude/KL_8GSL28304-2BSMKE.jpg",
-      "./assets/products/angles-attitude/KL_8GSL28304-3BLKR.jpg",
-      "./assets/products/angles-attitude/KL_8GSL28304-4RGLD.jpg",
-      "./assets/products/angles-attitude/KL_8GSL28304-5BPRP.jpg",
-      "./assets/products/angles-attitude/KL_8GSL28304-6GRBL.jpg"
+      "./KL_8GSL28304-1BRWNE.jpg",
+      "./KL_8GSL28304-2BSMKE.jpg",
+      "./KL_8GSL28304-3BLKR.jpg",
+      "./KL_8GSL28304-4RGLD.jpg",
+      "./KL_8GSL28304-5BPRP.jpg",
+      "./KL_8GSL28304-6GRBL.jpg"
     ]
   },
   {
@@ -85,11 +87,11 @@ const products = [
     features: ["Geometric oversized lens shape", "Statement temples", "Fashion gradient lenses", "Confident luxury profile"],
     colors: ["Pink Gold", "Animal", "Blush", "Blue", "Gold"],
     images: [
-      "./assets/products/angles-vrgo-829/KL_8VG29695-1PINKG.jpg",
-      "./assets/products/angles-vrgo-829/KL_8VG29695-2ANML.jpg",
-      "./assets/products/angles-vrgo-829/KL_8VG29695-3BLUSH.jpg",
-      "./assets/products/angles-vrgo-829/KL_8VG29695-4BBLUE.jpg",
-      "./assets/products/angles-vrgo-829/KL_8VG29695-6BGOLD.jpg"
+      "./KL_8VG29695-1PINKG.jpg",
+      "./KL_8VG29695-2ANML.jpg",
+      "./KL_8VG29695-3BLUSH.jpg",
+      "./KL_8VG29695-4BBLUE.jpg",
+      "./KL_8VG29695-6BGOLD.jpg"
     ]
   },
   {
@@ -103,12 +105,12 @@ const products = [
     features: ["Squared silhouette", "Statement arm profile", "Polished finish", "Day-to-night wearability"],
     colors: ["Gold Brown", "Amber", "Cool Grey", "Pink", "Blue", "Black"],
     images: [
-      "./assets/products/angles-squared-society/KL_8GSL28258-1GBRWN.jpg",
-      "./assets/products/angles-squared-society/KL_8GSL28258-2GAMBR.jpg",
-      "./assets/products/angles-squared-society/KL_8GSL28258-3GCOOL.jpg",
-      "./assets/products/angles-squared-society/KL_8GSL28258-4GPINK.jpg",
-      "./assets/products/angles-squared-society/KL_8GSL28258-5GBLUE.jpg",
-      "./assets/products/angles-squared-society/KL_8GSL28258-6GBLCK.jpg"
+      "./KL_8GSL28258-1GBRWN.jpg",
+      "./KL_8GSL28258-2GAMBR.jpg",
+      "./KL_8GSL28258-3GCOOL.jpg",
+      "./KL_8GSL28258-4GPINK.jpg",
+      "./KL_8GSL28258-5GBLUE.jpg",
+      "./KL_8GSL28258-6GBLCK.jpg"
     ]
   },
   {
@@ -122,11 +124,11 @@ const products = [
     features: ["Oversized glamour frame", "Decorative arm detailing", "Luxury finish", "Strong editorial presence"],
     colors: ["Black", "Blush", "Olive Green", "Brown", "Purple"],
     images: [
-      "./assets/products/allure-luxe-rhinestone-muse/KL_8RS2104-1BLACK.jpg",
-      "./assets/products/allure-luxe-rhinestone-muse/KL_8RS2104-2BLUSH.jpg",
-      "./assets/products/allure-luxe-rhinestone-muse/KL_8RS2104-3OLGRN.jpg",
-      "./assets/products/allure-luxe-rhinestone-muse/KL_8RS2104-4BROWN.jpg",
-      "./assets/products/allure-luxe-rhinestone-muse/KL_8RS2104-5PURPL.jpg"
+      "./KL_8RS2104-1BLACK.jpg",
+      "./KL_8RS2104-2BLUSH.jpg",
+      "./KL_8RS2104-3OLGRN.jpg",
+      "./KL_8RS2104-4BROWN.jpg",
+      "./KL_8RS2104-5PURPL.jpg"
     ]
   },
   {
@@ -140,12 +142,12 @@ const products = [
     features: ["Sharp cat-eye profile", "Gradient lens play", "Fashion palette", "Polished statement wear"],
     colors: ["Flame", "Apricot", "Green", "Icy Blue", "Pink", "Black"],
     images: [
-      "./assets/products/allure-midnight-gradient/KL_8VG29682-1FLAME.jpg",
-      "./assets/products/allure-midnight-gradient/KL_8VG29682-2APRCT.jpg",
-      "./assets/products/allure-midnight-gradient/KL_8VG29682-3GRNAP.jpg",
-      "./assets/products/allure-midnight-gradient/KL_8VG29682-4BICEY.jpg",
-      "./assets/products/allure-midnight-gradient/KL_8VG29682-5BPINK.jpg",
-      "./assets/products/allure-midnight-gradient/KL_8VG29682-6BBLCK.jpg"
+      "./KL_8VG29682-1FLAME.jpg",
+      "./KL_8VG29682-2APRCT.jpg",
+      "./KL_8VG29682-3GRNAP.jpg",
+      "./KL_8VG29682-4BICEY.jpg",
+      "./KL_8VG29682-5BPINK.jpg",
+      "./KL_8VG29682-6BBLCK.jpg"
     ]
   },
   {
@@ -159,12 +161,12 @@ const products = [
     features: ["Designer cat-eye line", "Gloss finish", "Lightweight profile", "Fashion-first shape"],
     colors: ["Blue", "Green", "Pink", "Brown", "Orange", "Black"],
     images: [
-      "./assets/products/allure-catwalk/KL_8VG29687-1BLU.jpg",
-      "./assets/products/allure-catwalk/KL_8VG29687-2GRN.jpg",
-      "./assets/products/allure-catwalk/KL_8VG29687-3PNK.jpg",
-      "./assets/products/allure-catwalk/KL_8VG29687-4BRN.jpg",
-      "./assets/products/allure-catwalk/KL_8VG29687-5ORA.jpg",
-      "./assets/products/allure-catwalk/KL_8VG29687-6BLK.jpg"
+      "./KL_8VG29687-1BLU.jpg",
+      "./KL_8VG29687-2GRN.jpg",
+      "./KL_8VG29687-3PNK.jpg",
+      "./KL_8VG29687-4BRN.jpg",
+      "./KL_8VG29687-5ORA.jpg",
+      "./KL_8VG29687-6BLK.jpg"
     ]
   },
   {
@@ -178,12 +180,12 @@ const products = [
     features: ["Oversized navigator profile", "Luxury metal detailing", "Editorial fit", "Statement silhouette"],
     colors: ["Black Silver", "Black Gold", "Gunmetal Green", "Black Gold 2", "Animal Luxe", "Black Grey"],
     images: [
-      "./assets/products/flight-manhattan-heights/KL_PZ-MH87074-1BLKSLV.jpg",
-      "./assets/products/flight-manhattan-heights/KL_PZ-MH87074-2BLKGLD.jpg",
-      "./assets/products/flight-manhattan-heights/KL_PZ-MH87074-3GNMTL.jpg",
-      "./assets/products/flight-manhattan-heights/KL_PZ-MH87074-4BLKGLD2.jpg",
-      "./assets/products/flight-manhattan-heights/KL_PZ-MH87074-5ANML.jpg",
-      "./assets/products/flight-manhattan-heights/KL_PZ-MH87074-6BLKGRY.jpg"
+      "./KL_PZ-MH87074-1BLKSLV.jpg",
+      "./KL_PZ-MH87074-2BLKGLD.jpg",
+      "./KL_PZ-MH87074-3GNMTL.jpg",
+      "./KL_PZ-MH87074-4BLKGLD2.jpg",
+      "./KL_PZ-MH87074-5ANML.jpg",
+      "./KL_PZ-MH87074-6BLKGRY.jpg"
     ]
   },
   {
@@ -197,11 +199,11 @@ const products = [
     features: ["Aviator profile", "Mirrored lens assortment", "Slim arm finish", "High-visibility color palette"],
     colors: ["Yellow", "Gold Flame", "Purple", "Blue", "Grey Silver"],
     images: [
-      "./assets/products/flight-skyline-aviator/KL_8AV5239-1YLOW.jpg",
-      "./assets/products/flight-skyline-aviator/KL_8AV5239-2GFLM.jpg",
-      "./assets/products/flight-skyline-aviator/KL_8AV5239-3PRPL.jpg",
-      "./assets/products/flight-skyline-aviator/KL_8AV5239-5BLUE.jpg",
-      "./assets/products/flight-skyline-aviator/KL_8AV5239-6GRYS.jpg"
+      "./KL_8AV5239-1YLOW.jpg",
+      "./KL_8AV5239-2GFLM.jpg",
+      "./KL_8AV5239-3PRPL.jpg",
+      "./KL_8AV5239-5BLUE.jpg",
+      "./KL_8AV5239-6GRYS.jpg"
     ]
   },
   {
@@ -215,87 +217,12 @@ const products = [
     features: ["Squared aviator lens", "Confident oversized cut", "Statement luxury profile", "Mixed lens finishes"],
     colors: ["Black", "Black 2", "Silver", "Grey", "Brown", "Black Black"],
     images: [
-      "./assets/products/flight-domin8/KL_8AV5207-1BLK.jpg",
-      "./assets/products/flight-domin8/KL_8AV5207-2BLK2.jpg",
-      "./assets/products/flight-domin8/KL_8AV5207-3SILV.jpg",
-      "./assets/products/flight-domin8/KL_8AV5207-4GRY.jpg",
-      "./assets/products/flight-domin8/KL_8AV5207-5BRWN.jpg",
-      "./assets/products/flight-domin8/KL_8AV5207-6BBLK.jpg"
-    ]
-  },
-  {
-    id: "flight-exec-8",
-    name: "EXEC 8",
-    collection: "Flight Collection",
-    collectionKey: "flight",
-    itemCode: "KL_8AV5182",
-    price: 15.99,
-    description: "A tailored executive aviator with balanced luxury metalwork and an understated power profile.",
-    features: ["Executive aviator fit", "Balanced rectangular lens", "Refined mixed-metal presence", "Luxury neutral colorways"],
-    colors: ["Gold Brown", "Black Green", "Silver Grey", "Black Black", "Silver Smoke"],
-    images: [
-      "./assets/products/flight-exec-8/KL_8AV5182-1GLDBRW.jpg",
-      "./assets/products/flight-exec-8/KL_8AV5182-2BLKGRN.jpg",
-      "./assets/products/flight-exec-8/KL_8AV5182-3SLVGRY.jpg",
-      "./assets/products/flight-exec-8/KL_8AV5182-5BLKBLK.jpg",
-      "./assets/products/flight-exec-8/KL_8AV5182-6SLVSM.jpg"
-    ]
-  },
-  {
-    id: "flight-ryder-aviator",
-    name: "Ryder Aviator",
-    collection: "Flight Collection",
-    collectionKey: "flight",
-    itemCode: "KL_8AF125",
-    price: 11.99,
-    description: "A clean aviator essential with versatile mirrored and classic lens tones.",
-    features: ["Classic aviator shape", "Lightweight profile", "Everyday luxury", "Versatile mirrored finishes"],
-    colors: ["1", "2", "3", "4", "5", "6"],
-    images: [
-      "./assets/products/flight-ryder-aviator/KL_8AF125-1.jpg",
-      "./assets/products/flight-ryder-aviator/KL_8AF125-2.jpg",
-      "./assets/products/flight-ryder-aviator/KL_8AF125-3.jpg",
-      "./assets/products/flight-ryder-aviator/KL_8AF125-4.jpg",
-      "./assets/products/flight-ryder-aviator/KL_8AF125-5.jpg",
-      "./assets/products/flight-ryder-aviator/KL_8AF125-6.jpg"
-    ]
-  },
-  {
-    id: "flight-cruz-commander",
-    name: "Cruz Commander",
-    collection: "Flight Collection",
-    collectionKey: "flight",
-    itemCode: "KL_PZ-AF101-CM",
-    price: 15.99,
-    description: "A bold command-frame aviator with strong bridge presence and polished metal detailing.",
-    features: ["Commanding navigator line", "Modern bridge bar", "Strong lens presence", "Statement luxury frame"],
-    colors: ["1", "2", "3", "4", "5", "6"],
-    images: [
-      "./assets/products/flight-cruz-commander/KL_PZ-AF101-CM1.jpg",
-      "./assets/products/flight-cruz-commander/KL_PZ-AF101-CM2.jpg",
-      "./assets/products/flight-cruz-commander/KL_PZ-AF101-CM3.jpg",
-      "./assets/products/flight-cruz-commander/KL_PZ-AF101-CM4.jpg",
-      "./assets/products/flight-cruz-commander/KL_PZ-AF101-CM5.jpg",
-      "./assets/products/flight-cruz-commander/KL_PZ-AF101-CM6.jpg"
-    ]
-  },
-  {
-    id: "flight-cairo-vision",
-    name: "Cairo Vision",
-    collection: "Flight Collection",
-    collectionKey: "flight",
-    itemCode: "KL_PZ-AF112-RV",
-    price: 19.99,
-    description: "A fashion-forward squared flight frame with mirrored energy and a stronger luxury silhouette.",
-    features: ["Squared flight profile", "Bold luxury proportion", "Mirrored color assortment", "Editorial statement wear"],
-    colors: ["Rose Gold", "Blue", "Blue Sky", "Gold", "Green", "Orange"],
-    images: [
-      "./assets/products/flight-cairo-vision/KL_PZ-AF112-RV -RGLD.jpg",
-      "./assets/products/flight-cairo-vision/KL_PZ-AF112-RV-BLU.jpg",
-      "./assets/products/flight-cairo-vision/KL_PZ-AF112-RV-BLU_SKY.jpg",
-      "./assets/products/flight-cairo-vision/KL_PZ-AF112-RV-GLD.jpg",
-      "./assets/products/flight-cairo-vision/KL_PZ-AF112-RV-GRN.jpg",
-      "./assets/products/flight-cairo-vision/KL_PZ-AF112-RV-ORA.jpg"
+      "./KL_8AV5207-1BLK.jpg",
+      "./KL_8AV5207-2BLK2.jpg",
+      "./KL_8AV5207-3SILV.jpg",
+      "./KL_8AV5207-4GRY.jpg",
+      "./KL_8AV5207-5BRWN.jpg",
+      "./KL_8AV5207-6BBLK.jpg"
     ]
   },
   {
@@ -309,10 +236,85 @@ const products = [
     features: ["Daily-wear aviator", "Balanced frame shape", "Polished metal temple line", "Clean luxury styling"],
     colors: ["Silver Grey", "Gold Green", "Black", "Black Green"],
     images: [
-      "./assets/products/flight-everyday-icon-aviator/KL_PZ-AF101-1-SLVRGRY.jpg",
-      "./assets/products/flight-everyday-icon-aviator/KL_PZ-AF101-2-GLDGRN.jpg",
-      "./assets/products/flight-everyday-icon-aviator/KL_PZ-AF101-3-BLKBLK.jpg",
-      "./assets/products/flight-everyday-icon-aviator/KL_PZ-AF101-4-BLKGRN.jpg"
+      "./KL_PZ-AF101-1-SLVRGRY.jpg",
+      "./KL_PZ-AF101-2-GLDGRN.jpg",
+      "./KL_PZ-AF101-3-BLKBLK.jpg",
+      "./KL_PZ-AF101-4-BLKGRN.jpg"
+    ]
+  },
+  {
+    id: "flight-exec-8",
+    name: "EXEC 8",
+    collection: "Flight Collection",
+    collectionKey: "flight",
+    itemCode: "KL_8AV5182",
+    price: 15.99,
+    description: "A tailored executive aviator with balanced luxury metalwork and an understated power profile.",
+    features: ["Executive aviator fit", "Balanced rectangular lens", "Refined mixed-metal presence", "Luxury neutral colorways"],
+    colors: ["Gold Brown", "Black Green", "Silver Grey", "Black Black", "Silver Smoke"],
+    images: [
+      "./KL_8AV5182-1GLDBRW.jpg",
+      "./KL_8AV5182-2BLKGRN.jpg",
+      "./KL_8AV5182-3SLVGRY.jpg",
+      "./KL_8AV5182-5BLKBLK.jpg",
+      "./KL_8AV5182-6SLVSM.jpg"
+    ]
+  },
+  {
+    id: "flight-ryder-aviator",
+    name: "Ryder Aviator",
+    collection: "Flight Collection",
+    collectionKey: "flight",
+    itemCode: "KL_8AF125",
+    price: 11.99,
+    description: "A clean aviator essential with versatile mirrored and classic lens tones.",
+    features: ["Classic aviator shape", "Lightweight profile", "Everyday luxury", "Versatile mirrored finishes"],
+    colors: ["1", "2", "3", "4", "5", "6"],
+    images: [
+      "./KL_8AF125-1.jpg",
+      "./KL_8AF125-2.jpg",
+      "./KL_8AF125-3.jpg",
+      "./KL_8AF125-4.jpg",
+      "./KL_8AF125-5.jpg",
+      "./KL_8AF125-6.jpg"
+    ]
+  },
+  {
+    id: "flight-cruz-commander",
+    name: "Cruz Commander",
+    collection: "Flight Collection",
+    collectionKey: "flight",
+    itemCode: "KL_PZ-AF101-CM",
+    price: 15.99,
+    description: "A bold command-frame aviator with strong bridge presence and polished metal detailing.",
+    features: ["Commanding navigator line", "Modern bridge bar", "Strong lens presence", "Statement luxury frame"],
+    colors: ["1", "2", "3", "4", "5", "6"],
+    images: [
+      "./KL_PZ-AF101-CM1.jpg",
+      "./KL_PZ-AF101-CM2.jpg",
+      "./KL_PZ-AF101-CM3.jpg",
+      "./KL_PZ-AF101-CM4.jpg",
+      "./KL_PZ-AF101-CM5.jpg",
+      "./KL_PZ-AF101-CM6.jpg"
+    ]
+  },
+  {
+    id: "flight-cairo-vision",
+    name: "Cairo Vision",
+    collection: "Flight Collection",
+    collectionKey: "flight",
+    itemCode: "KL_PZ-AF112-RV",
+    price: 19.99,
+    description: "A fashion-forward squared flight frame with mirrored energy and a stronger luxury silhouette.",
+    features: ["Squared flight profile", "Bold luxury proportion", "Mirrored color assortment", "Editorial statement wear"],
+    colors: ["Rose Gold", "Blue", "Blue Sky", "Gold", "Green", "Orange"],
+    images: [
+      "./KL_PZ-AF112-RV-RGLD.jpg",
+      "./KL_PZ-AF112-RV-BLU.jpg",
+      "./KL_PZ-AF112-RV-BLU_SKY.jpg",
+      "./KL_PZ-AF112-RV-GLD.jpg",
+      "./KL_PZ-AF112-RV-GRN.jpg",
+      "./KL_PZ-AF112-RV-ORA.jpg"
     ]
   },
   {
@@ -326,12 +328,12 @@ const products = [
     features: ["Kids fit", "Oversized playful frame", "Comfortable wear", "Bright and neutral options"],
     colors: ["Grey", "Blue", "Pink", "Black", "Black Grey", "Black Black"],
     images: [
-      "./assets/products/kids-glacee/KL_KG-ROM90105-1GRY.jpg",
-      "./assets/products/kids-glacee/KL_KG-ROM90105-2BLU.jpg",
-      "./assets/products/kids-glacee/KL_KG-ROM90105-3PNK.jpg",
-      "./assets/products/kids-glacee/KL_KG-ROM90105-4BLK.jpg",
-      "./assets/products/kids-glacee/KL_KG-ROM90105-5BLKGRY.jpg",
-      "./assets/products/kids-glacee/KL_KG-ROM90105-6BBLK.jpg"
+      "./KL_KG-ROM90105-1GRY.jpg",
+      "./KL_KG-ROM90105-2BLU.jpg",
+      "./KL_KG-ROM90105-3PNK.jpg",
+      "./KL_KG-ROM90105-4BLK.jpg",
+      "./KL_KG-ROM90105-5BLKGRY.jpg",
+      "./KL_KG-ROM90105-6BBLK.jpg"
     ]
   },
   {
@@ -345,12 +347,12 @@ const products = [
     features: ["Kids wayfarer shape", "Soft pastel palette", "Everyday durability", "Easy lightweight fit"],
     colors: ["Coral", "Blue", "Pink", "Purple", "Cream", "Aqua"],
     images: [
-      "./assets/products/kids-little-voyagers/KL_KG-WF01-PST-1.jpg",
-      "./assets/products/kids-little-voyagers/KL_KG-WF01-PST-2.jpg",
-      "./assets/products/kids-little-voyagers/KL_KG-WF01-PST-3.jpg",
-      "./assets/products/kids-little-voyagers/KL_KG-WF01-PST-4.jpg",
-      "./assets/products/kids-little-voyagers/KL_KG-WF01-PST-5.jpg",
-      "./assets/products/kids-little-voyagers/KL_KG-WF01-PST-6.jpg"
+      "./KL_KG-WF01-PST-1.jpg",
+      "./KL_KG-WF01-PST-2.jpg",
+      "./KL_KG-WF01-PST-3.jpg",
+      "./KL_KG-WF01-PST-4.jpg",
+      "./KL_KG-WF01-PST-5.jpg",
+      "./KL_KG-WF01-PST-6.jpg"
     ]
   },
   {
@@ -364,11 +366,11 @@ const products = [
     features: ["Printed kids frame", "Wayfarer-inspired shape", "Playful pattern styling", "Comfortable fit"],
     colors: ["Black", "Light Blue", "Pink", "Purple", "White"],
     images: [
-      "./assets/products/kids-whimsy-wayfarers/KL_KG-WF01-UNI-BLCK.jpg",
-      "./assets/products/kids-whimsy-wayfarers/KL_KG-WF01-UNI-LBLU.jpg",
-      "./assets/products/kids-whimsy-wayfarers/KL_KG-WF01-UNI-PINK.jpg",
-      "./assets/products/kids-whimsy-wayfarers/KL_KG-WF01-UNI-PRPL.jpg",
-      "./assets/products/kids-whimsy-wayfarers/KL_KG-WF01-UNI-WHTE.jpg"
+      "./KL_KG-WF01-UNI-BLCK.jpg",
+      "./KL_KG-WF01-UNI-LBLU.jpg",
+      "./KL_KG-WF01-UNI-PINK.jpg",
+      "./KL_KG-WF01-UNI-PRPL.jpg",
+      "./KL_KG-WF01-UNI-WHTE.jpg"
     ]
   },
   {
@@ -382,12 +384,12 @@ const products = [
     features: ["Sport kids fit", "Wrap-inspired shape", "Bold camo-style options", "Adventure-ready profile"],
     colors: ["Grey", "White", "Yellow", "Green", "Red", "Blue"],
     images: [
-      "./assets/products/kids-tough-tints/KL_KG-X2738-1GREY.jpg",
-      "./assets/products/kids-tough-tints/KL_KG-X2738-2WHT.jpg",
-      "./assets/products/kids-tough-tints/KL_KG-X2738-3YLW.jpg",
-      "./assets/products/kids-tough-tints/KL_KG-X2738-4GRN.jpg",
-      "./assets/products/kids-tough-tints/KL_KG-X2738-5RED.jpg",
-      "./assets/products/kids-tough-tints/KL_KG-X2738-6BLUE.jpg"
+      "./KL_KG-X2738-1GREY.jpg",
+      "./KL_KG-X2738-2WHT.jpg",
+      "./KL_KG-X2738-3YLW.jpg",
+      "./KL_KG-X2738-4GRN.jpg",
+      "./KL_KG-X2738-5RED.jpg",
+      "./KL_KG-X2738-6BLUE.jpg"
     ]
   },
   {
@@ -401,12 +403,12 @@ const products = [
     features: ["Visor-inspired profile", "Forward luxury attitude", "Bold tinted lens selection", "Statement wear"],
     colors: ["Gold Black", "Black", "Smoke", "Brown", "Blue Sky", "Blue Cloud"],
     images: [
-      "./assets/products/visionary-luxe-visor/KL_8GSL28287-1GBLK.jpg",
-      "./assets/products/visionary-luxe-visor/KL_8GSL28287-2BLK.jpg",
-      "./assets/products/visionary-luxe-visor/KL_8GSL28287-3SMKE.jpg",
-      "./assets/products/visionary-luxe-visor/KL_8GSL28287-4BRWN.jpg",
-      "./assets/products/visionary-luxe-visor/KL_8GSL28287-5BLUSK.jpg",
-      "./assets/products/visionary-luxe-visor/KL_8GSL28287-6BLCLD.jpg"
+      "./KL_8GSL28287-1GBLK.jpg",
+      "./KL_8GSL28287-2BLK.jpg",
+      "./KL_8GSL28287-3SMKE.jpg",
+      "./KL_8GSL28287-4BRWN.jpg",
+      "./KL_8GSL28287-5BLUSK.jpg",
+      "./KL_8GSL28287-6BLCLD.jpg"
     ]
   }
 ];
@@ -441,7 +443,9 @@ const dialogDescription = document.getElementById("dialog-description");
 const dialogColors = document.getElementById("dialog-colors");
 const dialogFeatures = document.getElementById("dialog-features");
 
-document.getElementById("stat-variants").textContent = products.reduce((sum, product) => sum + product.colors.length, 0);
+const statProducts = document.getElementById("stat-products");
+const statVariants = document.getElementById("stat-variants");
+const statCollections = document.getElementById("stat-collections");
 
 function formatPrice(value) {
   return new Intl.NumberFormat("en-US", {
@@ -450,27 +454,49 @@ function formatPrice(value) {
   }).format(value);
 }
 
+function setStats() {
+  if (statProducts) {
+    statProducts.textContent = String(products.length);
+  }
+
+  if (statVariants) {
+    statVariants.textContent = String(
+      products.reduce((sum, product) => sum + product.colors.length, 0)
+    );
+  }
+
+  if (statCollections) {
+    statCollections.textContent = String(collections.length - 1);
+  }
+}
+
 function renderCollectionChips() {
+  if (!chips) return;
+
   chips.innerHTML = "";
+
   collections.forEach((collection) => {
     const count = collection.key === "all"
       ? products.length
       : products.filter((product) => product.collectionKey === collection.key).length;
+
     const button = document.createElement("button");
     button.type = "button";
     button.className = `collection-chip${state.collection === collection.key ? " active" : ""}`;
     button.innerHTML = `<strong>${collection.name}</strong><span>${count} styles</span>`;
+
     button.addEventListener("click", () => {
       state.collection = collection.key;
       renderCollectionChips();
       renderProducts();
     });
+
     chips.appendChild(button);
   });
 }
 
 function getVisibleProducts() {
-  let visible = state.collection === "all"
+  const visible = state.collection === "all"
     ? [...products]
     : products.filter((product) => product.collectionKey === state.collection);
 
@@ -492,13 +518,16 @@ function getVisibleProducts() {
 }
 
 function renderProducts() {
+  if (!grid) return;
+
   grid.innerHTML = "";
+
   getVisibleProducts().forEach((product) => {
     const card = document.createElement("article");
     card.className = "product-card";
     card.innerHTML = `
       <div class="product-image">
-        <img src="${product.images[0]}" alt="${product.name}">
+        <img src="${product.images[0]}" alt="${product.name}" loading="lazy">
       </div>
       <div class="product-meta">
         <div class="meta-top">
@@ -519,49 +548,93 @@ function renderProducts() {
         </div>
       </div>
     `;
+
     card.addEventListener("click", () => openProduct(product));
     grid.appendChild(card);
   });
 }
 
 function openProduct(product) {
-  dialogCollection.textContent = `${product.collection} • ${product.itemCode}`;
-  dialogTitle.textContent = product.name;
-  dialogPrice.textContent = formatPrice(product.price);
-  dialogDescription.textContent = product.description;
-  dialogMainImage.src = product.images[0];
-  dialogMainImage.alt = product.name;
+  if (!dialog) return;
 
-  dialogThumbs.innerHTML = "";
-  product.images.forEach((image, index) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.innerHTML = `<img src="${image}" alt="${product.name} view ${index + 1}">`;
-    button.addEventListener("click", () => {
-      dialogMainImage.src = image;
+  if (dialogCollection) {
+    dialogCollection.textContent = `${product.collection} • ${product.itemCode}`;
+  }
+
+  if (dialogTitle) {
+    dialogTitle.textContent = product.name;
+  }
+
+  if (dialogPrice) {
+    dialogPrice.textContent = formatPrice(product.price);
+  }
+
+  if (dialogDescription) {
+    dialogDescription.textContent = product.description;
+  }
+
+  if (dialogMainImage) {
+    dialogMainImage.src = product.images[0];
+    dialogMainImage.alt = product.name;
+  }
+
+  if (dialogThumbs) {
+    dialogThumbs.innerHTML = "";
+
+    product.images.forEach((image, index) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.innerHTML = `<img src="${image}" alt="${product.name} view ${index + 1}" loading="lazy">`;
+
+      button.addEventListener("click", (event) => {
+        event.stopPropagation();
+        if (dialogMainImage) {
+          dialogMainImage.src = image;
+          dialogMainImage.alt = `${product.name} view ${index + 1}`;
+        }
+      });
+
+      dialogThumbs.appendChild(button);
     });
-    dialogThumbs.appendChild(button);
-  });
+  }
 
-  dialogColors.innerHTML = product.colors.map((color) => `<span>${color}</span>`).join("");
-  dialogFeatures.innerHTML = product.features.map((feature) => `<li>${feature}</li>`).join("");
+  if (dialogColors) {
+    dialogColors.innerHTML = product.colors.map((color) => `<span>${color}</span>`).join("");
+  }
+
+  if (dialogFeatures) {
+    dialogFeatures.innerHTML = product.features.map((feature) => `<li>${feature}</li>`).join("");
+  }
+
   dialog.showModal();
 }
 
-sortSelect.addEventListener("change", (event) => {
-  state.sort = event.target.value;
-  renderProducts();
-});
+if (sortSelect) {
+  sortSelect.addEventListener("change", (event) => {
+    state.sort = event.target.value;
+    renderProducts();
+  });
+}
 
-dialogClose.addEventListener("click", () => dialog.close());
-dialog.addEventListener("click", (event) => {
-  const rect = dialog.getBoundingClientRect();
-  const inside = rect.top <= event.clientY && event.clientY <= rect.top + rect.height &&
-    rect.left <= event.clientX && event.clientX <= rect.left + rect.width;
-  if (!inside) {
-    dialog.close();
-  }
-});
+if (dialogClose && dialog) {
+  dialogClose.addEventListener("click", () => dialog.close());
+}
 
+if (dialog) {
+  dialog.addEventListener("click", (event) => {
+    const rect = dialog.getBoundingClientRect();
+    const inside =
+      rect.top <= event.clientY &&
+      event.clientY <= rect.top + rect.height &&
+      rect.left <= event.clientX &&
+      event.clientX <= rect.left + rect.width;
+
+    if (!inside) {
+      dialog.close();
+    }
+  });
+}
+
+setStats();
 renderCollectionChips();
 renderProducts();
