@@ -6,6 +6,7 @@ const products = [
     collectionKey: "halo",
     itemCode: "KL_8VG29589",
     price: 14.99,
+    paymentLink: "https://buy.stripe.com/test_bJe7sL8hRdDB1jec3i8Ra0p",
     description: "An oversized halo silhouette with polished metal arms and a confident finish built for statement entrances.",
     features: ["Oversized round silhouette", "Metal arm detailing", "Gradient lens presence", "UV400 protection noted in source sheet"],
     colors: ["Brown", "Black Fade", "Blue", "Rose", "Smoke"],
@@ -24,6 +25,7 @@ const products = [
     collectionKey: "halo",
     itemCode: "KL_8GSL22731",
     price: 10.99,
+    paymentLink: "https://buy.stripe.com/test_dRm7sLcy7czx3rm1oE8Ra0o",
     description: "A soft everyday halo frame with an easy luxury profile and versatile tinted finishes.",
     features: ["Rounded fashion frame", "Everyday wear profile", "UV400 lens note", "Multiple tonal finishes"],
     colors: ["Black Fade", "Jet Black", "Desert", "Black Silver", "Brown", "Grey Black", "Flame"],
@@ -44,6 +46,7 @@ const products = [
     collectionKey: "halo",
     itemCode: "KL_PZ-GSL28319",
     price: 17.99,
+    paymentLink: "https://buy.stripe.com/test_28EfZh2XxgPN8LG5EU8Ra0n",
     description: "A sculpted halo frame with refined metal lines and an effortless day-to-night finish.",
     features: ["Slim metal arm profile", "Classic curved lens shape", "Elevated neutral palette", "UV protection callout"],
     colors: ["Silver Smoke", "Black Gold", "Green Gold", "Brown", "Jet Black"],
@@ -62,6 +65,7 @@ const products = [
     collectionKey: "angles",
     itemCode: "KL_8GSL28304",
     price: 19.99,
+    paymentLink: "https://buy.stripe.com/test_14A9AT2Xx7fd3rm8R68Ra0m",
     description: "Architectural lines, sharp confidence, and a richer palette made for statement styling.",
     features: ["Angular oversized profile", "Fashion-forward geometry", "Statement color mixes", "Editorial finish"],
     colors: ["Brown Edge", "Black Smoke", "Black Red", "Rose Gold", "Black Purple", "Grey Blue"],
@@ -81,6 +85,7 @@ const products = [
     collectionKey: "angles",
     itemCode: "KL_8VG29695",
     price: 18.99,
+    paymentLink: "https://buy.stripe.com/test_4gMfZhcy74317HC5EU8Ra0l",
     description: "A faceted fashion frame with crisp lines and a polished profile that reads instantly elevated.",
     features: ["Geometric oversized lens shape", "Statement temples", "Fashion gradient lenses", "Confident luxury profile"],
     colors: ["Pink Gold", "Animal", "Blush", "Blue", "Gold"],
@@ -99,6 +104,7 @@ const products = [
     collectionKey: "angles",
     itemCode: "KL_8GSL28258",
     price: 15.99,
+    paymentLink: "https://buy.stripe.com/test_14AfZh7dNbvt7HC2sI8Ra0k",
     description: "A clean square-led statement with confident edge and easy versatility across luxury neutrals and bold tints.",
     features: ["Squared silhouette", "Statement arm profile", "Polished finish", "Day-to-night wearability"],
     colors: ["Gold Brown", "Amber", "Cool Grey", "Pink", "Blue", "Black"],
@@ -118,6 +124,7 @@ const products = [
     collectionKey: "allure",
     itemCode: "KL_8RS2104",
     price: 17.99,
+    paymentLink: "https://buy.stripe.com/test_6oU00j41BgPNaTO5EU8Ra0j",
     description: "A glamorous oversized frame with jewelry-inspired side detailing and a bold fashion presence.",
     features: ["Oversized glamour frame", "Decorative arm detailing", "Luxury finish", "Strong editorial presence"],
     colors: ["Black", "Blush", "Olive Green", "Brown", "Purple"],
@@ -136,6 +143,7 @@ const products = [
     collectionKey: "allure",
     itemCode: "KL_8VG29682",
     price: 14.99,
+    paymentLink: "https://buy.stripe.com/test_cNi5kD9lVfLJ3rmffu8Ra0i",
     description: "A sleeker cat-eye profile with gradient drama and polished color transitions.",
     features: ["Sharp cat-eye profile", "Gradient lens play", "Fashion palette", "Polished statement wear"],
     colors: ["Flame", "Apricot", "Green", "Icy Blue", "Pink", "Black"],
@@ -155,6 +163,7 @@ const products = [
     collectionKey: "allure",
     itemCode: "KL_8VG29687",
     price: 13.99,
+    paymentLink: "https://buy.stripe.com/test_bJe7sLeGf2YX4vq4AQ8Ra0h",
     description: "A runway-leaning cat-eye designed to feel polished, playful, and instantly fashion aware.",
     features: ["Designer cat-eye line", "Gloss finish", "Lightweight profile", "Fashion-first shape"],
     colors: ["Blue", "Green", "Pink", "Brown", "Orange", "Black"],
@@ -174,6 +183,7 @@ const products = [
     collectionKey: "flight",
     itemCode: "KL_PZ-MH87074",
     price: 18.99,
+    paymentLink: "https://buy.stripe.com/test_eVq6oH9lVgPNfa4ebq8Ra0g",
     description: "A commanding oversized flight frame with elevated trim details built for a polished metropolitan finish.",
     features: ["Oversized navigator profile", "Luxury metal detailing", "Editorial fit", "Statement silhouette"],
     colors: ["Black Silver", "Black Gold", "Gunmetal Green", "Black Gold 2", "Animal Luxe", "Black Grey"],
@@ -193,6 +203,7 @@ const products = [
     collectionKey: "flight",
     itemCode: "KL_8AV5239",
     price: 13.99,
+    paymentLink: "https://buy.stripe.com/test_9B65kD1Tt6b92ni0kA8Ra0f",
     description: "A lighter aviator statement with mirrored energy, city-ready color, and an effortless polished frame.",
     features: ["Aviator profile", "Mirrored lens assortment", "Slim arm finish", "High-visibility color palette"],
     colors: ["Yellow", "Gold Flame", "Purple", "Blue", "Grey Silver"],
@@ -211,9 +222,10 @@ const products = [
     collectionKey: "flight",
     itemCode: "KL_8AV5207",
     price: 16.99,
+    paymentLink: "https://buy.stripe.com/test_fZu00jdCb4310fagjy8Ra0e",
     description: "A squared aviator with a commanding front and a strong, modern fashion attitude.",
     features: ["Squared aviator lens", "Confident oversized cut", "Statement luxury profile", "Mixed lens finishes"],
-    colors: ["Black", "Black 2", "Silver", "Grey", "Brown", "Black Black"],
+    colors: ["Black", "Matte Black", "Silver", "Grey", "Brown", "Jet Black"],
     images: [
       "./KL_8AV5207-1BLK.jpg",
       "./KL_8AV5207-2BLK2.jpg",
@@ -230,9 +242,10 @@ const products = [
     collectionKey: "flight",
     itemCode: "KL_8AV5182",
     price: 15.99,
+    paymentLink: "https://buy.stripe.com/test_bJe7sL41B6b92ni7N28Ra0d",
     description: "A tailored executive aviator with balanced luxury metalwork and an understated power profile.",
     features: ["Executive aviator fit", "Balanced rectangular lens", "Refined mixed-metal presence", "Luxury neutral colorways"],
-    colors: ["Gold Brown", "Black Green", "Silver Grey", "Black Black", "Silver Smoke"],
+    colors: ["Gold Brown", "Black Green", "Silver Grey", "Jet Black", "Silver Smoke"],
     images: [
       "./KL_8AV5182-1GLDBRW.jpg",
       "./KL_8AV5182-2BLKGRN.jpg",
@@ -248,6 +261,7 @@ const products = [
     collectionKey: "flight",
     itemCode: "KL_8AF125",
     price: 11.99,
+    paymentLink: "https://buy.stripe.com/test_00wfZh41B5752ni8R68Ra0c",
     description: "A clean aviator essential with versatile mirrored and classic lens tones.",
     features: ["Classic aviator shape", "Lightweight profile", "Everyday luxury", "Versatile mirrored finishes"],
     colors: ["Rose Gold", "Green", "Dark Grey", "Silver Grey", "Gunmetal Grey", "Silver"],
@@ -267,9 +281,10 @@ const products = [
     collectionKey: "flight",
     itemCode: "KL_PZ-AF101-CM",
     price: 15.99,
+    paymentLink: "https://buy.stripe.com/test_bJe9AT69Jczx5zuc3i8Ra0b",
     description: "A bold command-frame aviator with strong bridge presence and polished metal detailing.",
     features: ["Commanding navigator line", "Modern bridge bar", "Strong lens presence", "Statement luxury frame"],
-    colors: ["Silver Grey", "Gold Green", "Black Black", "Black Green", "Purple Tint", "Blue Fade"],
+    colors: ["Silver Grey", "Gold Green", "Jet Black", "Black Green", "Purple Tint", "Blue Fade"],
     images: [
       "./KL_PZ-AF101-CM1.jpg",
       "./KL_PZ-AF101-CM2.jpg",
@@ -286,6 +301,7 @@ const products = [
     collectionKey: "flight",
     itemCode: "KL_PZ-AF112-RV",
     price: 19.99,
+    paymentLink: "https://buy.stripe.com/test_cNi7sLapZgPNe605EU8Ra0a",
     description: "A fashion-forward squared flight frame with mirrored energy and a stronger luxury silhouette.",
     features: ["Squared flight profile", "Bold luxury proportion", "Mirrored color assortment", "Editorial statement wear"],
     colors: ["Rose Gold", "Blue", "Blue Sky", "Gold", "Green", "Orange"],
@@ -305,6 +321,7 @@ const products = [
     collectionKey: "flight",
     itemCode: "KL_PZ-AF101",
     price: 12.99,
+    paymentLink: "https://buy.stripe.com/test_28E4gzeGfeHF8LG0kA8Ra09",
     description: "An easy luxury aviator built for daily polish with balanced metal lines and clean tonal finishes.",
     features: ["Daily-wear aviator", "Balanced frame shape", "Polished metal temple line", "Clean luxury styling"],
     colors: ["Silver Grey", "Gold Green", "Black", "Black Green"],
@@ -322,6 +339,7 @@ const products = [
     collectionKey: "kids",
     itemCode: "KL_KG-ROM90105",
     price: 10.99,
+    paymentLink: "https://buy.stripe.com/test_bJe7sL8hRdDB1jec3i8Ra0p",
     description: "A fun oversized kids frame with polished tint options and confident everyday comfort.",
     features: ["Kids fit", "Oversized playful frame", "Comfortable wear", "Bright and neutral options"],
     colors: ["Grey", "Blue", "Pink", "Black", "Black Grey", "Black Black"],
@@ -341,6 +359,7 @@ const products = [
     collectionKey: "kids",
     itemCode: "KL_KG-WF01-PST",
     price: 7.99,
+    paymentLink: "https://buy.stripe.com/test_dRm7sLcy7czx3rm1oE8Ra0o",
     description: "A pastel kids essential with bright energy and easy all-day wear.",
     features: ["Kids wayfarer shape", "Soft pastel palette", "Everyday durability", "Easy lightweight fit"],
     colors: ["Coral", "Blue", "Pink", "Purple", "Cream", "Aqua"],
@@ -360,6 +379,7 @@ const products = [
     collectionKey: "kids",
     itemCode: "KL_KG-WF01-UNI",
     price: 9.99,
+    paymentLink: "https://buy.stripe.com/test_28EfZh2XxgPN8LG5EU8Ra0n",
     description: "A playful printed kids frame with bright personality and everyday wearability.",
     features: ["Printed kids frame", "Wayfarer-inspired shape", "Playful pattern styling", "Comfortable fit"],
     colors: ["Black", "Light Blue", "Pink", "Purple", "White"],
@@ -378,6 +398,7 @@ const products = [
     collectionKey: "kids",
     itemCode: "KL_KG-X2738",
     price: 9.99,
+    paymentLink: "https://buy.stripe.com/test_14A9AT2Xx7fd3rm8R68Ra0m",
     description: "A sportier wrap-inspired kids frame designed for high-energy wear and standout color.",
     features: ["Sport kids fit", "Wrap-inspired shape", "Bold camo-style options", "Adventure-ready profile"],
     colors: ["Grey", "White", "Yellow", "Green", "Red", "Blue"],
@@ -397,6 +418,7 @@ const products = [
     collectionKey: "visionary",
     itemCode: "KL_8GSL28287",
     price: 17.99,
+    paymentLink: "https://buy.stripe.com/test_4gMfZhcy74317HC5EU8Ra0l",
     description: "A futuristic visor-style statement with a stronger silhouette and sleek directional energy.",
     features: ["Visor-inspired profile", "Forward luxury attitude", "Bold tinted lens selection", "Statement wear"],
     colors: ["Gold Black", "Black", "Smoke", "Brown", "Blue Sky", "Blue Cloud"],
@@ -440,6 +462,7 @@ const dialogPrice = document.getElementById("dialog-price");
 const dialogDescription = document.getElementById("dialog-description");
 const dialogColors = document.getElementById("dialog-colors");
 const dialogFeatures = document.getElementById("dialog-features");
+const dialogBuyButton = document.getElementById("dialog-buy-button");
 
 const statProducts = document.getElementById("stat-products");
 const statVariants = document.getElementById("stat-variants");
@@ -453,19 +476,9 @@ function formatPrice(value) {
 }
 
 function setStats() {
-  if (statProducts) {
-    statProducts.textContent = String(products.length);
-  }
-
-  if (statVariants) {
-    statVariants.textContent = String(
-      products.reduce((sum, product) => sum + product.colors.length, 0)
-    );
-  }
-
-  if (statCollections) {
-    statCollections.textContent = String(collections.length - 1);
-  }
+  if (statProducts) statProducts.textContent = String(products.length);
+  if (statVariants) statVariants.textContent = String(products.reduce((sum, product) => sum + product.colors.length, 0));
+  if (statCollections) statCollections.textContent = String(collections.length - 1);
 }
 
 function renderCollectionChips() {
@@ -542,13 +555,17 @@ function renderProducts() {
           ${product.colors.length > 5 ? `<span>+${product.colors.length - 5} more</span>` : ""}
         </div>
         <div class="card-actions">
-          <button class="button button-ghost" type="button">View Product</button>
-          <button class="button button-gold" type="button">Buy Soon</button>
+          <button class="button button-ghost view-product-button" type="button">View Product</button>
+          <a class="button button-gold" href="${product.paymentLink}" target="_blank" rel="noopener noreferrer">Buy Now</a>
         </div>
       </div>
     `;
 
-    card.addEventListener("click", () => openProduct(product));
+    card.addEventListener("click", (event) => {
+      if (event.target.closest("a")) return;
+      openProduct(product);
+    });
+
     grid.appendChild(card);
   });
 }
@@ -556,21 +573,10 @@ function renderProducts() {
 function openProduct(product) {
   if (!dialog) return;
 
-  if (dialogCollection) {
-    dialogCollection.textContent = `${product.collection} • ${product.itemCode}`;
-  }
-
-  if (dialogTitle) {
-    dialogTitle.textContent = product.name;
-  }
-
-  if (dialogPrice) {
-    dialogPrice.textContent = formatPrice(product.price);
-  }
-
-  if (dialogDescription) {
-    dialogDescription.textContent = product.description;
-  }
+  if (dialogCollection) dialogCollection.textContent = `${product.collection} • ${product.itemCode}`;
+  if (dialogTitle) dialogTitle.textContent = product.name;
+  if (dialogPrice) dialogPrice.textContent = formatPrice(product.price);
+  if (dialogDescription) dialogDescription.textContent = product.description;
 
   if (dialogMainImage) {
     dialogMainImage.src = product.images[0];
@@ -605,6 +611,11 @@ function openProduct(product) {
     dialogFeatures.innerHTML = product.features.map((feature) => `<li>${feature}</li>`).join("");
   }
 
+  if (dialogBuyButton) {
+    dialogBuyButton.href = product.paymentLink;
+    dialogBuyButton.textContent = "Buy Now";
+  }
+
   dialog.showModal();
 }
 
@@ -628,9 +639,7 @@ if (dialog) {
       rect.left <= event.clientX &&
       event.clientX <= rect.left + rect.width;
 
-    if (!inside) {
-      dialog.close();
-    }
+    if (!inside) dialog.close();
   });
 }
 
