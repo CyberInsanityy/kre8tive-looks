@@ -1,3 +1,4 @@
+/* FILE: script.js */
 const products = [
   {
     id: "allure-rhinestone-muse",
@@ -9,14 +10,7 @@ const products = [
     paymentLink: "https://buy.stripe.com/test_6oU00j41BgPNaTO5EU8Ra0j",
     description: "A glamorous oversized frame with jewelry-inspired side detailing and a bold fashion presence.",
     features: ["Mulberry Tint", "Dusty Quartz", "Brown Tortoise", "Black Pearl", "Matcha"],
-    colors: [
-      "Mulberry Tint",
-      "Dusty Quartz",
-      "Brown Tortoise",
-      "Black Pearl w/ gold arm",
-      "Black Pearl w/ silv arm",
-      "Matcha"
-    ],
+    colors: ["Mulberry Tint", "Dusty Quartz", "Brown Tortoise", "Black Pearl", "Matcha"],
     images: [
       "./KL_8RS2104-1BLACK.jpg",
       "./KL_8RS2104-2BLUSH.jpg",
@@ -35,14 +29,7 @@ const products = [
     paymentLink: "https://buy.stripe.com/test_cNi5kD9lVfLJ3rmffu8Ra0i",
     description: "A sleeker cat-eye profile with gradient drama and polished color transitions.",
     features: ["Honey Tortoise", "Midnight Champagne", "Midnight Olive", "Black Ice", "Midnight Rose", "Matte Black"],
-    colors: [
-      "Honey Tortoise",
-      "Midnight Champagne",
-      "Midnight Olive",
-      "Black Ice",
-      "Midnight Rose",
-      "Matte Black"
-    ],
+    colors: ["Honey Tortoise", "Midnight Champagne", "Midnight Olive", "Black Ice", "Midnight Rose", "Matte Black"],
     images: [
       "./KL_8VG29682-1FLAME.jpg",
       "./KL_8VG29682-2APRCT.jpg",
@@ -62,14 +49,7 @@ const products = [
     paymentLink: "https://buy.stripe.com/test_bJe7sLeGf2YX4vq4AQ8Ra0h",
     description: "A runway-leaning cat-eye designed to feel polished, playful, and instantly fashion aware.",
     features: ["Amber Cat", "Blush Crystal", "Moss Green", "Satin Orange", "Periwinkle Blue", "Black Cat"],
-    colors: [
-      "Amber Cat",
-      "Blush Crystal",
-      "Moss Green",
-      "Satin Orange",
-      "Periwinkle Blue",
-      "Black Cat"
-    ],
+    colors: ["Amber Cat", "Blush Crystal", "Moss Green", "Satin Orange", "Periwinkle Blue", "Black Cat"],
     images: [
       "./KL_8VG29687-1BLU.jpg",
       "./KL_8VG29687-2GRN.jpg",
@@ -89,14 +69,7 @@ const products = [
     paymentLink: "https://buy.stripe.com/test_14A9AT2Xx7fd3rm8R68Ra0m",
     description: "Architectural lines, sharp confidence, and a richer palette made for statement styling.",
     features: ["Brown Edge", "Black Rim", "Black Smoke", "Champagne Sky", "Matcha Pink", "Virt Violet"],
-    colors: [
-      "Brown Edge",
-      "Black Rim",
-      "Black Smoke",
-      "Champagne Sky",
-      "Matcha Pink",
-      "Virt Violet"
-    ],
+    colors: ["Brown Edge", "Black Rim", "Black Smoke", "Champagne Sky", "Matcha Pink", "Virt Violet"],
     images: [
       "./KL_8GSL28304-1BRWNE.jpg",
       "./KL_8GSL28304-2BSMKE.jpg",
@@ -116,14 +89,7 @@ const products = [
     paymentLink: "https://buy.stripe.com/test_4gMfZhcy74317HC5EU8Ra0l",
     description: "A faceted fashion frame with crisp lines and a polished profile that reads instantly elevated.",
     features: ["Pink Quartz", "Brown Tortoise", "Static Blue", "Blush Rush", "Black Shadow", "Muted Magenta"],
-    colors: [
-      "Pink Quartz",
-      "Brown Tortoise",
-      "Static Blue",
-      "Blush Rush",
-      "Black Shadow",
-      "Muted Magenta"
-    ],
+    colors: ["Pink Quartz", "Brown Tortoise", "Static Blue", "Blush Rush", "Black Shadow", "Muted Magenta"],
     images: [
       "./KL_8VG29695-1PINKG.jpg",
       "./KL_8VG29695-2ANML.jpg",
@@ -143,14 +109,7 @@ const products = [
     paymentLink: "https://buy.stripe.com/test_14AfZh7dNbvt7HC2sI8Ra0k",
     description: "A clean square-led statement with confident edge and easy versatility across luxury neutrals and bold tints.",
     features: ["The Sienna", "Amber Smoke", "Coffee Break", "Pink Sunset", "Amber Blue", "Monaco Sunset"],
-    colors: [
-      "The Sienna",
-      "Amber Smoke",
-      "Coffee Break",
-      "Pink Sunset",
-      "Amber Blue",
-      "Monaco Sunset"
-    ],
+    colors: ["The Sienna", "Amber Smoke", "Coffee Break", "Pink Sunset", "Amber Blue", "Monaco Sunset"],
     images: [
       "./KL_8GSL28258-1GBRWN.jpg",
       "./KL_8GSL28258-2GAMBR.jpg",
@@ -209,15 +168,7 @@ const products = [
     paymentLink: "https://buy.stripe.com/test_dRm7sLcy7czx3rm1oE8Ra0o",
     description: "A soft everyday halo frame with an easy luxury profile and versatile tinted finishes.",
     features: ["Blackberry", "Midnight", "Tiger Eye", "Alpine Smoke", "Mocha Blend", "Monochrome Marble", "Crimson Marble"],
-    colors: [
-      "Blackberry",
-      "Midnight",
-      "Tiger Eye",
-      "Alpine Smoke",
-      "Mocha Blend",
-      "Monochrome Marble",
-      "Crimson Marble"
-    ],
+    colors: ["Blackberry", "Midnight", "Tiger Eye", "Alpine Smoke", "Mocha Blend", "Monochrome Marble", "Crimson Marble"],
     images: [
       "./KL_8GSL22731-1BLKBLK.jpg",
       "./KL_8GSL22731-2BLCK.jpg",
@@ -529,15 +480,6 @@ function formatPrice(value) {
   }).format(value);
 }
 
-function createColorTag(product, color, activeColor) {
-  const isActive = color === activeColor ? "active" : "";
-  return `<span class="${isActive}" data-product-id="${product.id}" data-color="${encodeURIComponent(color)}">${color}</span>`;
-}
-
-function buildBuyUrl(product) {
-  return product.paymentLink;
-}
-
 function matchesPriceRange(product) {
   switch (state.priceRange) {
     case "0-9.99":
@@ -548,7 +490,6 @@ function matchesPriceRange(product) {
       return product.price >= 14 && product.price <= 17.99;
     case "18-100":
       return product.price >= 18;
-    case "all":
     default:
       return true;
   }
@@ -573,7 +514,6 @@ function getVisibleProducts() {
     case "name":
       visible.sort((a, b) => a.name.localeCompare(b.name));
       break;
-    case "featured":
     default:
       break;
   }
@@ -584,26 +524,32 @@ function getVisibleProducts() {
 function renderCollectionControls() {
   if (!collectionPills || !collectionFilterList) return;
 
-  collectionPills.innerHTML = collections.map((collection) => {
-    const isActive = collection.key === state.activeCollection ? "active" : "";
-    return `
-      <button class="collection-pill ${isActive}" type="button" data-collection="${collection.key}">
-        ${collection.name}
-      </button>
-    `;
-  }).join("");
+  collectionPills.innerHTML = collections
+    .map((collection) => {
+      const activeClass = state.activeCollection === collection.key ? "active" : "";
+      return `
+        <button class="collection-pill ${activeClass}" type="button" data-collection="${collection.key}">
+          ${collection.name}
+        </button>
+      `;
+    })
+    .join("");
 
-  collectionFilterList.innerHTML = collections.map((collection) => `
-    <label>
-      <input
-        type="radio"
-        name="collection-filter"
-        value="${collection.key}"
-        ${collection.key === state.activeCollection ? "checked" : ""}
-      />
-      <span>${collection.name}</span>
-    </label>
-  `).join("");
+  collectionFilterList.innerHTML = collections
+    .map(
+      (collection) => `
+        <label>
+          <input
+            type="radio"
+            name="collection-filter"
+            value="${collection.key}"
+            ${state.activeCollection === collection.key ? "checked" : ""}
+          />
+          <span>${collection.name}</span>
+        </label>
+      `
+    )
+    .join("");
 
   document.querySelectorAll("[data-collection]").forEach((button) => {
     button.addEventListener("click", () => {
@@ -620,6 +566,11 @@ function renderCollectionControls() {
   });
 }
 
+function createColorTag(product, color, activeColor) {
+  const activeClass = color === activeColor ? "active" : "";
+  return `<span class="${activeClass}" data-product-id="${product.id}" data-color="${encodeURIComponent(color)}">${color}</span>`;
+}
+
 function renderProducts() {
   if (!productGrid) return;
 
@@ -629,38 +580,42 @@ function renderProducts() {
     productCount.textContent = String(visibleProducts.length);
   }
 
-  productGrid.innerHTML = visibleProducts.map((product) => {
-    const activeColor = state.selectedColors[product.id] || product.colors[0];
+  productGrid.innerHTML = visibleProducts
+    .map((product) => {
+      const activeColor = state.selectedColors[product.id] || product.colors[0];
 
-    return `
-      <article class="product-card">
-        <div class="product-image">
-          <img src="${product.images[0]}" alt="${product.name}" loading="lazy" />
-        </div>
+      return `
+        <article class="product-card">
+          <div class="product-image">
+            <img src="${product.images[0]}" alt="${product.name}" loading="lazy" />
+          </div>
 
-        <div class="product-meta">
-          <div class="meta-top">
-            <div>
-              <small>${product.collection}</small>
-              <h3>${product.name}</h3>
+          <div class="product-meta">
+            <div class="meta-top">
+              <div>
+                <small>${product.collection}</small>
+                <h3>${product.name}</h3>
+              </div>
+              <span class="price">${formatPrice(product.price)}</span>
             </div>
-            <span class="price">${formatPrice(product.price)}</span>
-          </div>
 
-          <p>${product.description}</p>
+            <p>${product.description}</p>
 
-          <div class="color-tags">
-            ${product.colors.slice(0, 6).map((color) => createColorTag(product, color, activeColor)).join("")}
-          </div>
+            <div class="color-tags">
+              ${product.colors.slice(0, 6).map((color) => createColorTag(product, color, activeColor)).join("")}
+            </div>
 
-          <div class="card-actions">
-            <button class="button button-ghost" type="button" data-view="${product.id}">View Product</button>
-            <a class="button button-gold" href="${buildBuyUrl(product)}" target="_blank" rel="noopener noreferrer">Buy Now</a>
+            <div class="card-actions">
+              <button class="button button-ghost" type="button" data-view="${product.id}">View Product</button>
+              <a class="button button-gold" href="${product.paymentLink}" target="_blank" rel="noopener noreferrer">
+                Buy Now
+              </a>
+            </div>
           </div>
-        </div>
-      </article>
-    `;
-  }).join("");
+        </article>
+      `;
+    })
+    .join("");
 
   document.querySelectorAll("[data-view]").forEach((button) => {
     button.addEventListener("click", () => {
@@ -686,10 +641,12 @@ function renderDialogColors(product) {
 
   const activeColor = state.selectedColors[product.id] || product.colors[0];
 
-  dialogColors.innerHTML = product.colors.map((color) => {
-    const isActive = color === activeColor ? "active" : "";
-    return `<span class="${isActive}" data-dialog-product="${product.id}" data-dialog-color="${encodeURIComponent(color)}">${color}</span>`;
-  }).join("");
+  dialogColors.innerHTML = product.colors
+    .map((color) => {
+      const activeClass = color === activeColor ? "active" : "";
+      return `<span class="${activeClass}" data-dialog-product="${product.id}" data-dialog-color="${encodeURIComponent(color)}">${color}</span>`;
+    })
+    .join("");
 
   document.querySelectorAll("[data-dialog-product][data-dialog-color]").forEach((tag) => {
     tag.addEventListener("click", () => {
@@ -715,11 +672,15 @@ function openProduct(product) {
   }
 
   if (dialogThumbs) {
-    dialogThumbs.innerHTML = product.images.map((image, index) => `
-      <button type="button" data-thumb-src="${image}" aria-label="${product.name} image ${index + 1}">
-        <img src="${image}" alt="${product.name} thumb ${index + 1}" loading="lazy" />
-      </button>
-    `).join("");
+    dialogThumbs.innerHTML = product.images
+      .map(
+        (image, index) => `
+          <button type="button" data-thumb-src="${image}" aria-label="${product.name} image ${index + 1}">
+            <img src="${image}" alt="${product.name} thumb ${index + 1}" loading="lazy" />
+          </button>
+        `
+      )
+      .join("");
 
     dialogThumbs.querySelectorAll("[data-thumb-src]").forEach((button) => {
       button.addEventListener("click", () => {
@@ -738,7 +699,7 @@ function openProduct(product) {
   }
 
   if (dialogBuyButton) {
-    dialogBuyButton.href = buildBuyUrl(product);
+    dialogBuyButton.href = product.paymentLink;
     dialogBuyButton.textContent = "Buy Now";
   }
 
@@ -775,9 +736,9 @@ if (clearFiltersButton) {
       sortSelect.value = "price-desc";
     }
 
-    const allPrice = document.querySelector('input[name="price-range"][value="all"]');
-    if (allPrice) {
-      allPrice.checked = true;
+    const allPriceInput = document.querySelector('input[name="price-range"][value="all"]');
+    if (allPriceInput) {
+      allPriceInput.checked = true;
     }
 
     renderAll();
