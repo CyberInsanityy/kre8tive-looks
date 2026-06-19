@@ -7,182 +7,193 @@
   <title>Kre8tive Looks | Luxury Eyewear House</title>
   <meta
     name="description"
-    content="Kre8tive Looks is a luxury eyewear house offering curated sunglasses across Halo, Angles, Allure, Flight, Kids Club, and Visionary collections."
+    content="Luxury eyewear house featuring curated frames across Halo, Angles, Allure, Flight, Kids Club, and Visionary collections."
   />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
   <div class="site-shell">
-    <header class="site-header" id="top">
-      <div class="utility-row">
-        <span>Luxury Eyewear House</span>
-        <span>Where Style Is Curated &amp; Vision Elev8ed</span>
+    <header class="site-header">
+      <div class="topbar">
+        <div class="topbar-inner">
+          <span class="topbar-copy">Luxury Eyewear House</span>
+          <span class="topbar-slogan">Where Style Is Curated &amp; Vision Elev8ed</span>
+        </div>
       </div>
 
-      <div class="nav-row">
-        <nav class="main-nav" aria-label="Primary">
-          <a href="#shop">Shop</a>
-          <a href="#collections">Collections</a>
-          <a href="#about">About</a>
-        </nav>
+      <div class="nav-wrap">
+        <div class="brand-top">
+          <img src="./kl-monogram.png" alt="Kre8tive Looks KL monogram" />
+        </div>
 
-        <a class="brand-lockup" href="#top" aria-label="Kre8tive Looks home">
-          <img src="./kre8tive-looks-transparent-hero.png" alt="Kre8tive Looks logo" />
-        </a>
-
-        <nav class="main-nav nav-right" aria-label="Secondary">
-          <a href="#faq">FAQ</a>
-          <a href="#contact">Contact</a>
-          <a class="nav-pill" href="#shop">Shop House</a>
-        </nav>
+        <div class="nav-inner">
+          <nav class="main-nav" aria-label="Primary navigation">
+            <a href="#shop">Shop</a>
+            <a href="#collections">Collections</a>
+            <a href="#about">About</a>
+            <a href="#policies">Policies</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </div>
       </div>
     </header>
 
     <main>
-      <section class="hero">
-        <div class="hero-copy">
+      <section class="shop-hero">
+        <div class="shop-hero-copy">
           <p class="eyebrow">Curated Luxury</p>
-
-          <div class="hero-brand" aria-label="Kre8tive Looks">
-            <img src="./kre8tive-looks-transparent-hero.png" alt="Kre8tive Looks logo" />
-          </div>
-
-          <p class="hero-text">
-            Kre8tive Looks brings together statement sunglasses collections for every look,
-            every entrance, and every point of view.
+          <h1>Shop the House</h1>
+          <p>
+            Discover polished silhouettes, fashion-forward color stories, and
+            elevated eyewear designed to feel stylish, accessible, fashionable,
+            and essential.
           </p>
-
           <div class="hero-actions">
-            <a class="button button-gold" href="#shop">Shop All Styles</a>
-            <a class="button button-ghost" href="#collections">Explore Collections</a>
-          </div>
-
-          <ul class="hero-stats" aria-label="Store overview">
-            <li><strong id="stat-products">0</strong><span>Styles</span></li>
-            <li><strong id="stat-variants">0</strong><span>Colorways</span></li>
-            <li><strong id="stat-collections">0</strong><span>Collections</span></li>
-          </ul>
-        </div>
-
-        <div class="hero-stage">
-          <div class="hero-card">
-            <p class="eyebrow">House Edit</p>
-            <h2>Luxury shape, polished finish, confident presence.</h2>
-            <p>
-              Build a sharper look through Halo minimalism, Flight aviators, Allure glamour,
-              Angles geometry, and Kids Club essentials.
-            </p>
+            <a class="button button-gold" href="#shop">Browse Frames</a>
+            <a class="button button-outline" href="#about">Learn More</a>
           </div>
         </div>
       </section>
 
-      <section class="collections-section" id="collections">
-        <div class="section-heading">
+      <section class="catalog-section" id="shop">
+        <div class="catalog-top">
           <div>
             <p class="eyebrow">Collections</p>
-            <h2>Distinct moods. One Elev8ed point of view.</h2>
-          </div>
-        </div>
-        <div class="collection-chips" id="collection-chips"></div>
-      </section>
-
-      <section class="shop-section" id="shop">
-        <div class="section-heading shop-heading">
-          <div>
-            <p class="eyebrow">Shop The House</p>
-            <h2>Curated luxury across every collection.</h2>
+            <h2>All Frames</h2>
           </div>
 
-          <div class="shop-tools">
-            <label class="shop-select">
-              <span>Sort</span>
-              <select id="sort-select" aria-label="Sort products">
-                <option value="featured">Featured</option>
-                <option value="price-asc">Price: Low to High</option>
-                <option value="price-desc">Price: High to Low</option>
+          <div class="catalog-top-controls">
+            <div class="results-count">
+              <span id="product-count">0</span> products
+            </div>
+
+            <label class="sort-control" for="sort-select">
+              <span>Sort by:</span>
+              <select id="sort-select">
+                <option value="price-desc" selected>Highest Price</option>
+                <option value="price-asc">Lowest Price</option>
                 <option value="name">Name</option>
+                <option value="featured">Featured</option>
               </select>
             </label>
           </div>
         </div>
 
-        <div class="product-grid" id="product-grid"></div>
+        <div class="catalog-layout">
+          <aside class="filters-sidebar" aria-label="Filters">
+            <button class="filter-toggle" id="clear-filters" type="button">Clear filters</button>
+
+            <div class="filter-group">
+              <button class="filter-heading" type="button">Collections</button>
+              <div class="collection-filter-list" id="collection-filter-list"></div>
+            </div>
+
+            <div class="filter-group">
+              <button class="filter-heading" type="button">Price</button>
+              <div class="price-filter-list">
+                <label><input type="radio" name="price-range" value="all" checked /> All</label>
+                <label><input type="radio" name="price-range" value="0-9.99" /> Under $10</label>
+                <label><input type="radio" name="price-range" value="10-13.99" /> $10 - $13.99</label>
+                <label><input type="radio" name="price-range" value="14-17.99" /> $14 - $17.99</label>
+                <label><input type="radio" name="price-range" value="18-100" /> $18 and up</label>
+              </div>
+            </div>
+          </aside>
+
+          <div class="products-area">
+            <div class="collection-pills" id="collection-pills"></div>
+            <div class="product-grid" id="product-grid"></div>
+          </div>
+        </div>
       </section>
 
-      <section class="house-panels">
+      <section class="content-panels">
         <article class="panel" id="about">
-          <p class="eyebrow">About Kre8tive Looks</p>
-          <h2>Style as identity. Eyewear as the finishing language.</h2>
+          <p class="eyebrow">About</p>
+          <h2>Style should be S.A.F.E.</h2>
           <p>
-            Kre8tive Looks is built around confident self-expression. Every collection is
-            selected to deliver presence, polish, and personality without losing wearability.
+            At Kre8tive Looks, we believe style should be S.A.F.E. -
+            Stylish, Accessible, Fashionable, and Essential. Our curated frames
+            feature high-end polarized lenses and total UV protection.
           </p>
         </article>
 
-        <article class="panel" id="faq">
-          <p class="eyebrow">FAQ</p>
-          <h2>Quick answers before checkout.</h2>
-          <ul class="faq-list">
-            <li><strong>Shipping:</strong> Shipping timelines and delivery details are provided at checkout.</li>
-            <li><strong>Returns:</strong> Return and exchange details can be finalized before launch.</li>
-            <li><strong>Color selection:</strong> Customers choose their color directly in Stripe checkout.</li>
-            <li><strong>Address:</strong> Billing and shipping details are collected during checkout.</li>
-          </ul>
+        <article class="panel" id="policies">
+          <p class="eyebrow">Shipping &amp; Returns</p>
+          <h2>Built into the experience.</h2>
+          <p>
+            Shipping is included in the price of the frame.
+          </p>
+          <p>
+            All sales are final. However, we stand firmly behind the quality of
+            our products. Every order is backed by our Out-of-Box Warranty - if
+            your items arrive damaged or with any manufacturer defects, please
+            contact us within 5 days of delivery and we will gladly make it
+            right.
+          </p>
+          <p>
+            To initiate a warranty claim, please email
+            <a href="mailto:kre8tivelooks@gmail.com">kre8tivelooks@gmail.com</a>
+            with photos of the issue.
+          </p>
         </article>
 
         <article class="panel" id="contact">
           <p class="eyebrow">Contact</p>
-          <h2>Reach the house.</h2>
+          <h2>Connect with Kre8tive Looks</h2>
+
           <ul class="contact-list">
-            <li><span>Email</span><a href="mailto:kre8tivelooks@gmail.com">kre8tivelooks@gmail.com</a></li>
-            <li><span>Phone</span><a href="tel:4404126724">440-412-6724</a></li>
-            <li><span>Instagram</span><span>@kre8tivelooks</span></li>
+            <li>
+              <span>Email</span>
+              <a href="mailto:kre8tivelooks@gmail.com">kre8tivelooks@gmail.com</a>
+            </li>
+            <li>
+              <span>Phone</span>
+              <a href="tel:4404126724">440-412-6724</a>
+            </li>
           </ul>
-        </article>
-      </section>
 
-      <section class="policy-grid">
-        <article class="policy-card">
-          <p class="eyebrow">Shipping &amp; Returns</p>
-          <p>Final shipping, return, and exchange terms can be updated before launch.</p>
-        </article>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram">
+              <span class="social-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                  <circle cx="12" cy="12" r="4.5"></circle>
+                  <circle cx="17.2" cy="6.8" r="1"></circle>
+                </svg>
+              </span>
+              <span>@kre8tivelooks</span>
+            </a>
 
-        <article class="policy-card">
-          <p class="eyebrow">Privacy Policy</p>
-          <p>Customer contact, payment, and shipping information is handled securely through Stripe checkout.</p>
-        </article>
-
-        <article class="policy-card">
-          <p class="eyebrow">Terms of Service</p>
-          <p>Product availability, fulfillment, and final store terms can be finalized before public launch.</p>
+            <a href="#" aria-label="Facebook">
+              <span class="social-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M13.5 21v-7.1h2.4l.4-2.8h-2.8V9.3c0-.8.2-1.4 1.4-1.4h1.5V5.4c-.3 0-1.1-.1-2.1-.1-2 0-3.4 1.2-3.4 3.5v2.3H8.5v2.8h2.4V21h2.6z"/>
+                </svg>
+              </span>
+              <span>Kre8tive Looks</span>
+            </a>
+          </div>
         </article>
       </section>
     </main>
 
     <footer class="site-footer">
-      <img class="footer-logo" src="./kre8tive-looks-transparent-hero.png" alt="Kre8tive Looks logo" />
-      <p>
-        Kre8tive Looks is a luxury eyewear house shaped around confident entrances,
-        curated style, and polished finish.
-      </p>
-      <div class="footer-links">
-        <a href="#shop">Shop</a>
-        <a href="#collections">Collections</a>
-        <a href="#about">About</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">Contact</a>
+      <div class="footer-monogram">
+        <img src="./kl-monogram.png" alt="Kre8tive Looks KL monogram" />
       </div>
+      <p>Kre8tive Looks | Luxury Eyewear House</p>
     </footer>
   </div>
 
   <dialog class="product-dialog" id="product-dialog">
-    <button class="dialog-close" id="dialog-close" aria-label="Close product view">×</button>
+    <button class="dialog-close" id="dialog-close" aria-label="Close product details">×</button>
 
     <div class="dialog-body">
       <div class="dialog-gallery">
@@ -195,10 +206,16 @@
         <h2 id="dialog-title"></h2>
         <p class="dialog-price" id="dialog-price"></p>
         <p id="dialog-description"></p>
-        <div class="color-tags" id="dialog-colors"></div>
+
+        <div class="dialog-section">
+          <h3>Select your color</h3>
+          <div class="color-tags" id="dialog-colors"></div>
+        </div>
+
         <ul class="feature-list" id="dialog-features"></ul>
+
         <a
-          class="button button-gold"
+          class="button button-gold dialog-buy"
           id="dialog-buy-button"
           href="#"
           target="_blank"
@@ -213,3 +230,1590 @@
   <script src="./script.js"></script>
 </body>
 </html>
+
+<!-- FILE: style.css -->
+:root {
+  --bg: #f5f5f2;
+  --surface: #ffffff;
+  --surface-2: #faf9f6;
+  --text: #151515;
+  --muted: #6b6b6b;
+  --border: #ddddda;
+  --gold: #b9984d;
+  --gold-dark: #8e7235;
+  --black: #0a0a0a;
+  --shadow: 0 14px 40px rgba(10, 10, 10, 0.08);
+  --radius: 22px;
+  --radius-sm: 14px;
+  --container: 1440px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+select,
+input {
+  font: inherit;
+}
+
+.site-shell {
+  min-height: 100vh;
+}
+
+.topbar {
+  background: var(--black);
+  color: var(--gold);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.topbar-inner {
+  width: min(100% - 32px, var(--container));
+  margin: 0 auto;
+  padding: 12px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.nav-wrap {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+}
+
+.brand-top {
+  display: flex;
+  justify-content: center;
+  padding: 18px 16px 6px;
+}
+
+.brand-top img,
+.footer-monogram img {
+  width: 86px;
+  height: auto;
+}
+
+.nav-inner {
+  width: min(100% - 32px, var(--container));
+  margin: 0 auto;
+  padding: 14px 0 18px;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.main-nav a {
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.shop-hero {
+  width: min(100% - 32px, var(--container));
+  margin: 28px auto 0;
+  background: linear-gradient(135deg, #111 0%, #1d1d1d 46%, #30240f 100%);
+  border-radius: 30px;
+  color: #fff;
+  padding: 54px 40px;
+  box-shadow: var(--shadow);
+}
+
+.shop-hero-copy {
+  max-width: 740px;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.shop-hero h1,
+.panel h2,
+.dialog-copy h2,
+.catalog-top h2 {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  line-height: 0.95;
+}
+
+.shop-hero h1 {
+  font-size: clamp(3rem, 7vw, 5.4rem);
+}
+
+.shop-hero p:not(.eyebrow) {
+  max-width: 640px;
+  margin: 18px 0 0;
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.hero-actions {
+  margin-top: 26px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.button-gold {
+  background: var(--gold);
+  color: #111;
+}
+
+.button-gold:hover {
+  background: var(--gold-dark);
+  color: #fff;
+}
+
+.button-outline {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.28);
+  color: #fff;
+}
+
+.button-outline:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.button-ghost {
+  background: #fff;
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.catalog-section {
+  width: min(100% - 32px, var(--container));
+  margin: 34px auto 0;
+}
+
+.catalog-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: end;
+  margin-bottom: 26px;
+}
+
+.catalog-top h2 {
+  font-size: clamp(2.5rem, 6vw, 4.2rem);
+}
+
+.catalog-top-controls {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.results-count {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.sort-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+}
+
+.sort-control select {
+  border: 1px solid var(--border);
+  background: #fff;
+  border-radius: 999px;
+  padding: 12px 16px;
+  min-width: 180px;
+}
+
+.catalog-layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 26px;
+  align-items: start;
+}
+
+.filters-sidebar {
+  position: sticky;
+  top: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  box-shadow: var(--shadow);
+}
+
+.filter-toggle {
+  width: 100%;
+  margin-bottom: 18px;
+  min-height: 46px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.filter-group + .filter-group {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.filter-heading {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  font-weight: 800;
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+
+.collection-filter-list,
+.price-filter-list {
+  display: grid;
+  gap: 10px;
+}
+
+.collection-filter-list label,
+.price-filter-list label {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: var(--muted);
+}
+
+.products-area {
+  min-width: 0;
+}
+
+.collection-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.collection-pill {
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.collection-pill.active {
+  background: #0f1c36;
+  border-color: #0f1c36;
+  color: #fff;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.product-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.product-image {
+  background: #f1f1ee;
+  aspect-ratio: 1 / 1;
+  padding: 20px;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.product-meta {
+  padding: 20px 20px 22px;
+  display: grid;
+  gap: 12px;
+}
+
+.meta-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: start;
+}
+
+.meta-top small {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.meta-top h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+.price {
+  font-size: 1.2rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.product-meta p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+.color-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.color-tags span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #fff;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.color-tags span.active {
+  background: #0f1c36;
+  border-color: #0f1c36;
+  color: #fff;
+}
+
+.card-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.card-actions .button {
+  flex: 1;
+}
+
+.content-panels {
+  width: min(100% - 32px, var(--container));
+  margin: 42px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 26px;
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+
+.panel h2 {
+  font-size: 2.4rem;
+  margin-bottom: 14px;
+}
+
+.panel p,
+.panel li,
+.panel a {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.contact-list,
+.feature-list {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.contact-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.contact-list li + li {
+  margin-top: 14px;
+}
+
+.contact-list span:first-child {
+  display: block;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 0 16px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #fff;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.social-icon {
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+}
+
+.social-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.site-footer {
+  margin-top: 42px;
+  padding: 34px 16px 48px;
+  background: var(--black);
+  color: #fff;
+  text-align: center;
+}
+
+.footer-monogram {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.site-footer p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.product-dialog {
+  width: min(1100px, calc(100% - 24px));
+  border: 0;
+  padding: 0;
+  background: #fff;
+  border-radius: 28px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.28);
+  overflow: hidden;
+}
+
+.product-dialog::backdrop {
+  background: rgba(10, 10, 10, 0.72);
+}
+
+.dialog-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #fff;
+  font-size: 1.6rem;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.dialog-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+  gap: 28px;
+  padding: 28px;
+}
+
+.dialog-gallery {
+  display: grid;
+  gap: 16px;
+}
+
+#dialog-main-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background: #f1f1ee;
+  border-radius: 24px;
+  padding: 20px;
+}
+
+.dialog-thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.dialog-thumbs button {
+  width: 82px;
+  height: 82px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: #fff;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.dialog-thumbs img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.dialog-copy {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+}
+
+.dialog-copy h2 {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+}
+
+.dialog-price {
+  margin: 0;
+  color: var(--gold-dark);
+  font-weight: 800;
+  font-size: 1.6rem;
+}
+
+.dialog-section h3 {
+  margin: 0 0 10px;
+  font-size: 0.95rem;
+}
+
+.dialog-buy {
+  margin-top: 8px;
+  width: 100%;
+}
+
+@media (max-width: 1180px) {
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .content-panels {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 920px) {
+  .catalog-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .filters-sidebar {
+    position: static;
+  }
+
+  .dialog-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .topbar-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .shop-hero,
+  .catalog-section,
+  .content-panels {
+    width: min(100% - 20px, var(--container));
+  }
+
+  .shop-hero {
+    padding: 36px 22px;
+  }
+
+  .catalog-top {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card-actions .button {
+    width: 100%;
+    flex: auto;
+  }
+
+  .main-nav {
+    gap: 18px;
+  }
+}
+
+<!-- FILE: script.js -->
+const products = [
+  {
+    id: "allure-rhinestone-muse",
+    name: "Luxe Rhinestone Muse",
+    collection: "Allure Collection",
+    collectionKey: "allure",
+    itemCode: "8RS2104",
+    price: 14.99,
+    paymentLink: "https://buy.stripe.com/test_6oU00j41BgPNaTO5EU8Ra0j",
+    description: "A glamorous oversized frame with jewelry-inspired side detailing and a bold fashion presence.",
+    features: ["Mulberry Tint", "Dusty Quartz", "Brown Tortoise", "Black Pearl", "Matcha"],
+    colors: [
+      "Mulberry Tint",
+      "Dusty Quartz",
+      "Brown Tortoise",
+      "Black Pearl w/ gold arm",
+      "Black Pearl w/ silv arm",
+      "Matcha"
+    ],
+    images: [
+      "./KL_8RS2104-1BLACK.jpg",
+      "./KL_8RS2104-2BLUSH.jpg",
+      "./KL_8RS2104-3OLGRN.jpg",
+      "./KL_8RS2104-4BROWN.jpg",
+      "./KL_8RS2104-5PURPL.jpg"
+    ]
+  },
+  {
+    id: "allure-midnight-gradient",
+    name: "Midnight Gradient",
+    collection: "Allure Collection",
+    collectionKey: "allure",
+    itemCode: "8VG29682",
+    price: 13.99,
+    paymentLink: "https://buy.stripe.com/test_cNi5kD9lVfLJ3rmffu8Ra0i",
+    description: "A sleeker cat-eye profile with gradient drama and polished color transitions.",
+    features: ["HoneyTortoise", "Midnight Champagne", "Midnight Olive", "Black Ice", "Midnight Rose", "Matte Black"],
+    colors: [
+      "HoneyTortoise",
+      "Midnight Champagne",
+      "Midnight Olive",
+      "Black Ice",
+      "Midnight Rose",
+      "Matte Black"
+    ],
+    images: [
+      "./KL_8VG29682-1FLAME.jpg",
+      "./KL_8VG29682-2APRCT.jpg",
+      "./KL_8VG29682-3GRNAP.jpg",
+      "./KL_8VG29682-4BICEY.jpg",
+      "./KL_8VG29682-5BPINK.jpg",
+      "./KL_8VG29682-6BBLCK.jpg"
+    ]
+  },
+  {
+    id: "allure-catwalk",
+    name: "Catwalk",
+    collection: "Allure Collection",
+    collectionKey: "allure",
+    itemCode: "8VG29687",
+    price: 12.99,
+    paymentLink: "https://buy.stripe.com/test_bJe7sLeGf2YX4vq4AQ8Ra0h",
+    description: "A runway-leaning cat-eye designed to feel polished, playful, and instantly fashion aware.",
+    features: ["Amber Cat", "Blush Crystal", "Moss Green", "Satin Orange", "Periwinkle Blue", "Black Cat"],
+    colors: [
+      "Amber Cat",
+      "Blush Crystal",
+      "Moss Green",
+      "Satin Orange",
+      "Periwinkle Blue",
+      "Black Cat"
+    ],
+    images: [
+      "./KL_8VG29687-1BLU.jpg",
+      "./KL_8VG29687-2GRN.jpg",
+      "./KL_8VG29687-3PNK.jpg",
+      "./KL_8VG29687-4BRN.jpg",
+      "./KL_8VG29687-5ORA.jpg",
+      "./KL_8VG29687-6BLK.jpg"
+    ]
+  },
+  {
+    id: "angles-attitude",
+    name: "Angles & Attitude",
+    collection: "Angles Collection",
+    collectionKey: "angles",
+    itemCode: "3GSL28304",
+    price: 17.99,
+    paymentLink: "https://buy.stripe.com/test_14A9AT2Xx7fd3rm8R68Ra0m",
+    description: "Architectural lines, sharp confidence, and a richer palette made for statement styling.",
+    features: ["Brown Edge", "Black Rim", "Black Smoke", "Champagne Sky", "Matcha Pink", "Virt Violet"],
+    colors: [
+      "Brown Edge",
+      "Black Rim",
+      "Black Smoke",
+      "Champagne Sky",
+      "Matcha Pink",
+      "Virt Violet"
+    ],
+    images: [
+      "./KL_8GSL28304-1BRWNE.jpg",
+      "./KL_8GSL28304-2BSMKE.jpg",
+      "./KL_8GSL28304-3BLKR.jpg",
+      "./KL_8GSL28304-4RGLD.jpg",
+      "./KL_8GSL28304-5BPRP.jpg",
+      "./KL_8GSL28304-6GRBL.jpg"
+    ]
+  },
+  {
+    id: "angles-vrgo-829",
+    name: "VRGO 829",
+    collection: "Angles Collection",
+    collectionKey: "angles",
+    itemCode: "8VG29695",
+    price: 15.99,
+    paymentLink: "https://buy.stripe.com/test_4gMfZhcy74317HC5EU8Ra0l",
+    description: "A faceted fashion frame with crisp lines and a polished profile that reads instantly elevated.",
+    features: ["Pink Quartz", "Brown Tortoise", "Static Blue", "Blush Rush", "Black Shadow", "Muted Magenta"],
+    colors: [
+      "Pink Quartz",
+      "Brown Tortoise",
+      "Static Blue",
+      "Blush Rush",
+      "Black Shadow",
+      "Muted Magenta"
+    ],
+    images: [
+      "./KL_8VG29695-1PINKG.jpg",
+      "./KL_8VG29695-2ANML.jpg",
+      "./KL_8VG29695-3BLUSH.jpg",
+      "./KL_8VG29695-4BBLUE.jpg",
+      "./KL_8VG29695-5.jpg",
+      "./KL_8VG29695-6BGOLD.jpg"
+    ]
+  },
+  {
+    id: "angles-squared-society",
+    name: "Squared Society",
+    collection: "Angles Collection",
+    collectionKey: "angles",
+    itemCode: "8GSL28258",
+    price: 13.99,
+    paymentLink: "https://buy.stripe.com/test_14AfZh7dNbvt7HC2sI8Ra0k",
+    description: "A clean square-led statement with confident edge and easy versatility across luxury neutrals and bold tints.",
+    features: ["The Sienna", "Amber Smoke", "Coffee Break", "Pink Sunset", "Amber Blue", "Monaco Sunset"],
+    colors: [
+      "The Sienna",
+      "Amber Smoke",
+      "Coffee Break",
+      "Pink Sunset",
+      "Amber Blue",
+      "Monaco Sunset"
+    ],
+    images: [
+      "./KL_8GSL28258-1GBRWN.jpg",
+      "./KL_8GSL28258-2GAMBR.jpg",
+      "./KL_8GSL28258-3GCOOL.jpg",
+      "./KL_8GSL28258-4GPINK.jpg",
+      "./KL_8GSL28258-5GBLUE.jpg",
+      "./KL_8GSL28258-6GBLCK.jpg"
+    ]
+  },
+  {
+    id: "halo-classic-curve",
+    name: "Classic Curve",
+    collection: "Halo Collection",
+    collectionKey: "halo",
+    itemCode: "PZ-GSL28319",
+    price: 15.99,
+    paymentLink: "https://buy.stripe.com/test_28EfZh2XxgPN8LG5EU8Ra0n",
+    description: "A sculpted halo frame with refined metal lines and an effortless day-to-night finish.",
+    features: ["Silver Halo", "Halo Gold", "Halo Emerald", "Halo Sahara", "Halo Obsidian"],
+    colors: [
+      "Silver Halo",
+      "Halo Gold",
+      "Halo Emerald",
+      "Halo Sahara",
+      "Halo Obsidian"
+    ],
+    images: [
+      "./KL_PZ-GSL28319-1SLVR.jpg",
+      "./KL_PZ-GSL28319-2BLKGLD.jpg",
+      "./KL_PZ-GSL28319-3GRGLD.jpg",
+      "./KL_PZ-GSL28319-4BRWN.jpg",
+      "./KL_PZ-GSL28319-5BLK.jpg"
+    ]
+  },
+  {
+    id: "halo-vrgo",
+    name: "VRGO",
+    collection: "Halo Collection",
+    collectionKey: "halo",
+    itemCode: "8VG29589",
+    price: 12.99,
+    paymentLink: "https://buy.stripe.com/test_bJe7sL8hRdDB1jec3i8Ra0p",
+    description: "An oversized halo silhouette with polished metal arms and a confident finish built for statement entrances.",
+    features: ["Mocha Luxe", "Monaco Black", "Blackberry", "Cherry Kola", "Wine", "Purple Reign"],
+    colors: [
+      "Mocha Luxe",
+      "Monaco Black",
+      "Blackberry",
+      "Cherry Kola",
+      "Wine",
+      "Purple Reign"
+    ],
+    images: [
+      "./KL_8VG29589-1.jpg",
+      "./KL_8VG29589-2.jpg",
+      "./KL_8VG29589-3.jpg",
+      "./KL_8VG29589-4.jpg",
+      "./KL_8VG29589-5.jpg",
+      "./KL_8VG29589-6.jpg"
+    ]
+  },
+  {
+    id: "halo-everyday",
+    name: "Everyday Halo",
+    collection: "Halo Collection",
+    collectionKey: "halo",
+    itemCode: "8GSL22731",
+    price: 9.99,
+    paymentLink: "https://buy.stripe.com/test_dRm7sLcy7czx3rm1oE8Ra0o",
+    description: "A soft everyday halo frame with an easy luxury profile and versatile tinted finishes.",
+    features: ["Blackberry", "Midnight", "Tiger Eye", "Alpine Smoke", "Mocha Blend", "Monochrome Marble", "Crimson Marble"],
+    colors: [
+      "Blackberry",
+      "Midnight",
+      "Tiger Eye",
+      "Alpine Smoke",
+      "Mocha Blend",
+      "Monochrome Marble",
+      "Crimson Marble"
+    ],
+    images: [
+      "./KL_8GSL22731-1BLKBLK.jpg",
+      "./KL_8GSL22731-2BLCK.jpg",
+      "./KL_8GSL22731-3DSRT.jpg",
+      "./KL_8GSL22731-4BLKSLR.jpg",
+      "./KL_8GSL22731-5BRWN.jpg",
+      "./KL_8GSL22731-6GRBLK.jpg",
+      "./KL_8GSL22731-7FLME.jpg"
+    ]
+  },
+  {
+    id: "visionary-luxe-visor",
+    name: "Luxe Visor",
+    collection: "Visionary Collection",
+    collectionKey: "visionary",
+    itemCode: "8GSL28287",
+    price: 13.99,
+    paymentLink: "https://buy.stripe.com/test_4gMfZhcy74317HC5EU8Ra0l",
+    description: "A futuristic visor-style statement with a stronger silhouette and sleek directional energy.",
+    features: ["Vogue Ombre", "Black Horizon", "Nightfall", "Sienna Sky", "Dusk to Dawn", "Gray Gradient"],
+    colors: [
+      "Vogue Ombre",
+      "Black Horizon",
+      "Nightfall",
+      "Sienna Sky",
+      "Dusk to Dawn",
+      "Gray Gradient"
+    ],
+    images: [
+      "./KL_8GSL28287-1GBLK.jpg",
+      "./KL_8GSL28287-2BLK.jpg",
+      "./KL_8GSL28287-3SMKE.jpg",
+      "./KL_8GSL28287-4BRWN.jpg",
+      "./KL_8GSL28287-5BLUSK.jpg",
+      "./KL_8GSL28287-6BLCLD.jpg"
+    ]
+  },
+  {
+    id: "flight-manhattan-heights",
+    name: "Manhattan Heights",
+    collection: "Flight Collection",
+    collectionKey: "flight",
+    itemCode: "PZ-MH87074",
+    price: 16.99,
+    paymentLink: "https://buy.stripe.com/test_eVq6oH9lVgPNfa4ebq8Ra0g",
+    description: "A commanding oversized flight frame with elevated trim details built for a polished metropolitan finish.",
+    features: ["Silver Lining", "Monarch Moss", "Gunsmoke", "Noir Vibe", "Emerald Jaguar"],
+    colors: [
+      "Silver Lining",
+      "Monarch Moss",
+      "Gunsmoke",
+      "Noir Vibe",
+      "Emerald Jaguar"
+    ],
+    images: [
+      "./KL_PZ-MH87074-1BLKSLV.jpg",
+      "./KL_PZ-MH87074-2BLKGLD.jpg",
+      "./KL_PZ-MH87074-3GNMTL.jpg",
+      "./KL_PZ-MH87074-4BLKGLD2.jpg",
+      "./KL_PZ-MH87074-5ANML.jpg"
+    ]
+  },
+  {
+    id: "flight-skyline-aviator",
+    name: "Skyline Aviator",
+    collection: "Flight Collection",
+    collectionKey: "flight",
+    itemCode: "8AV5239",
+    price: 9.99,
+    paymentLink: "https://buy.stripe.com/test_9B65kD1Tt6b92ni0kA8Ra0f",
+    description: "A lighter aviator statement with mirrored energy, city-ready color, and an effortless polished frame.",
+    features: ["Solar Frame", "Gilded Tortoise", "Sapphire Siege", "Cobalt Command", "Cypress Azure", "Chrome Cloud"],
+    colors: [
+      "Solar Frame",
+      "Gilded Tortoise",
+      "Sapphire Siege",
+      "Cobalt Command",
+      "Cypress Azure",
+      "Chrome Cloud"
+    ],
+    images: [
+      "./KL_8AV5239-1YLOW.jpg",
+      "./KL_8AV5239-2GFLM.jpg",
+      "./KL_8AV5239-3PRPL.jpg",
+      "./KL_8AV5239-4.jpg",
+      "./KL_8AV5239-5BLUE.jpg",
+      "./KL_8AV5239-6GRYS.jpg"
+    ]
+  },
+  {
+    id: "flight-domin8",
+    name: "Domin8",
+    collection: "Flight Collection",
+    collectionKey: "flight",
+    itemCode: "8AV5207",
+    price: 12.99,
+    paymentLink: "https://buy.stripe.com/test_fZu00jdCb4310fagjy8Ra0e",
+    description: "A squared aviator with a commanding front and a strong, modern fashion attitude.",
+    features: ["Graphite Vanguard", "Smoked Onyx", "Liquid Mercury", "Pewter Pine", "Gold Espresso", "Carbon 8"],
+    colors: [
+      "Graphite Vanguard",
+      "Smoked Onyx",
+      "Liquid Mercury",
+      "Pewter Pine",
+      "Gold Espresso",
+      "Carbon 8"
+    ],
+    images: [
+      "./KL_8AV5207-1BLK.jpg",
+      "./KL_8AV5207-2BLK2.jpg",
+      "./KL_8AV5207-3SILV.jpg",
+      "./KL_8AV5207-4GRY.jpg",
+      "./KL_8AV5207-5BRWN.jpg",
+      "./KL_8AV5207-6BBLK.jpg"
+    ]
+  },
+  {
+    id: "flight-exec-8",
+    name: "Exec 8",
+    collection: "Flight Collection",
+    collectionKey: "flight",
+    itemCode: "8AV5182",
+    price: 13.99,
+    paymentLink: "https://buy.stripe.com/test_bJe7sL41B6b92ni7N28Ra0d",
+    description: "A tailored executive aviator with balanced luxury metalwork and an understated power profile.",
+    features: ["Cognac", "Evergreen", "Gunmetal", "Chrome", "Obsidian", "Argent"],
+    colors: [
+      "Cognac",
+      "Evergreen",
+      "Gunmetal",
+      "Chrome",
+      "Obsidian",
+      "Argent"
+    ],
+    images: [
+      "./KL_8AV5182-1GLDBRW.jpg",
+      "./KL_8AV5182-2BLKGRN.jpg",
+      "./KL_8AV5182-3GUNMETAL.jpg",
+      "./KL_8AV5182-4CHROME.jpg",
+      "./KL_8AV5182-5OBSIDIAN.jpg",
+      "./KL_8AV5182-6ARGENT.jpg"
+    ]
+  },
+  {
+    id: "flight-ryder-aviator",
+    name: "Ryder Aviator",
+    collection: "Flight Collection",
+    collectionKey: "flight",
+    itemCode: "8AF125-MIX",
+    price: 9.99,
+    paymentLink: "https://buy.stripe.com/test_00wfZh41B5752ni8R68Ra0c",
+    description: "A clean aviator essential with versatile mirrored and classic lens tones.",
+    features: ["Avenue Gold", "Imperial Jade", "Noir Sovereign", "Avenue Silver", "Graphite Couture", "Platinum Mirror"],
+    colors: [
+      "Avenue Gold",
+      "Imperial Jade",
+      "Noir Sovereign",
+      "Avenue Silver",
+      "Graphite Couture",
+      "Platinum Mirror"
+    ],
+    images: [
+      "./KL_8AF125-1.jpg",
+      "./KL_8AF125-2.jpg",
+      "./KL_8AF125-3.jpg",
+      "./KL_8AF125-4.jpg",
+      "./KL_8AF125-5.jpg",
+      "./KL_8AF125-6.jpg"
+    ]
+  },
+  {
+    id: "flight-cruz-commander",
+    name: "Cruz Commander",
+    collection: "Flight Collection",
+    collectionKey: "flight",
+    itemCode: "PZ-AF101-CM",
+    price: 11.99,
+    paymentLink: "https://buy.stripe.com/test_bJe9AT69Jczx5zuc3i8Ra0b",
+    description: "A bold command-frame aviator with strong bridge presence and polished metal detailing.",
+    features: ["Amber Aura", "Teal Eclipse", "Mirror Blue", "Mocha Mirage", "Plum Haze", "Pink Sunset"],
+    colors: [
+      "Amber Aura",
+      "Teal Eclipse",
+      "Mirror Blue",
+      "Mocha Mirage",
+      "Plum Haze",
+      "Pink Sunset"
+    ],
+    images: [
+      "./KL_PZ-AF101-CM1.jpg",
+      "./KL_PZ-AF101-CM2.jpg",
+      "./KL_PZ-AF101-CM3.jpg",
+      "./KL_PZ-AF101-CM4.jpg",
+      "./KL_PZ-AF101-CM5.jpg",
+      "./KL_PZ-AF101-CM6.jpg"
+    ]
+  },
+  {
+    id: "flight-cairo-vision",
+    name: "Cairo Vision",
+    collection: "Flight Collection",
+    collectionKey: "flight",
+    itemCode: "PZ-AF112-RV",
+    price: 15.99,
+    paymentLink: "https://buy.stripe.com/test_cNi7sLapZgPNe605EU8Ra0a",
+    description: "A fashion-forward squared flight frame with mirrored energy and a stronger luxury silhouette.",
+    features: ["Rose Gold", "Bleu Riviera", "Golden Blue Sky", "Smoke Signal", "Emerald Horizon", "Orange Glow"],
+    colors: [
+      "Rose Gold",
+      "Bleu Riviera",
+      "Golden Blue Sky",
+      "Smoke Signal",
+      "Emerald Horizon",
+      "Orange Glow"
+    ],
+    images: [
+      "./KL_PZ-AF112-RV -RGLD.jpg",
+      "./KL_PZ-AF112-RV-BLU.jpg",
+      "./KL_PZ-AF112-RV-BLU_SKY.jpg",
+      "./KL_PZ-AF112-RV-GLD.jpg",
+      "./KL_PZ-AF112-RV-GRN.jpg",
+      "./KL_PZ-AF112-RV-ORA.jpg"
+    ]
+  },
+  {
+    id: "flight-everyday-icon",
+    name: "Everyday Icon Aviator",
+    collection: "Flight Collection",
+    collectionKey: "flight",
+    itemCode: "PZ-AF101",
+    price: 10.99,
+    paymentLink: "https://buy.stripe.com/test_28E4gzeGfeHF8LG0kA8Ra09",
+    description: "An easy luxury aviator built for daily polish with balanced metal lines and clean tonal finishes.",
+    features: ["Noir Eclipse", "Verde Oro", "Total Noir", "Verde Noir"],
+    colors: [
+      "Noir Eclipse",
+      "Verde Oro",
+      "Total Noir",
+      "Verde Noir"
+    ],
+    images: [
+      "./KL_PZ-AF101-1-SLVRGRY.jpg",
+      "./KL_PZ-AF101-2-GLDGRN.jpg",
+      "./KL_PZ-AF101-3-BLKBLK.jpg",
+      "./KL_PZ-AF101-4-BLKGRN.jpg"
+    ]
+  },
+  {
+    id: "kids-glacee",
+    name: "Glacee'",
+    collection: "KL Kids Club",
+    collectionKey: "kids",
+    itemCode: "KG-ROM90105",
+    price: 8.99,
+    paymentLink: "https://buy.stripe.com/test_bJe7sL8hRdDB1jec3i8Ra0p",
+    description: "A fun oversized kids frame with polished tint options and confident everyday comfort.",
+    features: ["Emerald Envy", "Cotton Candy Sky", "Peony Petal", "Midnight Rose", "Phantom Black", "Total Eclipse"],
+    colors: [
+      "Emerald Envy",
+      "Cotton Candy Sky",
+      "Peony Petal",
+      "Midnight Rose",
+      "Phantom Black",
+      "Total Eclipse"
+    ],
+    images: [
+      "./KL_KG-ROM90105-1GRY.jpg",
+      "./KL_KG-ROM90105-2BLU.jpg",
+      "./KL_KG-ROM90105-3PNK.jpg",
+      "./KL_KG-ROM90105-4BLK.jpg",
+      "./KL_KG-ROM90105-5BLKGRY.jpg",
+      "./KL_KG-ROM90105-6BBLK.jpg"
+    ]
+  },
+  {
+    id: "kids-little-voyagers",
+    name: "Little Voyagers",
+    collection: "KL Kids Club",
+    collectionKey: "kids",
+    itemCode: "KG-WF01-PST",
+    price: 6.99,
+    paymentLink: "https://buy.stripe.com/test_dRm7sLcy7czx3rm1oE8Ra0o",
+    description: "A pastel kids essential with bright energy and easy all-day wear.",
+    features: ["Coral", "Blue", "Pink", "Purple", "Cream", "Aqua"],
+    colors: [
+      "Coral",
+      "Blue",
+      "Pink",
+      "Purple",
+      "Cream",
+      "Aqua"
+    ],
+    images: [
+      "./KL_KG-WF01-PST-1.jpg",
+      "./KL_KG-WF01-PST-2.jpg",
+      "./KL_KG-WF01-PST-3.jpg",
+      "./KL_KG-WF01-PST-4.jpg",
+      "./KL_KG-WF01-PST-5.jpg",
+      "./KL_KG-WF01-PST-6.jpg"
+    ]
+  },
+  {
+    id: "kids-whimsy-wayfarers",
+    name: "Whimsy Wayfarers",
+    collection: "KL Kids Club",
+    collectionKey: "kids",
+    itemCode: "KG-WF01-UNI",
+    price: 7.99,
+    paymentLink: "https://buy.stripe.com/test_28EfZh2XxgPN8LG5EU8Ra0n",
+    description: "A playful printed kids frame with bright personality and everyday wearability.",
+    features: ["Twilight Twinkle", "Bluebell Dream", "Pink Pixie Dust", "Prism Purple", "Marshmallow Magic"],
+    colors: [
+      "Twilight Twinkle",
+      "Bluebell Dream",
+      "Pink Pixie Dust",
+      "Prism Purple",
+      "Marshmallow Magic"
+    ],
+    images: [
+      "./KL_KG-WF01-UNI-BLCK.jpg",
+      "./KL_KG-WF01-UNI-LBLU.jpg",
+      "./KL_KG-WF01-UNI-PINK.jpg",
+      "./KL_KG-WF01-UNI-PRPL.jpg",
+      "./KL_KG-WF01-UNI-WHTE.jpg"
+    ]
+  },
+  {
+    id: "kids-tough-tints",
+    name: "Tough Tints",
+    collection: "KL Kids Club",
+    collectionKey: "kids",
+    itemCode: "KG-X2738",
+    price: 7.99,
+    paymentLink: "https://buy.stripe.com/test_14A9AT2Xx7fd3rm8R68Ra0m",
+    description: "A sportier wrap-inspired kids frame designed for high-energy wear and standout color.",
+    features: ["Blue Ops", "White Out", "Stinger", "Venom", "Magma", "Hydra"],
+    colors: [
+      "Blue Ops",
+      "White Out",
+      "Stinger",
+      "Venom",
+      "Magma",
+      "Hydra"
+    ],
+    images: [
+      "./KL_KG-X2738-1GREY.jpg",
+      "./KL_KG-X2738-2WHT.jpg",
+      "./KL_KG-X2738-3YLW.jpg",
+      "./KL_KG-X2738-4GRN.jpg",
+      "./KL_KG-X2738-5RED.jpg",
+      "./KL_KG-X2738-6BLUE.jpg"
+    ]
+  }
+];
+
+const collections = [
+  { key: "all", name: "All" },
+  { key: "halo", name: "Halo" },
+  { key: "angles", name: "Angles" },
+  { key: "allure", name: "Allure" },
+  { key: "flight", name: "Flight" },
+  { key: "kids", name: "Kids Club" },
+  { key: "visionary", name: "Visionary" }
+];
+
+const state = {
+  activeCollection: "all",
+  sort: "price-desc",
+  priceRange: "all",
+  selectedColors: {}
+};
+
+const productGrid = document.getElementById("product-grid");
+const collectionPills = document.getElementById("collection-pills");
+const collectionFilterList = document.getElementById("collection-filter-list");
+const sortSelect = document.getElementById("sort-select");
+const productCount = document.getElementById("product-count");
+const clearFiltersButton = document.getElementById("clear-filters");
+
+const dialog = document.getElementById("product-dialog");
+const dialogClose = document.getElementById("dialog-close");
+const dialogMainImage = document.getElementById("dialog-main-image");
+const dialogThumbs = document.getElementById("dialog-thumbs");
+const dialogCollection = document.getElementById("dialog-collection");
+const dialogTitle = document.getElementById("dialog-title");
+const dialogPrice = document.getElementById("dialog-price");
+const dialogDescription = document.getElementById("dialog-description");
+const dialogColors = document.getElementById("dialog-colors");
+const dialogFeatures = document.getElementById("dialog-features");
+const dialogBuyButton = document.getElementById("dialog-buy-button");
+
+function formatPrice(value) {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD"
+  }).format(value);
+}
+
+function matchesPriceRange(product, range) {
+  if (range === "all") return true;
+  const [min, max] = range.split("-").map(Number);
+  return product.price >= min && product.price <= max;
+}
+
+function getVisibleProducts() {
+  let visible = [...products];
+
+  if (state.activeCollection !== "all") {
+    visible = visible.filter((product) => product.collectionKey === state.activeCollection);
+  }
+
+  visible = visible.filter((product) => matchesPriceRange(product, state.priceRange));
+
+  switch (state.sort) {
+    case "price-asc":
+      visible.sort((a, b) => a.price - b.price);
+      break;
+    case "price-desc":
+      visible.sort((a, b) => b.price - a.price);
+      break;
+    case "name":
+      visible.sort((a, b) => a.name.localeCompare(b.name));
+      break;
+    default:
+      break;
+  }
+
+  return visible;
+}
+
+function renderCollectionControls() {
+  collectionPills.innerHTML = collections
+    .map(
+      (collection) => `
+        <button
+          class="collection-pill ${state.activeCollection === collection.key ? "active" : ""}"
+          type="button"
+          data-collection="${collection.key}"
+        >
+          ${collection.name}
+        </button>
+      `
+    )
+    .join("");
+
+  collectionFilterList.innerHTML = collections
+    .map(
+      (collection) => `
+        <label>
+          <input
+            type="radio"
+            name="collection-filter"
+            value="${collection.key}"
+            ${state.activeCollection === collection.key ? "checked" : ""}
+          />
+          <span>${collection.name}</span>
+        </label>
+      `
+    )
+    .join("");
+
+  document.querySelectorAll("[data-collection]").forEach((button) => {
+    button.addEventListener("click", () => {
+      state.activeCollection = button.dataset.collection;
+      renderAll();
+    });
+  });
+
+  document.querySelectorAll('input[name="collection-filter"]').forEach((input) => {
+    input.addEventListener("change", () => {
+      state.activeCollection = input.value;
+      renderAll();
+    });
+  });
+}
+
+function createColorTag(product, color, isActive) {
+  return `<span class="${isActive ? "active" : ""}" data-product-id="${product.id}" data-color="${encodeURIComponent(color)}">${color}</span>`;
+}
+
+function buildBuyUrl(product) {
+  const selectedColor = state.selectedColors[product.id] || product.colors[0];
+  const url = new URL(product.paymentLink);
+  url.searchParams.set("prefilled_color", selectedColor);
+  return url.toString();
+}
+
+function renderProducts() {
+  const visibleProducts = getVisibleProducts();
+
+  productCount.textContent = String(visibleProducts.length);
+
+  productGrid.innerHTML = visibleProducts
+    .map((product) => {
+      const activeColor = state.selectedColors[product.id] || product.colors[0];
+
+      return `
+        <article class="product-card">
+          <div class="product-image">
+            <img src="${product.images[0]}" alt="${product.name}" loading="lazy" />
+          </div>
+
+          <div class="product-meta">
+            <div class="meta-top">
+              <div>
+                <small>${product.collection}</small>
+                <h3>${product.name}</h3>
+              </div>
+              <span class="price">${formatPrice(product.price)}</span>
+            </div>
+
+            <p>${product.description}</p>
+
+            <div class="color-tags">
+              ${product.colors
+                .slice(0, 6)
+                .map((color) => createColorTag(product, color, color === activeColor))
+                .join("")}
+            </div>
+
+            <div class="card-actions">
+              <button class="button button-ghost" type="button" data-view="${product.id}">View Product</button>
+              <a
+                class="button button-gold"
+                href="${buildBuyUrl(product)}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Buy Now
+              </a>
+            </div>
+          </div>
+        </article>
+      `;
+    })
+    .join("");
+
+  document.querySelectorAll("[data-view]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const product = products.find((item) => item.id === button.dataset.view);
+      if (product) openProduct(product);
+    });
+  });
+
+  document.querySelectorAll("[data-product-id][data-color]").forEach((tag) => {
+    tag.addEventListener("click", () => {
+      const productId = tag.dataset.productId;
+      const color = decodeURIComponent(tag.dataset.color);
+      state.selectedColors[productId] = color;
+      renderProducts();
+    });
+  });
+}
+
+function renderDialogColors(product) {
+  const activeColor = state.selectedColors[product.id] || product.colors[0];
+
+  dialogColors.innerHTML = product.colors
+    .map(
+      (color) => `<span class="${color === activeColor ? "active" : ""}" data-dialog-product="${product.id}" data-dialog-color="${encodeURIComponent(color)}">${color}</span>`
+    )
+    .join("");
+
+  document.querySelectorAll("[data-dialog-product][data-dialog-color]").forEach((tag) => {
+    tag.addEventListener("click", () => {
+      const color = decodeURIComponent(tag.dataset.dialogColor);
+      state.selectedColors[product.id] = color;
+      renderDialogColors(product);
+      dialogBuyButton.href = buildBuyUrl(product);
+      renderProducts();
+    });
+  });
+}
+
+function openProduct(product) {
+  dialogCollection.textContent = `${product.collection} • ${product.itemCode}`;
+  dialogTitle.textContent = product.name;
+  dialogPrice.textContent = formatPrice(product.price);
+  dialogDescription.textContent = product.description;
+  dialogMainImage.src = product.images[0];
+  dialogMainImage.alt = `${product.name} main image`;
+
+  dialogThumbs.innerHTML = product.images
+    .map(
+      (image, index) => `
+        <button type="button" data-thumb-src="${image}" aria-label="${product.name} image ${index + 1}">
+          <img src="${image}" alt="${product.name} thumb ${index + 1}" loading="lazy" />
+        </button>
+      `
+    )
+    .join("");
+
+  dialogThumbs.querySelectorAll("[data-thumb-src]").forEach((button) => {
+    button.addEventListener("click", () => {
+      dialogMainImage.src = button.dataset.thumbSrc;
+      dialogMainImage.alt = `${product.name} detail image`;
+    });
+  });
+
+  renderDialogColors(product);
+
+  dialogFeatures.innerHTML = product.features.map((feature) => `<li>${feature}</li>`).join("");
+  dialogBuyButton.href = buildBuyUrl(product);
+  dialogBuyButton.textContent = "Buy Now";
+
+  if (typeof dialog.showModal === "function") {
+    dialog.showModal();
+  }
+}
+
+function renderAll() {
+  renderCollectionControls();
+  renderProducts();
+}
+
+sortSelect.addEventListener("change", (event) => {
+  state.sort = event.target.value;
+  renderProducts();
+});
+
+document.querySelectorAll('input[name="price-range"]').forEach((input) => {
+  input.addEventListener("change", () => {
+    state.priceRange = input.value;
+    renderProducts();
+  });
+});
+
+clearFiltersButton.addEventListener("click", () => {
+  state.activeCollection = "all";
+  state.sort = "price-desc";
+  state.priceRange = "all";
+  state.selectedColors = {};
+  sortSelect.value = "price-desc";
+
+  const allPriceRadio = document.querySelector('input[name="price-range"][value="all"]');
+  if (allPriceRadio) allPriceRadio.checked = true;
+
+  renderAll();
+});
+
+dialogClose.addEventListener("click", () => dialog.close());
+
+dialog.addEventListener("click", (event) => {
+  const rect = dialog.getBoundingClientRect();
+  const inDialog =
+    event.clientX >= rect.left &&
+    event.clientX <= rect.right &&
+    event.clientY >= rect.top &&
+    event.clientY <= rect.bottom;
+
+  if (!inDialog) {
+    dialog.close();
+  }
+});
+
+renderAll();
