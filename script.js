@@ -1,133 +1,22 @@
 const products = [
   {
-    id: "halo-vrgo",
-    name: "VRGO",
-    collection: "Halo Collection",
-    collectionKey: "halo",
-    itemCode: "KL_8VG29589",
-    price: 14.99,
-    paymentLink: "https://buy.stripe.com/test_bJe7sL8hRdDB1jec3i8Ra0p",
-    description: "An oversized halo silhouette with polished metal arms and a confident finish built for statement entrances.",
-    features: ["Oversized round silhouette", "Metal arm detailing", "Gradient lens presence", "UV400 protection noted in source sheet"],
-    colors: ["Brown", "Black Fade", "Blue", "Rose", "Smoke"],
-    images: [
-      "./KL_8VG29589-1.jpg",
-      "./KL_8VG29589-2.jpg",
-      "./KL_8VG29589-3.jpg",
-      "./KL_8VG29589-5.jpg",
-      "./KL_8VG29589-6.jpg"
-    ]
-  },
-  {
-    id: "halo-everyday",
-    name: "Everyday Halo",
-    collection: "Halo Collection",
-    collectionKey: "halo",
-    itemCode: "KL_8GSL22731",
-    price: 10.99,
-    paymentLink: "https://buy.stripe.com/test_dRm7sLcy7czx3rm1oE8Ra0o",
-    description: "A soft everyday halo frame with an easy luxury profile and versatile tinted finishes.",
-    features: ["Rounded fashion frame", "Everyday wear profile", "UV400 lens note", "Multiple tonal finishes"],
-    colors: ["Black Fade", "Jet Black", "Desert", "Black Silver", "Brown", "Grey Black", "Flame"],
-    images: [
-      "./KL_8GSL22731-1BLKBLK.jpg",
-      "./KL_8GSL22731-2BLCK.jpg",
-      "./KL_8GSL22731-3DSRT.jpg",
-      "./KL_8GSL22731-4BLKSLR.jpg",
-      "./KL_8GSL22731-5BRWN.jpg",
-      "./KL_8GSL22731-6GRBLK.jpg",
-      "./KL_8GSL22731-7FLME.jpg"
-    ]
-  },
-  {
-    id: "halo-classic-curve",
-    name: "Classic Curve",
-    collection: "Halo Collection",
-    collectionKey: "halo",
-    itemCode: "KL_PZ-GSL28319",
-    price: 17.99,
-    paymentLink: "https://buy.stripe.com/test_28EfZh2XxgPN8LG5EU8Ra0n",
-    description: "A sculpted halo frame with refined metal lines and an effortless day-to-night finish.",
-    features: ["Slim metal arm profile", "Classic curved lens shape", "Elevated neutral palette", "UV protection callout"],
-    colors: ["Silver Smoke", "Black Gold", "Green Gold", "Brown", "Jet Black"],
-    images: [
-      "./KL_PZ-GSL28319-1SLVR.jpg",
-      "./KL_PZ-GSL28319-2BLKGLD.jpg",
-      "./KL_PZ-GSL28319-3GRGLD.jpg",
-      "./KL_PZ-GSL28319-4BRWN.jpg",
-      "./KL_PZ-GSL28319-5BLK.jpg"
-    ]
-  },
-  {
-    id: "angles-attitude",
-    name: "Angles & Attitude",
-    collection: "Angles Collection",
-    collectionKey: "angles",
-    itemCode: "KL_8GSL28304",
-    price: 19.99,
-    paymentLink: "https://buy.stripe.com/test_14A9AT2Xx7fd3rm8R68Ra0m",
-    description: "Architectural lines, sharp confidence, and a richer palette made for statement styling.",
-    features: ["Angular oversized profile", "Fashion-forward geometry", "Statement color mixes", "Editorial finish"],
-    colors: ["Brown Edge", "Black Smoke", "Black Red", "Rose Gold", "Black Purple", "Grey Blue"],
-    images: [
-      "./KL_8GSL28304-1BRWNE.jpg",
-      "./KL_8GSL28304-2BSMKE.jpg",
-      "./KL_8GSL28304-3BLKR.jpg",
-      "./KL_8GSL28304-4RGLD.jpg",
-      "./KL_8GSL28304-5BPRP.jpg",
-      "./KL_8GSL28304-6GRBL.jpg"
-    ]
-  },
-  {
-    id: "angles-vrgo-829",
-    name: "VRGO 829",
-    collection: "Angles Collection",
-    collectionKey: "angles",
-    itemCode: "KL_8VG29695",
-    price: 18.99,
-    paymentLink: "https://buy.stripe.com/test_4gMfZhcy74317HC5EU8Ra0l",
-    description: "A faceted fashion frame with crisp lines and a polished profile that reads instantly elevated.",
-    features: ["Geometric oversized lens shape", "Statement temples", "Fashion gradient lenses", "Confident luxury profile"],
-    colors: ["Pink Gold", "Animal", "Blush", "Blue", "Gold"],
-    images: [
-      "./KL_8VG29695-1PINKG.jpg",
-      "./KL_8VG29695-2ANML.jpg",
-      "./KL_8VG29695-3BLUSH.jpg",
-      "./KL_8VG29695-4BBLUE.jpg",
-      "./KL_8VG29695-6BGOLD.jpg"
-    ]
-  },
-  {
-    id: "angles-squared-society",
-    name: "Squared Society",
-    collection: "Angles Collection",
-    collectionKey: "angles",
-    itemCode: "KL_8GSL28258",
-    price: 15.99,
-    paymentLink: "https://buy.stripe.com/test_14AfZh7dNbvt7HC2sI8Ra0k",
-    description: "A clean square-led statement with confident edge and easy versatility across luxury neutrals and bold tints.",
-    features: ["Squared silhouette", "Statement arm profile", "Polished finish", "Day-to-night wearability"],
-    colors: ["Gold Brown", "Amber", "Cool Grey", "Pink", "Blue", "Black"],
-    images: [
-      "./KL_8GSL28258-1GBRWN.jpg",
-      "./KL_8GSL28258-2GAMBR.jpg",
-      "./KL_8GSL28258-3GCOOL.jpg",
-      "./KL_8GSL28258-4GPINK.jpg",
-      "./KL_8GSL28258-5GBLUE.jpg",
-      "./KL_8GSL28258-6GBLCK.jpg"
-    ]
-  },
-  {
     id: "allure-rhinestone-muse",
     name: "Luxe Rhinestone Muse",
     collection: "Allure Collection",
     collectionKey: "allure",
-    itemCode: "KL_8RS2104",
-    price: 17.99,
+    itemCode: "8RS2104",
+    price: 14.99,
     paymentLink: "https://buy.stripe.com/test_6oU00j41BgPNaTO5EU8Ra0j",
     description: "A glamorous oversized frame with jewelry-inspired side detailing and a bold fashion presence.",
-    features: ["Oversized glamour frame", "Decorative arm detailing", "Luxury finish", "Strong editorial presence"],
-    colors: ["Black", "Blush", "Olive Green", "Brown", "Purple"],
+    features: ["Mulberry Tint", "Dusty Quartz", "Brown Tortoise", "Black Pearl", "Matcha"],
+    colors: [
+      "Mulberry Tint",
+      "Dusty Quartz",
+      "Brown Tortoise",
+      "Black Pearl w/ gold arm",
+      "Black Pearl w/ silv arm",
+      "Matcha"
+    ],
     images: [
       "./KL_8RS2104-1BLACK.jpg",
       "./KL_8RS2104-2BLUSH.jpg",
@@ -141,12 +30,19 @@ const products = [
     name: "Midnight Gradient",
     collection: "Allure Collection",
     collectionKey: "allure",
-    itemCode: "KL_8VG29682",
-    price: 14.99,
+    itemCode: "8VG29682",
+    price: 13.99,
     paymentLink: "https://buy.stripe.com/test_cNi5kD9lVfLJ3rmffu8Ra0i",
     description: "A sleeker cat-eye profile with gradient drama and polished color transitions.",
-    features: ["Sharp cat-eye profile", "Gradient lens play", "Fashion palette", "Polished statement wear"],
-    colors: ["Flame", "Apricot", "Green", "Icy Blue", "Pink", "Black"],
+    features: ["Honey Tortoise", "Midnight Champagne", "Midnight Olive", "Black Ice", "Midnight Rose", "Matte Black"],
+    colors: [
+      "Honey Tortoise",
+      "Midnight Champagne",
+      "Midnight Olive",
+      "Black Ice",
+      "Midnight Rose",
+      "Matte Black"
+    ],
     images: [
       "./KL_8VG29682-1FLAME.jpg",
       "./KL_8VG29682-2APRCT.jpg",
@@ -161,12 +57,19 @@ const products = [
     name: "Catwalk",
     collection: "Allure Collection",
     collectionKey: "allure",
-    itemCode: "KL_8VG29687",
-    price: 13.99,
+    itemCode: "8VG29687",
+    price: 12.99,
     paymentLink: "https://buy.stripe.com/test_bJe7sLeGf2YX4vq4AQ8Ra0h",
     description: "A runway-leaning cat-eye designed to feel polished, playful, and instantly fashion aware.",
-    features: ["Designer cat-eye line", "Gloss finish", "Lightweight profile", "Fashion-first shape"],
-    colors: ["Blue", "Green", "Pink", "Brown", "Orange", "Black"],
+    features: ["Amber Cat", "Blush Crystal", "Moss Green", "Satin Orange", "Periwinkle Blue", "Black Cat"],
+    colors: [
+      "Amber Cat",
+      "Blush Crystal",
+      "Moss Green",
+      "Satin Orange",
+      "Periwinkle Blue",
+      "Black Cat"
+    ],
     images: [
       "./KL_8VG29687-1BLU.jpg",
       "./KL_8VG29687-2GRN.jpg",
@@ -177,23 +80,191 @@ const products = [
     ]
   },
   {
+    id: "angles-attitude",
+    name: "Angles & Attitude",
+    collection: "Angles Collection",
+    collectionKey: "angles",
+    itemCode: "3GSL28304",
+    price: 17.99,
+    paymentLink: "https://buy.stripe.com/test_14A9AT2Xx7fd3rm8R68Ra0m",
+    description: "Architectural lines, sharp confidence, and a richer palette made for statement styling.",
+    features: ["Brown Edge", "Black Rim", "Black Smoke", "Champagne Sky", "Matcha Pink", "Virt Violet"],
+    colors: [
+      "Brown Edge",
+      "Black Rim",
+      "Black Smoke",
+      "Champagne Sky",
+      "Matcha Pink",
+      "Virt Violet"
+    ],
+    images: [
+      "./KL_8GSL28304-1BRWNE.jpg",
+      "./KL_8GSL28304-2BSMKE.jpg",
+      "./KL_8GSL28304-3BLKR.jpg",
+      "./KL_8GSL28304-4RGLD.jpg",
+      "./KL_8GSL28304-5BPRP.jpg",
+      "./KL_8GSL28304-6GRBL.jpg"
+    ]
+  },
+  {
+    id: "angles-vrgo-829",
+    name: "VRGO 829",
+    collection: "Angles Collection",
+    collectionKey: "angles",
+    itemCode: "8VG29695",
+    price: 15.99,
+    paymentLink: "https://buy.stripe.com/test_4gMfZhcy74317HC5EU8Ra0l",
+    description: "A faceted fashion frame with crisp lines and a polished profile that reads instantly elevated.",
+    features: ["Pink Quartz", "Brown Tortoise", "Static Blue", "Blush Rush", "Black Shadow", "Muted Magenta"],
+    colors: [
+      "Pink Quartz",
+      "Brown Tortoise",
+      "Static Blue",
+      "Blush Rush",
+      "Black Shadow",
+      "Muted Magenta"
+    ],
+    images: [
+      "./KL_8VG29695-1PINKG.jpg",
+      "./KL_8VG29695-2ANML.jpg",
+      "./KL_8VG29695-3BLUSH.jpg",
+      "./KL_8VG29695-4BBLUE.jpg",
+      "./KL_8VG29695-5.jpg",
+      "./KL_8VG29695-6BGOLD.jpg"
+    ]
+  },
+  {
+    id: "angles-squared-society",
+    name: "Squared Society",
+    collection: "Angles Collection",
+    collectionKey: "angles",
+    itemCode: "8GSL28258",
+    price: 13.99,
+    paymentLink: "https://buy.stripe.com/test_14AfZh7dNbvt7HC2sI8Ra0k",
+    description: "A clean square-led statement with confident edge and easy versatility across luxury neutrals and bold tints.",
+    features: ["The Sienna", "Amber Smoke", "Coffee Break", "Pink Sunset", "Amber Blue", "Monaco Sunset"],
+    colors: [
+      "The Sienna",
+      "Amber Smoke",
+      "Coffee Break",
+      "Pink Sunset",
+      "Amber Blue",
+      "Monaco Sunset"
+    ],
+    images: [
+      "./KL_8GSL28258-1GBRWN.jpg",
+      "./KL_8GSL28258-2GAMBR.jpg",
+      "./KL_8GSL28258-3GCOOL.jpg",
+      "./KL_8GSL28258-4GPINK.jpg",
+      "./KL_8GSL28258-5GBLUE.jpg",
+      "./KL_8GSL28258-6GBLCK.jpg"
+    ]
+  },
+  {
+    id: "halo-classic-curve",
+    name: "Classic Curve",
+    collection: "Halo Collection",
+    collectionKey: "halo",
+    itemCode: "PZ-GSL28319",
+    price: 15.99,
+    paymentLink: "https://buy.stripe.com/test_28EfZh2XxgPN8LG5EU8Ra0n",
+    description: "A sculpted halo frame with refined metal lines and an effortless day-to-night finish.",
+    features: ["Silver Halo", "Halo Gold", "Halo Emerald", "Halo Sahara", "Halo Obsidian"],
+    colors: ["Silver Halo", "Halo Gold", "Halo Emerald", "Halo Sahara", "Halo Obsidian"],
+    images: [
+      "./KL_PZ-GSL28319-1SLVR.jpg",
+      "./KL_PZ-GSL28319-2BLKGLD.jpg",
+      "./KL_PZ-GSL28319-3GRGLD.jpg",
+      "./KL_PZ-GSL28319-4BRWN.jpg",
+      "./KL_PZ-GSL28319-5BLK.jpg"
+    ]
+  },
+  {
+    id: "halo-vrgo",
+    name: "VRGO",
+    collection: "Halo Collection",
+    collectionKey: "halo",
+    itemCode: "8VG29589",
+    price: 12.99,
+    paymentLink: "https://buy.stripe.com/test_bJe7sL8hRdDB1jec3i8Ra0p",
+    description: "An oversized halo silhouette with polished metal arms and a confident finish built for statement entrances.",
+    features: ["Mocha Luxe", "Monaco Black", "Blackberry", "Cherry Kola", "Wine", "Purple Reign"],
+    colors: ["Mocha Luxe", "Monaco Black", "Blackberry", "Cherry Kola", "Wine", "Purple Reign"],
+    images: [
+      "./KL_8VG29589-1.jpg",
+      "./KL_8VG29589-2.jpg",
+      "./KL_8VG29589-3.jpg",
+      "./KL_8VG29589-4.jpg",
+      "./KL_8VG29589-5.jpg",
+      "./KL_8VG29589-6.jpg"
+    ]
+  },
+  {
+    id: "halo-everyday",
+    name: "Everyday Halo",
+    collection: "Halo Collection",
+    collectionKey: "halo",
+    itemCode: "8GSL22731",
+    price: 9.99,
+    paymentLink: "https://buy.stripe.com/test_dRm7sLcy7czx3rm1oE8Ra0o",
+    description: "A soft everyday halo frame with an easy luxury profile and versatile tinted finishes.",
+    features: ["Blackberry", "Midnight", "Tiger Eye", "Alpine Smoke", "Mocha Blend", "Monochrome Marble", "Crimson Marble"],
+    colors: [
+      "Blackberry",
+      "Midnight",
+      "Tiger Eye",
+      "Alpine Smoke",
+      "Mocha Blend",
+      "Monochrome Marble",
+      "Crimson Marble"
+    ],
+    images: [
+      "./KL_8GSL22731-1BLKBLK.jpg",
+      "./KL_8GSL22731-2BLCK.jpg",
+      "./KL_8GSL22731-3DSRT.jpg",
+      "./KL_8GSL22731-4BLKSLR.jpg",
+      "./KL_8GSL22731-5BRWN.jpg",
+      "./KL_8GSL22731-6GRBLK.jpg",
+      "./KL_8GSL22731-7FLME.jpg"
+    ]
+  },
+  {
+    id: "visionary-luxe-visor",
+    name: "Luxe Visor",
+    collection: "Visionary Collection",
+    collectionKey: "visionary",
+    itemCode: "8GSL28287",
+    price: 13.99,
+    paymentLink: "https://buy.stripe.com/test_4gMfZhcy74317HC5EU8Ra0l",
+    description: "A futuristic visor-style statement with a stronger silhouette and sleek directional energy.",
+    features: ["Vogue Ombre", "Black Horizon", "Nightfall", "Sienna Sky", "Dusk to Dawn", "Gray Gradient"],
+    colors: ["Vogue Ombre", "Black Horizon", "Nightfall", "Sienna Sky", "Dusk to Dawn", "Gray Gradient"],
+    images: [
+      "./KL_8GSL28287-1GBLK.jpg",
+      "./KL_8GSL28287-2BLK.jpg",
+      "./KL_8GSL28287-3SMKE.jpg",
+      "./KL_8GSL28287-4BRWN.jpg",
+      "./KL_8GSL28287-5BLUSK.jpg",
+      "./KL_8GSL28287-6BLCLD.jpg"
+    ]
+  },
+  {
     id: "flight-manhattan-heights",
     name: "Manhattan Heights",
     collection: "Flight Collection",
     collectionKey: "flight",
-    itemCode: "KL_PZ-MH87074",
-    price: 18.99,
+    itemCode: "PZ-MH87074",
+    price: 16.99,
     paymentLink: "https://buy.stripe.com/test_eVq6oH9lVgPNfa4ebq8Ra0g",
     description: "A commanding oversized flight frame with elevated trim details built for a polished metropolitan finish.",
-    features: ["Oversized navigator profile", "Luxury metal detailing", "Editorial fit", "Statement silhouette"],
-    colors: ["Black Silver", "Black Gold", "Gunmetal Green", "Black Gold 2", "Animal Luxe", "Black Grey"],
+    features: ["Silver Lining", "Monarch Moss", "Gunsmoke", "Noir Vibe", "Emerald Jaguar"],
+    colors: ["Silver Lining", "Monarch Moss", "Gunsmoke", "Noir Vibe", "Emerald Jaguar"],
     images: [
       "./KL_PZ-MH87074-1BLKSLV.jpg",
       "./KL_PZ-MH87074-2BLKGLD.jpg",
       "./KL_PZ-MH87074-3GNMTL.jpg",
       "./KL_PZ-MH87074-4BLKGLD2.jpg",
-      "./KL_PZ-MH87074-5ANML.jpg",
-      "./KL_PZ-MH87074-6BLKGRY.jpg"
+      "./KL_PZ-MH87074-5ANML.jpg"
     ]
   },
   {
@@ -201,31 +272,32 @@ const products = [
     name: "Skyline Aviator",
     collection: "Flight Collection",
     collectionKey: "flight",
-    itemCode: "KL_8AV5239",
-    price: 13.99,
+    itemCode: "8AV5239",
+    price: 9.99,
     paymentLink: "https://buy.stripe.com/test_9B65kD1Tt6b92ni0kA8Ra0f",
     description: "A lighter aviator statement with mirrored energy, city-ready color, and an effortless polished frame.",
-    features: ["Aviator profile", "Mirrored lens assortment", "Slim arm finish", "High-visibility color palette"],
-    colors: ["Yellow", "Gold Flame", "Purple", "Blue", "Grey Silver"],
+    features: ["Solar Frame", "Gilded Tortoise", "Sapphire Siege", "Cobalt Command", "Cypress Azure", "Chrome Cloud"],
+    colors: ["Solar Frame", "Gilded Tortoise", "Sapphire Siege", "Cobalt Command", "Cypress Azure", "Chrome Cloud"],
     images: [
       "./KL_8AV5239-1YLOW.jpg",
       "./KL_8AV5239-2GFLM.jpg",
       "./KL_8AV5239-3PRPL.jpg",
+      "./KL_8AV5239-4.jpg",
       "./KL_8AV5239-5BLUE.jpg",
       "./KL_8AV5239-6GRYS.jpg"
     ]
   },
   {
     id: "flight-domin8",
-    name: "DOMIN8",
+    name: "Domin8",
     collection: "Flight Collection",
     collectionKey: "flight",
-    itemCode: "KL_8AV5207",
-    price: 16.99,
+    itemCode: "8AV5207",
+    price: 12.99,
     paymentLink: "https://buy.stripe.com/test_fZu00jdCb4310fagjy8Ra0e",
     description: "A squared aviator with a commanding front and a strong, modern fashion attitude.",
-    features: ["Squared aviator lens", "Confident oversized cut", "Statement luxury profile", "Mixed lens finishes"],
-    colors: ["Black", "Matte Black", "Silver", "Grey", "Brown", "Jet Black"],
+    features: ["Graphite Vanguard", "Smoked Onyx", "Liquid Mercury", "Pewter Pine", "Gold Espresso", "Carbon 8"],
+    colors: ["Graphite Vanguard", "Smoked Onyx", "Liquid Mercury", "Pewter Pine", "Gold Espresso", "Carbon 8"],
     images: [
       "./KL_8AV5207-1BLK.jpg",
       "./KL_8AV5207-2BLK2.jpg",
@@ -237,21 +309,22 @@ const products = [
   },
   {
     id: "flight-exec-8",
-    name: "EXEC 8",
+    name: "Exec 8",
     collection: "Flight Collection",
     collectionKey: "flight",
-    itemCode: "KL_8AV5182",
-    price: 15.99,
+    itemCode: "8AV5182",
+    price: 13.99,
     paymentLink: "https://buy.stripe.com/test_bJe7sL41B6b92ni7N28Ra0d",
     description: "A tailored executive aviator with balanced luxury metalwork and an understated power profile.",
-    features: ["Executive aviator fit", "Balanced rectangular lens", "Refined mixed-metal presence", "Luxury neutral colorways"],
-    colors: ["Gold Brown", "Black Green", "Silver Grey", "Jet Black", "Silver Smoke"],
+    features: ["Cognac", "Evergreen", "Gunmetal", "Chrome", "Obsidian", "Argent"],
+    colors: ["Cognac", "Evergreen", "Gunmetal", "Chrome", "Obsidian", "Argent"],
     images: [
       "./KL_8AV5182-1GLDBRW.jpg",
       "./KL_8AV5182-2BLKGRN.jpg",
-      "./KL_8AV5182-3SLVGRY.jpg",
-      "./KL_8AV5182-5BLKBLK.jpg",
-      "./KL_8AV5182-6SLVSM.jpg"
+      "./KL_8AV5182-3GUNMETAL.jpg",
+      "./KL_8AV5182-4CHROME.jpg",
+      "./KL_8AV5182-5OBSIDIAN.jpg",
+      "./KL_8AV5182-6ARGENT.jpg"
     ]
   },
   {
@@ -259,12 +332,12 @@ const products = [
     name: "Ryder Aviator",
     collection: "Flight Collection",
     collectionKey: "flight",
-    itemCode: "KL_8AF125",
-    price: 11.99,
+    itemCode: "8AF125-MIX",
+    price: 9.99,
     paymentLink: "https://buy.stripe.com/test_00wfZh41B5752ni8R68Ra0c",
     description: "A clean aviator essential with versatile mirrored and classic lens tones.",
-    features: ["Classic aviator shape", "Lightweight profile", "Everyday luxury", "Versatile mirrored finishes"],
-    colors: ["Rose Gold", "Green", "Dark Grey", "Silver Grey", "Gunmetal Grey", "Silver"],
+    features: ["Avenue Gold", "Imperial Jade", "Noir Sovereign", "Avenue Silver", "Graphite Couture", "Platinum Mirror"],
+    colors: ["Avenue Gold", "Imperial Jade", "Noir Sovereign", "Avenue Silver", "Graphite Couture", "Platinum Mirror"],
     images: [
       "./KL_8AF125-1.jpg",
       "./KL_8AF125-2.jpg",
@@ -279,12 +352,12 @@ const products = [
     name: "Cruz Commander",
     collection: "Flight Collection",
     collectionKey: "flight",
-    itemCode: "KL_PZ-AF101-CM",
-    price: 15.99,
+    itemCode: "PZ-AF101-CM",
+    price: 11.99,
     paymentLink: "https://buy.stripe.com/test_bJe9AT69Jczx5zuc3i8Ra0b",
     description: "A bold command-frame aviator with strong bridge presence and polished metal detailing.",
-    features: ["Commanding navigator line", "Modern bridge bar", "Strong lens presence", "Statement luxury frame"],
-    colors: ["Silver Grey", "Gold Green", "Jet Black", "Black Green", "Purple Tint", "Blue Fade"],
+    features: ["Amber Aura", "Teal Eclipse", "Mirror Blue", "Mocha Mirage", "Plum Haze", "Pink Sunset"],
+    colors: ["Amber Aura", "Teal Eclipse", "Mirror Blue", "Mocha Mirage", "Plum Haze", "Pink Sunset"],
     images: [
       "./KL_PZ-AF101-CM1.jpg",
       "./KL_PZ-AF101-CM2.jpg",
@@ -299,12 +372,12 @@ const products = [
     name: "Cairo Vision",
     collection: "Flight Collection",
     collectionKey: "flight",
-    itemCode: "KL_PZ-AF112-RV",
-    price: 19.99,
+    itemCode: "PZ-AF112-RV",
+    price: 15.99,
     paymentLink: "https://buy.stripe.com/test_cNi7sLapZgPNe605EU8Ra0a",
     description: "A fashion-forward squared flight frame with mirrored energy and a stronger luxury silhouette.",
-    features: ["Squared flight profile", "Bold luxury proportion", "Mirrored color assortment", "Editorial statement wear"],
-    colors: ["Rose Gold", "Blue", "Blue Sky", "Gold", "Green", "Orange"],
+    features: ["Rose Gold", "Bleu Riviera", "Golden Blue Sky", "Smoke Signal", "Emerald Horizon", "Orange Glow"],
+    colors: ["Rose Gold", "Bleu Riviera", "Golden Blue Sky", "Smoke Signal", "Emerald Horizon", "Orange Glow"],
     images: [
       "./KL_PZ-AF112-RV -RGLD.jpg",
       "./KL_PZ-AF112-RV-BLU.jpg",
@@ -319,12 +392,12 @@ const products = [
     name: "Everyday Icon Aviator",
     collection: "Flight Collection",
     collectionKey: "flight",
-    itemCode: "KL_PZ-AF101",
-    price: 12.99,
+    itemCode: "PZ-AF101",
+    price: 10.99,
     paymentLink: "https://buy.stripe.com/test_28E4gzeGfeHF8LG0kA8Ra09",
     description: "An easy luxury aviator built for daily polish with balanced metal lines and clean tonal finishes.",
-    features: ["Daily-wear aviator", "Balanced frame shape", "Polished metal temple line", "Clean luxury styling"],
-    colors: ["Silver Grey", "Gold Green", "Black", "Black Green"],
+    features: ["Noir Eclipse", "Verde Oro", "Total Noir", "Verde Noir"],
+    colors: ["Noir Eclipse", "Verde Oro", "Total Noir", "Verde Noir"],
     images: [
       "./KL_PZ-AF101-1-SLVRGRY.jpg",
       "./KL_PZ-AF101-2-GLDGRN.jpg",
@@ -334,15 +407,15 @@ const products = [
   },
   {
     id: "kids-glacee",
-    name: "Glacee",
-    collection: "Kids Club Collection",
+    name: "Glacee'",
+    collection: "KL Kids Club",
     collectionKey: "kids",
-    itemCode: "KL_KG-ROM90105",
-    price: 10.99,
+    itemCode: "KG-ROM90105",
+    price: 8.99,
     paymentLink: "https://buy.stripe.com/test_bJe7sL8hRdDB1jec3i8Ra0p",
     description: "A fun oversized kids frame with polished tint options and confident everyday comfort.",
-    features: ["Kids fit", "Oversized playful frame", "Comfortable wear", "Bright and neutral options"],
-    colors: ["Grey", "Blue", "Pink", "Black", "Black Grey", "Black Black"],
+    features: ["Emerald Envy", "Cotton Candy Sky", "Peony Petal", "Midnight Rose", "Phantom Black", "Total Eclipse"],
+    colors: ["Emerald Envy", "Cotton Candy Sky", "Peony Petal", "Midnight Rose", "Phantom Black", "Total Eclipse"],
     images: [
       "./KL_KG-ROM90105-1GRY.jpg",
       "./KL_KG-ROM90105-2BLU.jpg",
@@ -355,13 +428,13 @@ const products = [
   {
     id: "kids-little-voyagers",
     name: "Little Voyagers",
-    collection: "Kids Club Collection",
+    collection: "KL Kids Club",
     collectionKey: "kids",
-    itemCode: "KL_KG-WF01-PST",
-    price: 7.99,
+    itemCode: "KG-WF01-PST",
+    price: 6.99,
     paymentLink: "https://buy.stripe.com/test_dRm7sLcy7czx3rm1oE8Ra0o",
     description: "A pastel kids essential with bright energy and easy all-day wear.",
-    features: ["Kids wayfarer shape", "Soft pastel palette", "Everyday durability", "Easy lightweight fit"],
+    features: ["Coral", "Blue", "Pink", "Purple", "Cream", "Aqua"],
     colors: ["Coral", "Blue", "Pink", "Purple", "Cream", "Aqua"],
     images: [
       "./KL_KG-WF01-PST-1.jpg",
@@ -375,14 +448,14 @@ const products = [
   {
     id: "kids-whimsy-wayfarers",
     name: "Whimsy Wayfarers",
-    collection: "Kids Club Collection",
+    collection: "KL Kids Club",
     collectionKey: "kids",
-    itemCode: "KL_KG-WF01-UNI",
-    price: 9.99,
+    itemCode: "KG-WF01-UNI",
+    price: 7.99,
     paymentLink: "https://buy.stripe.com/test_28EfZh2XxgPN8LG5EU8Ra0n",
     description: "A playful printed kids frame with bright personality and everyday wearability.",
-    features: ["Printed kids frame", "Wayfarer-inspired shape", "Playful pattern styling", "Comfortable fit"],
-    colors: ["Black", "Light Blue", "Pink", "Purple", "White"],
+    features: ["Twilight Twinkle", "Bluebell Dream", "Pink Pixie Dust", "Prism Purple", "Marshmallow Magic"],
+    colors: ["Twilight Twinkle", "Bluebell Dream", "Pink Pixie Dust", "Prism Purple", "Marshmallow Magic"],
     images: [
       "./KL_KG-WF01-UNI-BLCK.jpg",
       "./KL_KG-WF01-UNI-LBLU.jpg",
@@ -394,14 +467,14 @@ const products = [
   {
     id: "kids-tough-tints",
     name: "Tough-Tints",
-    collection: "Kids Club Collection",
+    collection: "KL Kids Club",
     collectionKey: "kids",
-    itemCode: "KL_KG-X2738",
-    price: 9.99,
+    itemCode: "KG-X2738",
+    price: 7.99,
     paymentLink: "https://buy.stripe.com/test_14A9AT2Xx7fd3rm8R68Ra0m",
     description: "A sportier wrap-inspired kids frame designed for high-energy wear and standout color.",
-    features: ["Sport kids fit", "Wrap-inspired shape", "Bold camo-style options", "Adventure-ready profile"],
-    colors: ["Grey", "White", "Yellow", "Green", "Red", "Blue"],
+    features: ["Blue Ops", "White Out", "Stinger", "Venom", "Magma", "Hydra"],
+    colors: ["Blue Ops", "White Out", "Stinger", "Venom", "Magma", "Hydra"],
     images: [
       "./KL_KG-X2738-1GREY.jpg",
       "./KL_KG-X2738-2WHT.jpg",
@@ -410,31 +483,11 @@ const products = [
       "./KL_KG-X2738-5RED.jpg",
       "./KL_KG-X2738-6BLUE.jpg"
     ]
-  },
-  {
-    id: "visionary-luxe-visor",
-    name: "Luxe Visor",
-    collection: "Visionary Collection",
-    collectionKey: "visionary",
-    itemCode: "KL_8GSL28287",
-    price: 17.99,
-    paymentLink: "https://buy.stripe.com/test_4gMfZhcy74317HC5EU8Ra0l",
-    description: "A futuristic visor-style statement with a stronger silhouette and sleek directional energy.",
-    features: ["Visor-inspired profile", "Forward luxury attitude", "Bold tinted lens selection", "Statement wear"],
-    colors: ["Gold Black", "Black", "Smoke", "Brown", "Blue Sky", "Blue Cloud"],
-    images: [
-      "./KL_8GSL28287-1GBLK.jpg",
-      "./KL_8GSL28287-2BLK.jpg",
-      "./KL_8GSL28287-3SMKE.jpg",
-      "./KL_8GSL28287-4BRWN.jpg",
-      "./KL_8GSL28287-5BLUSK.jpg",
-      "./KL_8GSL28287-6BLCLD.jpg"
-    ]
   }
 ];
 
 const collections = [
-  { key: "all", name: "All Collections" },
+  { key: "all", name: "All" },
   { key: "halo", name: "Halo" },
   { key: "angles", name: "Angles" },
   { key: "allure", name: "Allure" },
@@ -444,13 +497,18 @@ const collections = [
 ];
 
 const state = {
-  collection: "all",
-  sort: "featured"
+  activeCollection: "all",
+  sort: "price-desc",
+  priceRange: "all",
+  selectedColors: {}
 };
 
-const grid = document.getElementById("product-grid");
-const chips = document.getElementById("collection-chips");
+const productGrid = document.getElementById("product-grid");
+const collectionPills = document.getElementById("collection-pills");
+const collectionFilterList = document.getElementById("collection-filter-list");
 const sortSelect = document.getElementById("sort-select");
+const productCount = document.getElementById("product-count");
+const clearFiltersButton = document.getElementById("clear-filters");
 
 const dialog = document.getElementById("product-dialog");
 const dialogClose = document.getElementById("dialog-close");
@@ -464,10 +522,6 @@ const dialogColors = document.getElementById("dialog-colors");
 const dialogFeatures = document.getElementById("dialog-features");
 const dialogBuyButton = document.getElementById("dialog-buy-button");
 
-const statProducts = document.getElementById("stat-products");
-const statVariants = document.getElementById("stat-variants");
-const statCollections = document.getElementById("stat-collections");
-
 function formatPrice(value) {
   return new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -475,41 +529,39 @@ function formatPrice(value) {
   }).format(value);
 }
 
-function setStats() {
-  if (statProducts) statProducts.textContent = String(products.length);
-  if (statVariants) statVariants.textContent = String(products.reduce((sum, product) => sum + product.colors.length, 0));
-  if (statCollections) statCollections.textContent = String(collections.length - 1);
+function createColorTag(product, color, activeColor) {
+  const isActive = color === activeColor ? "active" : "";
+  return `<span class="${isActive}" data-product-id="${product.id}" data-color="${encodeURIComponent(color)}">${color}</span>`;
 }
 
-function renderCollectionChips() {
-  if (!chips) return;
+function buildBuyUrl(product) {
+  return product.paymentLink;
+}
 
-  chips.innerHTML = "";
-
-  collections.forEach((collection) => {
-    const count = collection.key === "all"
-      ? products.length
-      : products.filter((product) => product.collectionKey === collection.key).length;
-
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = `collection-chip${state.collection === collection.key ? " active" : ""}`;
-    button.innerHTML = `<strong>${collection.name}</strong><span>${count} styles</span>`;
-
-    button.addEventListener("click", () => {
-      state.collection = collection.key;
-      renderCollectionChips();
-      renderProducts();
-    });
-
-    chips.appendChild(button);
-  });
+function matchesPriceRange(product) {
+  switch (state.priceRange) {
+    case "0-9.99":
+      return product.price < 10;
+    case "10-13.99":
+      return product.price >= 10 && product.price <= 13.99;
+    case "14-17.99":
+      return product.price >= 14 && product.price <= 17.99;
+    case "18-100":
+      return product.price >= 18;
+    case "all":
+    default:
+      return true;
+  }
 }
 
 function getVisibleProducts() {
-  const visible = state.collection === "all"
-    ? [...products]
-    : products.filter((product) => product.collectionKey === state.collection);
+  let visible = [...products];
+
+  if (state.activeCollection !== "all") {
+    visible = visible.filter((product) => product.collectionKey === state.activeCollection);
+  }
+
+  visible = visible.filter(matchesPriceRange);
 
   switch (state.sort) {
     case "price-asc":
@@ -521,6 +573,7 @@ function getVisibleProducts() {
     case "name":
       visible.sort((a, b) => a.name.localeCompare(b.name));
       break;
+    case "featured":
     default:
       break;
   }
@@ -528,45 +581,123 @@ function getVisibleProducts() {
   return visible;
 }
 
-function renderProducts() {
-  if (!grid) return;
+function renderCollectionControls() {
+  if (!collectionPills || !collectionFilterList) return;
 
-  grid.innerHTML = "";
-
-  getVisibleProducts().forEach((product) => {
-    const card = document.createElement("article");
-    card.className = "product-card";
-
-    card.innerHTML = `
-      <div class="product-image">
-        <img src="${product.images[0]}" alt="${product.name}" loading="lazy">
-      </div>
-      <div class="product-meta">
-        <div class="meta-top">
-          <div>
-            <small>${product.collection}</small>
-            <h3>${product.name}</h3>
-          </div>
-          <span class="price">${formatPrice(product.price)}</span>
-        </div>
-        <p>${product.description}</p>
-        <div class="color-tags">
-          ${product.colors.slice(0, 5).map((color) => `<span title="${color}">${color}</span>`).join("")}
-          ${product.colors.length > 5 ? `<span>+${product.colors.length - 5} more</span>` : ""}
-        </div>
-        <div class="card-actions">
-          <button class="button button-ghost view-product-button" type="button">View Product</button>
-          <a class="button button-gold" href="${product.paymentLink}" target="_blank" rel="noopener noreferrer">Buy Now</a>
-        </div>
-      </div>
+  collectionPills.innerHTML = collections.map((collection) => {
+    const isActive = collection.key === state.activeCollection ? "active" : "";
+    return `
+      <button class="collection-pill ${isActive}" type="button" data-collection="${collection.key}">
+        ${collection.name}
+      </button>
     `;
+  }).join("");
 
-    card.addEventListener("click", (event) => {
-      if (event.target.closest("a")) return;
-      openProduct(product);
+  collectionFilterList.innerHTML = collections.map((collection) => `
+    <label>
+      <input
+        type="radio"
+        name="collection-filter"
+        value="${collection.key}"
+        ${collection.key === state.activeCollection ? "checked" : ""}
+      />
+      <span>${collection.name}</span>
+    </label>
+  `).join("");
+
+  document.querySelectorAll("[data-collection]").forEach((button) => {
+    button.addEventListener("click", () => {
+      state.activeCollection = button.dataset.collection;
+      renderAll();
     });
+  });
 
-    grid.appendChild(card);
+  document.querySelectorAll('input[name="collection-filter"]').forEach((input) => {
+    input.addEventListener("change", () => {
+      state.activeCollection = input.value;
+      renderAll();
+    });
+  });
+}
+
+function renderProducts() {
+  if (!productGrid) return;
+
+  const visibleProducts = getVisibleProducts();
+
+  if (productCount) {
+    productCount.textContent = String(visibleProducts.length);
+  }
+
+  productGrid.innerHTML = visibleProducts.map((product) => {
+    const activeColor = state.selectedColors[product.id] || product.colors[0];
+
+    return `
+      <article class="product-card">
+        <div class="product-image">
+          <img src="${product.images[0]}" alt="${product.name}" loading="lazy" />
+        </div>
+
+        <div class="product-meta">
+          <div class="meta-top">
+            <div>
+              <small>${product.collection}</small>
+              <h3>${product.name}</h3>
+            </div>
+            <span class="price">${formatPrice(product.price)}</span>
+          </div>
+
+          <p>${product.description}</p>
+
+          <div class="color-tags">
+            ${product.colors.slice(0, 6).map((color) => createColorTag(product, color, activeColor)).join("")}
+          </div>
+
+          <div class="card-actions">
+            <button class="button button-ghost" type="button" data-view="${product.id}">View Product</button>
+            <a class="button button-gold" href="${buildBuyUrl(product)}" target="_blank" rel="noopener noreferrer">Buy Now</a>
+          </div>
+        </div>
+      </article>
+    `;
+  }).join("");
+
+  document.querySelectorAll("[data-view]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const product = products.find((item) => item.id === button.dataset.view);
+      if (product) {
+        openProduct(product);
+      }
+    });
+  });
+
+  document.querySelectorAll("[data-product-id][data-color]").forEach((tag) => {
+    tag.addEventListener("click", () => {
+      const productId = tag.dataset.productId;
+      const color = decodeURIComponent(tag.dataset.color);
+      state.selectedColors[productId] = color;
+      renderProducts();
+    });
+  });
+}
+
+function renderDialogColors(product) {
+  if (!dialogColors) return;
+
+  const activeColor = state.selectedColors[product.id] || product.colors[0];
+
+  dialogColors.innerHTML = product.colors.map((color) => {
+    const isActive = color === activeColor ? "active" : "";
+    return `<span class="${isActive}" data-dialog-product="${product.id}" data-dialog-color="${encodeURIComponent(color)}">${color}</span>`;
+  }).join("");
+
+  document.querySelectorAll("[data-dialog-product][data-dialog-color]").forEach((tag) => {
+    tag.addEventListener("click", () => {
+      const color = decodeURIComponent(tag.dataset.dialogColor);
+      state.selectedColors[product.id] = color;
+      renderDialogColors(product);
+      renderProducts();
+    });
   });
 }
 
@@ -580,49 +711,76 @@ function openProduct(product) {
 
   if (dialogMainImage) {
     dialogMainImage.src = product.images[0];
-    dialogMainImage.alt = `${product.name} view 1`;
+    dialogMainImage.alt = `${product.name} main image`;
   }
 
   if (dialogThumbs) {
-    dialogThumbs.innerHTML = "";
+    dialogThumbs.innerHTML = product.images.map((image, index) => `
+      <button type="button" data-thumb-src="${image}" aria-label="${product.name} image ${index + 1}">
+        <img src="${image}" alt="${product.name} thumb ${index + 1}" loading="lazy" />
+      </button>
+    `).join("");
 
-    product.images.forEach((image, index) => {
-      const button = document.createElement("button");
-      button.type = "button";
-      button.innerHTML = `<img src="${image}" alt="${product.name} view ${index + 1}" loading="lazy">`;
-
-      button.addEventListener("click", (event) => {
-        event.stopPropagation();
+    dialogThumbs.querySelectorAll("[data-thumb-src]").forEach((button) => {
+      button.addEventListener("click", () => {
         if (dialogMainImage) {
-          dialogMainImage.src = image;
-          dialogMainImage.alt = `${product.name} view ${index + 1}`;
+          dialogMainImage.src = button.dataset.thumbSrc;
+          dialogMainImage.alt = `${product.name} detail image`;
         }
       });
-
-      dialogThumbs.appendChild(button);
     });
   }
 
-  if (dialogColors) {
-    dialogColors.innerHTML = product.colors.map((color) => `<span title="${color}">${color}</span>`).join("");
-  }
+  renderDialogColors(product);
 
   if (dialogFeatures) {
     dialogFeatures.innerHTML = product.features.map((feature) => `<li>${feature}</li>`).join("");
   }
 
   if (dialogBuyButton) {
-    dialogBuyButton.href = product.paymentLink;
+    dialogBuyButton.href = buildBuyUrl(product);
     dialogBuyButton.textContent = "Buy Now";
   }
 
   dialog.showModal();
 }
 
+function renderAll() {
+  renderCollectionControls();
+  renderProducts();
+}
+
 if (sortSelect) {
   sortSelect.addEventListener("change", (event) => {
     state.sort = event.target.value;
     renderProducts();
+  });
+}
+
+document.querySelectorAll('input[name="price-range"]').forEach((input) => {
+  input.addEventListener("change", (event) => {
+    state.priceRange = event.target.value;
+    renderProducts();
+  });
+});
+
+if (clearFiltersButton) {
+  clearFiltersButton.addEventListener("click", () => {
+    state.activeCollection = "all";
+    state.sort = "price-desc";
+    state.priceRange = "all";
+    state.selectedColors = {};
+
+    if (sortSelect) {
+      sortSelect.value = "price-desc";
+    }
+
+    const allPrice = document.querySelector('input[name="price-range"][value="all"]');
+    if (allPrice) {
+      allPrice.checked = true;
+    }
+
+    renderAll();
   });
 }
 
@@ -633,16 +791,16 @@ if (dialogClose && dialog) {
 if (dialog) {
   dialog.addEventListener("click", (event) => {
     const rect = dialog.getBoundingClientRect();
-    const inside =
-      rect.top <= event.clientY &&
-      event.clientY <= rect.top + rect.height &&
-      rect.left <= event.clientX &&
-      event.clientX <= rect.left + rect.width;
+    const inDialog =
+      event.clientX >= rect.left &&
+      event.clientX <= rect.right &&
+      event.clientY >= rect.top &&
+      event.clientY <= rect.bottom;
 
-    if (!inside) dialog.close();
+    if (!inDialog) {
+      dialog.close();
+    }
   });
 }
 
-setStats();
-renderCollectionChips();
-renderProducts();
+renderAll();
