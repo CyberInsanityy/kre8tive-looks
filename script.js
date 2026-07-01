@@ -521,8 +521,8 @@ function getVisibleProducts() {
   return visible;
 }
 
-function createImageWithFallback(src, fallback, alt, loading = "lazy") {
-  return `<img src="${src}" alt="${alt}" loading="${loading}" onerror="this.onerror=null;this.src='${fallback}'">`;
+function createImageWithFallback(src, fallback, alt) {
+  return `<img src="${src}" alt="${alt}" loading="lazy" onerror="this.onerror=null;this.src='${fallback}'">`;
 }
 
 function renderCollectionControls() {
@@ -679,6 +679,7 @@ function renderDialogThumbs(product, fallbackImage) {
   dialogThumbs.querySelectorAll("[data-thumb-src]").forEach((button) => {
     button.addEventListener("click", () => {
       if (!dialogMainImage) return;
+
       dialogMainImage.src = button.dataset.thumbSrc;
       dialogMainImage.alt = `${product.name} detail image`;
       dialogMainImage.onerror = () => {
