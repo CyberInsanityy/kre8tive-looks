@@ -1,4 +1,4 @@
-/* FILE: script.js */
+/* script.js */
 const products = [
   {
     id: "allure-rhinestone-muse",
@@ -14,9 +14,9 @@ const products = [
     images: [
       "./KL_8RS2104-1BLACK.jpg",
       "./KL_8RS2104-2BLUSH.jpg",
-      "./KL_8RS2104-3OLGRN.jpg",
       "./KL_8RS2104-4BROWN.jpg",
-      "./KL_8RS2104-5PURPL.jpg"
+      "./KL_8RS2104-5PURPL.jpg",
+      "./KL_8RS2104-3OLGRN.jpg"
     ]
   },
   {
@@ -51,11 +51,11 @@ const products = [
     features: ["Amber Cat", "Blush Crystal", "Moss Green", "Satin Orange", "Periwinkle Blue", "Black Cat"],
     colors: ["Amber Cat", "Blush Crystal", "Moss Green", "Satin Orange", "Periwinkle Blue", "Black Cat"],
     images: [
-      "./KL_8VG29687-1BLU.jpg",
-      "./KL_8VG29687-2GRN.jpg",
-      "./KL_8VG29687-3PNK.jpg",
       "./KL_8VG29687-4BRN.jpg",
+      "./KL_8VG29687-3PNK.jpg",
+      "./KL_8VG29687-2GRN.jpg",
       "./KL_8VG29687-5ORA.jpg",
+      "./KL_8VG29687-1BLU.jpg",
       "./KL_8VG29687-6BLK.jpg"
     ]
   },
@@ -72,11 +72,11 @@ const products = [
     colors: ["Brown Edge", "Black Rim", "Black Smoke", "Champagne Sky", "Matcha Pink", "Virt Violet"],
     images: [
       "./KL_8GSL28304-1BRWNE.jpg",
-      "./KL_8GSL28304-2BSMKE.jpg",
       "./KL_8GSL28304-3BLKR.jpg",
+      "./KL_8GSL28304-2BSMKE.jpg",
+      "./KL_8GSL28304-6GRBL.jpg",
       "./KL_8GSL28304-4RGLD.jpg",
-      "./KL_8GSL28304-5BPRP.jpg",
-      "./KL_8GSL28304-6GRBL.jpg"
+      "./KL_8GSL28304-5BPRP.jpg"
     ]
   },
   {
@@ -93,9 +93,9 @@ const products = [
     images: [
       "./KL_8VG29695-1PINKG.jpg",
       "./KL_8VG29695-2ANML.jpg",
-      "./KL_8VG29695-3BLUSH.jpg",
       "./KL_8VG29695-4BBLUE.jpg",
-      "./KL_8VG29695-5.jpg",
+      "./KL_8VG29695-3BLUSH.jpg",
+      "./8VG29695-5.jpg",
       "./KL_8VG29695-6BGOLD.jpg"
     ]
   },
@@ -233,7 +233,7 @@ const products = [
       "./KL_8AV5239-1YLOW.jpg",
       "./KL_8AV5239-2GFLM.jpg",
       "./KL_8AV5239-3PRPL.jpg",
-      "./KL_8AV5239-4.jpg",
+      "./8AV5239-4.jpg",
       "./KL_8AV5239-5BLUE.jpg",
       "./KL_8AV5239-6GRYS.jpg"
     ]
@@ -272,10 +272,10 @@ const products = [
     images: [
       "./KL_8AV5182-1GLDBRW.jpg",
       "./KL_8AV5182-2BLKGRN.jpg",
-      "./KL_8AV5182-3GUNMETAL.jpg",
-      "./KL_8AV5182-4CHROME.jpg",
-      "./KL_8AV5182-5OBSIDIAN.jpg",
-      "./KL_8AV5182-6ARGENT.jpg"
+      "./8AV5182-3.jpg",
+      "./8AV5182-4.jpg",
+      "./8AV5182-5.jpg",
+      "./8AV5182-6.jpg"
     ]
   },
   {
@@ -521,6 +521,10 @@ function getVisibleProducts() {
   return visible;
 }
 
+function createImageWithFallback(src, fallback, alt, loading = "lazy") {
+  return `<img src="${src}" alt="${alt}" loading="${loading}" onerror="this.onerror=null;this.src='${fallback}'">`;
+}
+
 function renderCollectionControls() {
   if (!collectionPills || !collectionFilterList) return;
 
@@ -583,11 +587,12 @@ function renderProducts() {
   productGrid.innerHTML = visibleProducts
     .map((product) => {
       const activeColor = state.selectedColors[product.id] || product.colors[0];
+      const fallbackImage = product.images.find(Boolean) || "";
 
       return `
         <article class="product-card">
           <div class="product-image">
-            <img src="${product.images[0]}" alt="${product.name}" loading="lazy" />
+            ${createImageWithFallback(product.images[0], fallbackImage, product.name)}
           </div>
 
           <div class="product-meta">
@@ -658,8 +663,36 @@ function renderDialogColors(product) {
   });
 }
 
+function renderDialogThumbs(product, fallbackImage) {
+  if (!dialogThumbs) return;
+
+  dialogThumbs.innerHTML = product.images
+    .map(
+      (image, index) => `
+        <button type="button" data-thumb-src="${image}" aria-label="${product.name} image ${index + 1}">
+          ${createImageWithFallback(image, fallbackImage, `${product.name} thumb ${index + 1}`)}
+        </button>
+      `
+    )
+    .join("");
+
+  dialogThumbs.querySelectorAll("[data-thumb-src]").forEach((button) => {
+    button.addEventListener("click", () => {
+      if (!dialogMainImage) return;
+      dialogMainImage.src = button.dataset.thumbSrc;
+      dialogMainImage.alt = `${product.name} detail image`;
+      dialogMainImage.onerror = () => {
+        dialogMainImage.onerror = null;
+        dialogMainImage.src = fallbackImage;
+      };
+    });
+  });
+}
+
 function openProduct(product) {
   if (!dialog) return;
+
+  const fallbackImage = product.images.find(Boolean) || "";
 
   if (dialogCollection) dialogCollection.textContent = `${product.collection} • ${product.itemCode}`;
   if (dialogTitle) dialogTitle.textContent = product.name;
@@ -669,29 +702,13 @@ function openProduct(product) {
   if (dialogMainImage) {
     dialogMainImage.src = product.images[0];
     dialogMainImage.alt = `${product.name} main image`;
+    dialogMainImage.onerror = () => {
+      dialogMainImage.onerror = null;
+      dialogMainImage.src = fallbackImage;
+    };
   }
 
-  if (dialogThumbs) {
-    dialogThumbs.innerHTML = product.images
-      .map(
-        (image, index) => `
-          <button type="button" data-thumb-src="${image}" aria-label="${product.name} image ${index + 1}">
-            <img src="${image}" alt="${product.name} thumb ${index + 1}" loading="lazy" />
-          </button>
-        `
-      )
-      .join("");
-
-    dialogThumbs.querySelectorAll("[data-thumb-src]").forEach((button) => {
-      button.addEventListener("click", () => {
-        if (dialogMainImage) {
-          dialogMainImage.src = button.dataset.thumbSrc;
-          dialogMainImage.alt = `${product.name} detail image`;
-        }
-      });
-    });
-  }
-
+  renderDialogThumbs(product, fallbackImage);
   renderDialogColors(product);
 
   if (dialogFeatures) {
