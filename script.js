@@ -1,4 +1,3 @@
-/* script.js */
 const products = [
   {
     id: "allure-rhinestone-muse",
@@ -155,7 +154,7 @@ const products = [
       "./KL_8VG29589-3.jpg",
       "./KL_8VG29589-4.jpg",
       "./KL_8VG29589-5.jpg",
-      "./KL_8VG29589-6.jpg"
+      "./KL_8VG29589 Purple Reign.jpg"
     ]
   },
   {
@@ -227,12 +226,12 @@ const products = [
     price: 9.99,
     paymentLink: "https://buy.stripe.com/test_9B65kD1Tt6b92ni0kA8Ra0f",
     description: "A lighter aviator statement with mirrored energy, city-ready color, and an effortless polished frame.",
-    features: ["Solar Frame", "Gilded Tortoise", "Sapphire Siege", "Cobalt Command", "Cypress Azure", "Chrome Cloud"],
-    colors: ["Solar Frame", "Gilded Tortoise", "Sapphire Siege", "Cobalt Command", "Cypress Azure", "Chrome Cloud"],
+    features: ["Solar Frame", "Gilded Tortoise", "Ultraviolet", "Cobalt Command", "Cypress Azure", "Chrome Cloud"],
+    colors: ["Solar Frame", "Gilded Tortoise", "Ultraviolet", "Cobalt Command", "Cypress Azure", "Chrome Cloud"],
     images: [
       "./KL_8AV5239-1YLOW.jpg",
       "./KL_8AV5239-2GFLM.jpg",
-      "./KL_8AV5239-3PRPL.jpg",
+      "./KL_8AV5239 Ultraviolet.jpg",
       "./8AV5239-4.jpg",
       "./KL_8AV5239-5BLUE.jpg",
       "./KL_8AV5239-6GRYS.jpg"
@@ -272,7 +271,7 @@ const products = [
     images: [
       "./KL_8AV5182-1GLDBRW.jpg",
       "./KL_8AV5182-2BLKGRN.jpg",
-      "./8AV5182-3.jpg",
+      "./8AV5182 Gunmetal.jpg",
       "./8AV5182-4.jpg",
       "./8AV5182-5.jpg",
       "./8AV5182-6.jpg"
@@ -451,7 +450,8 @@ const state = {
   activeCollection: "all",
   sort: "price-desc",
   priceRange: "all",
-  selectedColors: {}
+  selectedColorIndex: {},
+  selectedImageIndex: {}
 };
 
 const productGrid = document.getElementById("product-grid");
@@ -521,8 +521,30 @@ function getVisibleProducts() {
   return visible;
 }
 
-function createImageWithFallback(src, fallback, alt) {
-  return `<img src="${src}" alt="${alt}" loading="lazy" onerror="this.onerror=null;this.src='${fallback}'">`;
+function getSafeIndex(product, index) {
+  if (Number.isInteger(index) && index >= 0 && index < product.images.length) {
+    return index;
+  }
+  return 0;
+}
+
+function getActiveColorIndex(product) {
+  return getSafeIndex(product, state.selectedColorIndex[product.id] ?? 0);
+}
+
+function getActiveImageIndex(product) {
+  return getSafeIndex(product, state.selectedImageIndex[product.id] ?? getActiveColorIndex(product));
+}
+
+function setSelectedColor(product, index) {
+  const safeIndex = getSafeIndex(product, index);
+  state.selectedColorIndex[product.id] = safeIndex;
+  state.selectedImageIndex[product.id] = safeIndex;
+}
+
+function setSelectedImage(product, index) {
+  const safeIndex = getSafeIndex(product, index);
+  state.selectedImageIndex[product.id] = safeIndex;
 }
 
 function renderCollectionControls() {
@@ -570,9 +592,13 @@ function renderCollectionControls() {
   });
 }
 
-function createColorTag(product, color, activeColor) {
-  const activeClass = color === activeColor ? "active" : "";
-  return `<span class="${activeClass}" data-product-id="${product.id}" data-color="${encodeURIComponent(color)}">${color}</span>`;
+function createColorTag(product, color, index, activeIndex) {
+  const activeClass = index === activeIndex ? "active" : "";
+  return `
+    <span class="${activeClass}" data-product-id="${product.id}" data-color-index="${index}">
+      ${color}
+    </span>
+  `;
 }
 
 function renderProducts() {
@@ -586,13 +612,14 @@ function renderProducts() {
 
   productGrid.innerHTML = visibleProducts
     .map((product) => {
-      const activeColor = state.selectedColors[product.id] || product.colors[0];
-      const fallbackImage = product.images.find(Boolean) || "";
+      const activeColorIndex = getActiveColorIndex(product);
+      const activeImageIndex = getActiveImageIndex(product);
+      const displayImage = product.images[activeImageIndex] || product.images[0];
 
       return `
         <article class="product-card">
           <div class="product-image">
-            ${createImageWithFallback(product.images[0], fallbackImage, product.name)}
+            <img src="${displayImage}" alt="${product.name}" loading="lazy" />
           </div>
 
           <div class="product-meta">
@@ -607,7 +634,7 @@ function renderProducts() {
             <p>${product.description}</p>
 
             <div class="color-tags">
-              ${product.colors.slice(0, 6).map((color) => createColorTag(product, color, activeColor)).join("")}
+              ${product.colors.map((color, index) => createColorTag(product, color, index, activeColorIndex)).join("")}
             </div>
 
             <div class="card-actions">
@@ -631,11 +658,15 @@ function renderProducts() {
     });
   });
 
-  document.querySelectorAll("[data-product-id][data-color]").forEach((tag) => {
+  document.querySelectorAll("[data-product-id][data-color-index]").forEach((tag) => {
     tag.addEventListener("click", () => {
       const productId = tag.dataset.productId;
-      const color = decodeURIComponent(tag.dataset.color);
-      state.selectedColors[productId] = color;
+      const colorIndex = Number(tag.dataset.colorIndex);
+      const product = products.find((item) => item.id === productId);
+
+      if (!product) return;
+
+      setSelectedColor(product, colorIndex);
       renderProducts();
     });
   });
@@ -644,56 +675,63 @@ function renderProducts() {
 function renderDialogColors(product) {
   if (!dialogColors) return;
 
-  const activeColor = state.selectedColors[product.id] || product.colors[0];
+  const activeColorIndex = getActiveColorIndex(product);
 
   dialogColors.innerHTML = product.colors
-    .map((color) => {
-      const activeClass = color === activeColor ? "active" : "";
-      return `<span class="${activeClass}" data-dialog-product="${product.id}" data-dialog-color="${encodeURIComponent(color)}">${color}</span>`;
+    .map((color, index) => {
+      const activeClass = index === activeColorIndex ? "active" : "";
+      return `
+        <span class="${activeClass}" data-dialog-product="${product.id}" data-dialog-color-index="${index}">
+          ${color}
+        </span>
+      `;
     })
     .join("");
 
-  document.querySelectorAll("[data-dialog-product][data-dialog-color]").forEach((tag) => {
+  document.querySelectorAll("[data-dialog-product][data-dialog-color-index]").forEach((tag) => {
     tag.addEventListener("click", () => {
-      const color = decodeURIComponent(tag.dataset.dialogColor);
-      state.selectedColors[product.id] = color;
-      renderDialogColors(product);
+      const colorIndex = Number(tag.dataset.dialogColorIndex);
+      setSelectedColor(product, colorIndex);
+      renderDialog(product);
       renderProducts();
     });
   });
 }
 
-function renderDialogThumbs(product, fallbackImage) {
+function renderDialogThumbs(product) {
   if (!dialogThumbs) return;
+
+  const activeImageIndex = getActiveImageIndex(product);
 
   dialogThumbs.innerHTML = product.images
     .map(
       (image, index) => `
-        <button type="button" data-thumb-src="${image}" aria-label="${product.name} image ${index + 1}">
-          ${createImageWithFallback(image, fallbackImage, `${product.name} thumb ${index + 1}`)}
+        <button
+          type="button"
+          data-thumb-index="${index}"
+          class="${index === activeImageIndex ? "active-thumb" : ""}"
+          aria-label="${product.name} image ${index + 1}"
+        >
+          <img src="${image}" alt="${product.name} thumb ${index + 1}" loading="lazy" />
         </button>
       `
     )
     .join("");
 
-  dialogThumbs.querySelectorAll("[data-thumb-src]").forEach((button) => {
+  dialogThumbs.querySelectorAll("[data-thumb-index]").forEach((button) => {
     button.addEventListener("click", () => {
-      if (!dialogMainImage) return;
-
-      dialogMainImage.src = button.dataset.thumbSrc;
-      dialogMainImage.alt = `${product.name} detail image`;
-      dialogMainImage.onerror = () => {
-        dialogMainImage.onerror = null;
-        dialogMainImage.src = fallbackImage;
-      };
+      const imageIndex = Number(button.dataset.thumbIndex);
+      setSelectedImage(product, imageIndex);
+      renderDialog(product);
     });
   });
 }
 
-function openProduct(product) {
+function renderDialog(product) {
   if (!dialog) return;
 
-  const fallbackImage = product.images.find(Boolean) || "";
+  const activeImageIndex = getActiveImageIndex(product);
+  const activeImage = product.images[activeImageIndex] || product.images[0];
 
   if (dialogCollection) dialogCollection.textContent = `${product.collection} • ${product.itemCode}`;
   if (dialogTitle) dialogTitle.textContent = product.name;
@@ -701,15 +739,11 @@ function openProduct(product) {
   if (dialogDescription) dialogDescription.textContent = product.description;
 
   if (dialogMainImage) {
-    dialogMainImage.src = product.images[0];
+    dialogMainImage.src = activeImage;
     dialogMainImage.alt = `${product.name} main image`;
-    dialogMainImage.onerror = () => {
-      dialogMainImage.onerror = null;
-      dialogMainImage.src = fallbackImage;
-    };
   }
 
-  renderDialogThumbs(product, fallbackImage);
+  renderDialogThumbs(product);
   renderDialogColors(product);
 
   if (dialogFeatures) {
@@ -720,8 +754,13 @@ function openProduct(product) {
     dialogBuyButton.href = product.paymentLink;
     dialogBuyButton.textContent = "Buy Now";
   }
+}
 
-  dialog.showModal();
+function openProduct(product) {
+  renderDialog(product);
+  if (typeof dialog.showModal === "function") {
+    dialog.showModal();
+  }
 }
 
 function renderAll() {
@@ -748,7 +787,8 @@ if (clearFiltersButton) {
     state.activeCollection = "all";
     state.sort = "price-desc";
     state.priceRange = "all";
-    state.selectedColors = {};
+    state.selectedColorIndex = {};
+    state.selectedImageIndex = {};
 
     if (sortSelect) {
       sortSelect.value = "price-desc";
