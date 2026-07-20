@@ -26,10 +26,10 @@ const products = [
       "Matcha"
     ],
     images: [
-      "./KL_8RS2104-1BLACK.jpg",
+      "./KL_8RS2104-5PURPL.jpg",
       "./KL_8RS2104-2BLUSH.jpg",
       "./KL_8RS2104-4BROWN.jpg",
-      "./KL_8RS2104-5PURPL.jpg",
+      "./KL_8RS2104-1BLACK.jpg",
       "./KL_8RS2104-3OLGRN.jpg"
     ]
   },
@@ -267,11 +267,11 @@ const products = [
       "Purple Reign"
     ],
     images: [
-      "./KL_8VG29589-1.jpg",
+      "./KL_8VG29589-4.jpg",
       "./KL_8VG29589-2.jpg",
       "./KL_8VG29589-3.jpg",
-      "./KL_8VG29589-4.jpg",
       "./KL_8VG29589-5.jpg",
+      "./KL_8VG29589-1.jpg",
       "./KL_8VG29589 Purple Reign.jpg"
     ]
   },
@@ -442,12 +442,12 @@ const products = [
       "Argent"
     ],
     images: [
-      "./IMG_0352.jpeg",
-      "./IMG_0353.jpeg",
-      "./IMG_0356.jpeg",
-      "./IMG_0357.jpeg",
-      "./IMG_0358.jpeg",
-      "./IMG_0359.jpeg"
+      "./KL_8AV5182-1GLDBRW.jpg",
+      "./KL_8AV5182-2BLKGRN.jpg",
+      "./KL_8AV5182-3SLVGRY.jpg",
+      "./KL_8AV5182-4BBLK.jpg",
+      "./KL_8AV5182-5BLKBLK.jpg",
+      "./KL_8AV5182-6SLVSM.jpg"
     ]
   },
   {
@@ -579,8 +579,8 @@ const products = [
       "./KL_8AV5239-1YLOW.jpg",
       "./KL_8AV5239-2GFLM.jpg",
       "./KL_8AV5239 Ultraviolet.jpg",
-      "./8AV5239-4.jpg",
       "./KL_8AV5239-5BLUE.jpg",
+      "./8AV5239-4.jpg",
       "./KL_8AV5239-6GRYS.jpg"
     ]
   },
@@ -772,35 +772,53 @@ const state = {
   activeCollection: "all",
   sort: "price-desc",
   priceRange: "all",
-  selectedColorIndex: {},
-  selectedImageIndex: {}
+  selectedColorIndex: Object.create(null),
+  selectedImageIndex: Object.create(null),
+  activeDialogProductId: null
 };
 
-const elements = {
-  productGrid: document.getElementById("product-grid"),
-  collectionPills: document.getElementById("collection-pills"),
-  collectionFilterList: document.getElementById(
-    "collection-filter-list"
-  ),
-  sortSelect: document.getElementById("sort-select"),
-  productCount: document.getElementById("product-count"),
-  clearFiltersButton: document.getElementById("clear-filters"),
-  dialog: document.getElementById("product-dialog"),
-  dialogClose: document.getElementById("dialog-close"),
-  dialogMainImage: document.getElementById("dialog-main-image"),
-  dialogThumbs: document.getElementById("dialog-thumbs"),
-  dialogCollection: document.getElementById("dialog-collection"),
-  dialogTitle: document.getElementById("dialog-title"),
-  dialogPrice: document.getElementById("dialog-price"),
-  dialogDescription: document.getElementById(
-    "dialog-description"
-  ),
-  dialogColors: document.getElementById("dialog-colors"),
-  dialogFeatures: document.getElementById("dialog-features"),
-  dialogBuyButton: document.getElementById(
-    "dialog-buy-button"
-  )
-};
+const PLACEHOLDER_IMAGE =
+  "data:image/svg+xml;charset=UTF-8," +
+  encodeURIComponent(`
+    <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+      <rect width="1200" height="900" fill="#f5f2ea"/>
+      <rect x="80" y="80" width="1040" height="740" rx="32" fill="none" stroke="#d3cab8" stroke-width="4"/>
+      <text x="600" y="420" text-anchor="middle" fill="#2d2923"
+            font-family="Arial, sans-serif" font-size="44" letter-spacing="6">
+        IMAGE UNAVAILABLE
+      </text>
+      <text x="600" y="485" text-anchor="middle" fill="#746d62"
+            font-family="Arial, sans-serif" font-size="24">
+        Please check the product image filename.
+      </text>
+    </svg>
+  `);
+
+let elements = {};
+
+function cacheElements() {
+  elements = {
+    productGrid: document.getElementById("product-grid"),
+    collectionPills: document.getElementById("collection-pills"),
+    collectionFilterList: document.getElementById(
+      "collection-filter-list"
+    ),
+    sortSelect: document.getElementById("sort-select"),
+    productCount: document.getElementById("product-count"),
+    clearFiltersButton: document.getElementById("clear-filters"),
+    dialog: document.getElementById("product-dialog"),
+    dialogClose: document.getElementById("dialog-close"),
+    dialogMainImage: document.getElementById("dialog-main-image"),
+    dialogThumbs: document.getElementById("dialog-thumbs"),
+    dialogCollection: document.getElementById("dialog-collection"),
+    dialogTitle: document.getElementById("dialog-title"),
+    dialogPrice: document.getElementById("dialog-price"),
+    dialogDescription: document.getElementById("dialog-description"),
+    dialogColors: document.getElementById("dialog-colors"),
+    dialogFeatures: document.getElementById("dialog-features"),
+    dialogBuyButton: document.getElementById("dialog-buy-button")
+  };
+}
 
 function formatPrice(value) {
   return new Intl.NumberFormat("en-US", {
@@ -810,7 +828,7 @@ function formatPrice(value) {
 }
 
 function escapeHtml(value) {
-  return String(value)
+  return String(value ?? "")
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
@@ -818,52 +836,83 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
-function getAvailableOptionCount(product) {
+function getProductById(productId) {
+  return products.find((product) => product.id === productId) ?? null;
+}
+
+function getOptionCount(product) {
+  return Math.max(product.colors.length, product.images.length, 1);
+}
+
+function clampIndex(product, index) {
+  const parsedIndex = Number(index);
+
+  if (!Number.isInteger(parsedIndex)) {
+    return 0;
+  }
+
   return Math.min(
-    product.colors.length,
-    product.images.length
+    Math.max(parsedIndex, 0),
+    getOptionCount(product) - 1
   );
 }
 
-function getSafeIndex(product, index) {
-  const maximumIndex =
-    getAvailableOptionCount(product) - 1;
-
-  if (
-    Number.isInteger(index) &&
-    index >= 0 &&
-    index <= maximumIndex
-  ) {
-    return index;
-  }
-
-  return 0;
-}
-
 function getSelectedColorIndex(product) {
-  return getSafeIndex(
-    product,
-    state.selectedColorIndex[product.id] ?? 0
+  const selectedIndex = state.selectedColorIndex[product.id] ?? 0;
+
+  return Math.min(
+    clampIndex(product, selectedIndex),
+    Math.max(product.colors.length - 1, 0)
   );
 }
 
 function getSelectedImageIndex(product) {
-  return getSafeIndex(
-    product,
-    state.selectedImageIndex[product.id] ??
-      getSelectedColorIndex(product)
+  const fallbackIndex = getSelectedColorIndex(product);
+  const selectedIndex =
+    state.selectedImageIndex[product.id] ?? fallbackIndex;
+
+  return Math.min(
+    clampIndex(product, selectedIndex),
+    Math.max(product.images.length - 1, 0)
+  );
+}
+
+function getSelectedColor(product) {
+  return product.colors[getSelectedColorIndex(product)] ?? "Default";
+}
+
+function getSelectedImage(product) {
+  return (
+    product.images[getSelectedImageIndex(product)] ??
+    product.images[0] ??
+    PLACEHOLDER_IMAGE
   );
 }
 
 function selectColor(product, index) {
-  const safeIndex = getSafeIndex(product, index);
+  const colorIndex = Math.min(
+    clampIndex(product, index),
+    Math.max(product.colors.length - 1, 0)
+  );
 
-  state.selectedColorIndex[product.id] = safeIndex;
-  state.selectedImageIndex[product.id] = safeIndex;
+  state.selectedColorIndex[product.id] = colorIndex;
+
+  if (product.images[colorIndex]) {
+    state.selectedImageIndex[product.id] = colorIndex;
+  }
 }
 
-function getSelectedColor(product) {
-  return product.colors[getSelectedColorIndex(product)];
+function selectImage(product, index) {
+  const imageIndex = Math.min(
+    clampIndex(product, index),
+    Math.max(product.images.length - 1, 0)
+  );
+
+  state.selectedImageIndex[product.id] = imageIndex;
+
+  if (product.colors[imageIndex]) {
+    state.selectedColorIndex[product.id] = imageIndex;
+  }
 }
 
 function matchesPriceRange(product) {
@@ -872,16 +921,10 @@ function matchesPriceRange(product) {
       return product.price < 10;
 
     case "10-13.99":
-      return (
-        product.price >= 10 &&
-        product.price <= 13.99
-      );
+      return product.price >= 10 && product.price <= 13.99;
 
     case "14-17.99":
-      return (
-        product.price >= 14 &&
-        product.price <= 17.99
-      );
+      return product.price >= 14 && product.price <= 17.99;
 
     case "18-100":
       return product.price >= 18;
@@ -892,124 +935,31 @@ function matchesPriceRange(product) {
 }
 
 function getVisibleProducts() {
-  let visibleProducts = [...products];
+  const visibleProducts = products.filter((product) => {
+    const matchesCollection =
+      state.activeCollection === "all" ||
+      product.collectionKey === state.activeCollection;
 
-  if (state.activeCollection !== "all") {
-    visibleProducts = visibleProducts.filter(
-      (product) =>
-        product.collectionKey ===
-        state.activeCollection
-    );
-  }
+    return matchesCollection && matchesPriceRange(product);
+  });
 
-  visibleProducts =
-    visibleProducts.filter(matchesPriceRange);
+  visibleProducts.sort((firstProduct, secondProduct) => {
+    switch (state.sort) {
+      case "price-asc":
+        return firstProduct.price - secondProduct.price;
 
-  switch (state.sort) {
-    case "price-asc":
-      visibleProducts.sort(
-        (firstProduct, secondProduct) =>
-          firstProduct.price - secondProduct.price
-      );
-      break;
+      case "price-desc":
+        return secondProduct.price - firstProduct.price;
 
-    case "price-desc":
-      visibleProducts.sort(
-        (firstProduct, secondProduct) =>
-          secondProduct.price - firstProduct.price
-      );
-      break;
+      case "name":
+        return firstProduct.name.localeCompare(secondProduct.name);
 
-    case "name":
-      visibleProducts.sort(
-        (firstProduct, secondProduct) =>
-          firstProduct.name.localeCompare(
-            secondProduct.name
-          )
-      );
-      break;
-
-    default:
-      break;
-  }
+      default:
+        return 0;
+    }
+  });
 
   return visibleProducts;
-}
-
-function renderCollectionControls() {
-  if (
-    !elements.collectionPills ||
-    !elements.collectionFilterList
-  ) {
-    return;
-  }
-
-  elements.collectionPills.innerHTML = collections
-    .map((collection) => {
-      const activeClass =
-        state.activeCollection === collection.key
-          ? "active"
-          : "";
-
-      return `
-        <button
-          class="collection-pill ${activeClass}"
-          type="button"
-          data-collection="${escapeHtml(
-            collection.key
-          )}"
-        >
-          ${escapeHtml(collection.name)}
-        </button>
-      `;
-    })
-    .join("");
-
-  elements.collectionFilterList.innerHTML =
-    collections
-      .map(
-        (collection) => `
-          <label>
-            <input
-              type="radio"
-              name="collection-filter"
-              value="${escapeHtml(collection.key)}"
-              ${
-                state.activeCollection ===
-                collection.key
-                  ? "checked"
-                  : ""
-              }
-            />
-            <span>${escapeHtml(
-              collection.name
-            )}</span>
-          </label>
-        `
-      )
-      .join("");
-
-  document
-    .querySelectorAll("[data-collection]")
-    .forEach((button) => {
-      button.addEventListener("click", () => {
-        state.activeCollection =
-          button.dataset.collection || "all";
-
-        renderAll();
-      });
-    });
-
-  document
-    .querySelectorAll(
-      'input[name="collection-filter"]'
-    )
-    .forEach((input) => {
-      input.addEventListener("change", () => {
-        state.activeCollection = input.value;
-        renderAll();
-      });
-    });
 }
 
 function createColorButton(
@@ -1019,23 +969,20 @@ function createColorButton(
   activeIndex,
   dialogMode = false
 ) {
-  const activeClass =
-    index === activeIndex ? "active" : "";
-
   const productAttribute = dialogMode
-    ? "data-dialog-product"
-    : "data-product-id";
+    ? `data-dialog-product="${escapeHtml(product.id)}"`
+    : `data-product-id="${escapeHtml(product.id)}"`;
 
   const indexAttribute = dialogMode
-    ? "data-dialog-color-index"
-    : "data-color-index";
+    ? `data-dialog-color-index="${index}"`
+    : `data-color-index="${index}"`;
 
   return `
     <button
-      class="color-option ${activeClass}"
+      class="color-option ${index === activeIndex ? "active" : ""}"
       type="button"
-      ${productAttribute}="${escapeHtml(product.id)}"
-      ${indexAttribute}="${index}"
+      ${productAttribute}
+      ${indexAttribute}
       aria-pressed="${index === activeIndex}"
       aria-label="Select ${escapeHtml(color)}"
     >
@@ -1044,9 +991,47 @@ function createColorButton(
   `;
 }
 
-function handleBrokenImage(imageElement, fallbackImage) {
-  imageElement.onerror = null;
-  imageElement.src = fallbackImage;
+function renderCollectionControls() {
+  if (elements.collectionPills) {
+    elements.collectionPills.innerHTML = collections
+      .map(
+        (collection) => `
+          <button
+            class="collection-pill ${
+              state.activeCollection === collection.key ? "active" : ""
+            }"
+            type="button"
+            data-collection="${escapeHtml(collection.key)}"
+            aria-pressed="${state.activeCollection === collection.key}"
+          >
+            ${escapeHtml(collection.name)}
+          </button>
+        `
+      )
+      .join("");
+  }
+
+  if (elements.collectionFilterList) {
+    elements.collectionFilterList.innerHTML = collections
+      .map(
+        (collection) => `
+          <label>
+            <input
+              type="radio"
+              name="collection-filter"
+              value="${escapeHtml(collection.key)}"
+              ${
+                state.activeCollection === collection.key
+                  ? "checked"
+                  : ""
+              }
+            />
+            <span>${escapeHtml(collection.name)}</span>
+          </label>
+        `
+      )
+      .join("");
+  }
 }
 
 function renderProducts() {
@@ -1057,14 +1042,12 @@ function renderProducts() {
   const visibleProducts = getVisibleProducts();
 
   if (elements.productCount) {
-    elements.productCount.textContent = String(
-      visibleProducts.length
-    );
+    elements.productCount.textContent = String(visibleProducts.length);
   }
 
   if (visibleProducts.length === 0) {
     elements.productGrid.innerHTML = `
-      <div class="empty-products">
+      <div class="empty-products" role="status">
         <h3>No frames found</h3>
         <p>Try another collection or price range.</p>
       </div>
@@ -1073,182 +1056,110 @@ function renderProducts() {
     return;
   }
 
-  elements.productGrid.innerHTML =
-    visibleProducts
-      .map((product) => {
-        const selectedColorIndex =
-          getSelectedColorIndex(product);
+  elements.productGrid.innerHTML = visibleProducts
+    .map((product) => {
+      const selectedColorIndex = getSelectedColorIndex(product);
+      const selectedColor = getSelectedColor(product);
+      const selectedImage = getSelectedImage(product);
 
-        const selectedImageIndex =
-          getSelectedImageIndex(product);
+      return `
+        <article
+          class="product-card"
+          data-card-product="${escapeHtml(product.id)}"
+        >
+          <button
+            class="product-image"
+            type="button"
+            data-view="${escapeHtml(product.id)}"
+            aria-label="View ${escapeHtml(product.name)}"
+          >
+            <img
+              src="${escapeHtml(selectedImage)}"
+              alt="${escapeHtml(product.name)} in ${escapeHtml(
+                selectedColor
+              )}"
+              loading="lazy"
+              decoding="async"
+              data-product-image="${escapeHtml(product.id)}"
+            />
+          </button>
 
-        const selectedColor =
-          getSelectedColor(product);
-
-        const selectedImage =
-          product.images[selectedImageIndex] ||
-          product.images[0];
-
-        return `
-          <article class="product-card">
-            <div class="product-image">
-              <img
-                src="${escapeHtml(selectedImage)}"
-                alt="${escapeHtml(
-                  product.name
-                )} in ${escapeHtml(selectedColor)}"
-                loading="lazy"
-                data-product-image="${escapeHtml(
-                  product.id
-                )}"
-              />
-            </div>
-
-            <div class="product-meta">
-              <div class="meta-top">
-                <div>
-                  <small>
-                    ${escapeHtml(
-                      product.collection
-                    )}
-                  </small>
-
-                  <h3>
-                    ${escapeHtml(product.name)}
-                  </h3>
-                </div>
-
-                <span class="price">
-                  ${formatPrice(product.price)}
-                </span>
+          <div class="product-meta">
+            <div class="meta-top">
+              <div>
+                <small>${escapeHtml(product.collection)}</small>
+                <h3>${escapeHtml(product.name)}</h3>
               </div>
 
-              <p>
-                ${escapeHtml(product.description)}
-              </p>
+              <span class="price">${formatPrice(product.price)}</span>
+            </div>
 
-              <p class="selected-color-label">
-                Selected:
-                <strong>
-                  ${escapeHtml(selectedColor)}
-                </strong>
-              </p>
+            <p>${escapeHtml(product.description)}</p>
 
-              <div
-                class="color-tags"
-                aria-label="${escapeHtml(
-                  product.name
-                )} colors"
-              >
-                ${product.colors
-                  .map((color, index) =>
-                    createColorButton(
-                      product,
-                      color,
-                      index,
-                      selectedColorIndex
-                    )
+            <p class="selected-color-label">
+              Selected:
+              <strong>${escapeHtml(selectedColor)}</strong>
+            </p>
+
+            <div
+              class="color-tags"
+              aria-label="${escapeHtml(product.name)} colors"
+            >
+              ${product.colors
+                .map((color, index) =>
+                  createColorButton(
+                    product,
+                    color,
+                    index,
+                    selectedColorIndex
                   )
-                  .join("")}
-              </div>
-
-              <div class="card-actions">
-                <button
-                  class="button button-ghost"
-                  type="button"
-                  data-view="${escapeHtml(
-                    product.id
-                  )}"
-                >
-                  View Product
-                </button>
-
-                <a
-                  class="button button-gold"
-                  href="${escapeHtml(
-                    product.paymentLink
-                  )}"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Buy Now
-                </a>
-              </div>
+                )
+                .join("")}
             </div>
-          </article>
-        `;
-      })
-      .join("");
 
-  bindProductCardEvents();
-  bindProductImageFallbacks();
+            <div class="card-actions">
+              <button
+                class="button button-ghost"
+                type="button"
+                data-view="${escapeHtml(product.id)}"
+              >
+                View Product
+              </button>
+
+              <a
+                class="button button-gold"
+                href="${escapeHtml(product.paymentLink)}"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Buy ${escapeHtml(product.name)}"
+              >
+                Buy Now
+              </a>
+            </div>
+          </div>
+        </article>
+      `;
+    })
+    .join("");
+
+  elements.productGrid
+    .querySelectorAll("img")
+    .forEach(setImageFallback);
 }
 
-function bindProductImageFallbacks() {
-  document
-    .querySelectorAll("[data-product-image]")
-    .forEach((image) => {
-      const product = products.find(
-        (item) =>
-          item.id === image.dataset.productImage
-      );
+function setImageFallback(imageElement) {
+  if (!(imageElement instanceof HTMLImageElement)) {
+    return;
+  }
 
-      if (!product) {
-        return;
-      }
-
-      image.addEventListener("error", () => {
-        handleBrokenImage(
-          image,
-          product.images[0]
-        );
-      });
-    });
-}
-
-function bindProductCardEvents() {
-  document
-    .querySelectorAll("[data-view]")
-    .forEach((button) => {
-      button.addEventListener("click", () => {
-        const product = products.find(
-          (item) =>
-            item.id === button.dataset.view
-        );
-
-        if (product) {
-          openProduct(product);
-        }
-      });
-    });
-
-  document
-    .querySelectorAll(
-      "[data-product-id][data-color-index]"
-    )
-    .forEach((button) => {
-      button.addEventListener("click", () => {
-        const product = products.find(
-          (item) =>
-            item.id ===
-            button.dataset.productId
-        );
-
-        const colorIndex = Number(
-          button.dataset.colorIndex
-        );
-
-        if (
-          !product ||
-          !Number.isInteger(colorIndex)
-        ) {
-          return;
-        }
-
-        selectColor(product, colorIndex);
-        renderProducts();
-      });
-    });
+  imageElement.addEventListener(
+    "error",
+    () => {
+      imageElement.src = PLACEHOLDER_IMAGE;
+      imageElement.alt = "Product image unavailable";
+    },
+    { once: true }
+  );
 }
 
 function renderDialogColors(product) {
@@ -1256,41 +1167,19 @@ function renderDialogColors(product) {
     return;
   }
 
-  const activeIndex =
-    getSelectedColorIndex(product);
+  const activeIndex = getSelectedColorIndex(product);
 
-  elements.dialogColors.innerHTML =
-    product.colors
-      .map((color, index) =>
-        createColorButton(
-          product,
-          color,
-          index,
-          activeIndex,
-          true
-        )
+  elements.dialogColors.innerHTML = product.colors
+    .map((color, index) =>
+      createColorButton(
+        product,
+        color,
+        index,
+        activeIndex,
+        true
       )
-      .join("");
-
-  elements.dialogColors
-    .querySelectorAll(
-      "[data-dialog-product][data-dialog-color-index]"
     )
-    .forEach((button) => {
-      button.addEventListener("click", () => {
-        const colorIndex = Number(
-          button.dataset.dialogColorIndex
-        );
-
-        if (!Number.isInteger(colorIndex)) {
-          return;
-        }
-
-        selectColor(product, colorIndex);
-        renderDialog(product);
-        renderProducts();
-      });
-    });
+    .join("");
 }
 
 function renderDialogThumbnails(product) {
@@ -1298,68 +1187,32 @@ function renderDialogThumbnails(product) {
     return;
   }
 
-  const activeImageIndex =
-    getSelectedImageIndex(product);
+  const activeImageIndex = getSelectedImageIndex(product);
 
-  elements.dialogThumbs.innerHTML =
-    product.images
-      .map(
-        (image, index) => `
-          <button
-            type="button"
-            data-thumb-index="${index}"
-            class="${
-              index === activeImageIndex
-                ? "active-thumb"
-                : ""
-            }"
-            aria-label="Show ${escapeHtml(
-              product.colors[index] ||
-                product.name
-            )}"
-          >
-            <img
-              src="${escapeHtml(image)}"
-              alt="${escapeHtml(
-                product.name
-              )} ${index + 1}"
-              loading="lazy"
-              data-dialog-thumb="${index}"
-            />
-          </button>
-        `
-      )
-      .join("");
-
-  elements.dialogThumbs
-    .querySelectorAll("[data-thumb-index]")
-    .forEach((button) => {
-      button.addEventListener("click", () => {
-        const imageIndex = Number(
-          button.dataset.thumbIndex
-        );
-
-        if (!Number.isInteger(imageIndex)) {
-          return;
-        }
-
-        selectColor(product, imageIndex);
-        renderDialog(product);
-        renderProducts();
-      });
-    });
-
-  elements.dialogThumbs
-    .querySelectorAll("[data-dialog-thumb]")
-    .forEach((image) => {
-      image.addEventListener("error", () => {
-        const button = image.closest("button");
-
-        if (button) {
-          button.remove();
-        }
-      });
-    });
+  elements.dialogThumbs.innerHTML = product.images
+    .map(
+      (image, index) => `
+        <button
+          type="button"
+          data-thumb-index="${index}"
+          class="${index === activeImageIndex ? "active-thumb" : ""}"
+          aria-pressed="${index === activeImageIndex}"
+          aria-label="Show ${escapeHtml(
+            product.colors[index] ??
+              `${product.name} image ${index + 1}`
+          )}"
+        >
+          <img
+            src="${escapeHtml(image)}"
+            alt="${escapeHtml(product.name)} thumbnail ${index + 1}"
+            loading="lazy"
+            decoding="async"
+            data-dialog-thumb="${index}"
+          />
+        </button>
+      `
+    )
+    .join("");
 }
 
 function renderDialog(product) {
@@ -1367,18 +1220,10 @@ function renderDialog(product) {
     return;
   }
 
-  const activeImageIndex =
-    getSelectedImageIndex(product);
+  state.activeDialogProductId = product.id;
 
-  const activeColorIndex =
-    getSelectedColorIndex(product);
-
-  const activeImage =
-    product.images[activeImageIndex] ||
-    product.images[0];
-
-  const activeColor =
-    product.colors[activeColorIndex];
+  const activeImage = getSelectedImage(product);
+  const activeColor = getSelectedColor(product);
 
   if (elements.dialogCollection) {
     elements.dialogCollection.textContent =
@@ -1386,64 +1231,55 @@ function renderDialog(product) {
   }
 
   if (elements.dialogTitle) {
-    elements.dialogTitle.textContent =
-      product.name;
+    elements.dialogTitle.textContent = product.name;
   }
 
   if (elements.dialogPrice) {
-    elements.dialogPrice.textContent =
-      formatPrice(product.price);
+    elements.dialogPrice.textContent = formatPrice(product.price);
   }
 
   if (elements.dialogDescription) {
-    elements.dialogDescription.textContent =
-      product.description;
+    elements.dialogDescription.textContent = product.description;
   }
 
   if (elements.dialogMainImage) {
-    elements.dialogMainImage.src =
-      activeImage;
-
+    elements.dialogMainImage.src = activeImage;
     elements.dialogMainImage.alt =
       `${product.name} in ${activeColor}`;
-
-    elements.dialogMainImage.onerror =
-      () => {
-        handleBrokenImage(
-          elements.dialogMainImage,
-          product.images[0]
-        );
-      };
   }
 
   renderDialogThumbnails(product);
   renderDialogColors(product);
 
   if (elements.dialogFeatures) {
-    elements.dialogFeatures.innerHTML = `
-      <li>
-        Selected color:
-        <strong>${escapeHtml(
-          activeColor
-        )}</strong>
-      </li>
-      <li>Shipping included in the price</li>
-      <li>Out-of-Box Warranty included</li>
-    `;
+    const productFeatures = Array.isArray(product.features)
+      ? product.features.slice(0, 6)
+      : [];
+
+    elements.dialogFeatures.innerHTML = [
+      `<li>Selected color: <strong>${escapeHtml(
+        activeColor
+      )}</strong></li>`,
+      ...productFeatures.map(
+        (feature) => `<li>${escapeHtml(feature)}</li>`
+      ),
+      "<li>Shipping included in the price</li>",
+      "<li>Out-of-Box Warranty included</li>"
+    ].join("");
   }
 
   if (elements.dialogBuyButton) {
-    elements.dialogBuyButton.href =
-      product.paymentLink;
-
-    elements.dialogBuyButton.textContent =
-      `Buy ${activeColor}`;
-
+    elements.dialogBuyButton.href = product.paymentLink;
+    elements.dialogBuyButton.textContent = `Buy ${activeColor}`;
     elements.dialogBuyButton.setAttribute(
       "aria-label",
       `Buy ${product.name} in ${activeColor}`
     );
   }
+
+  elements.dialog
+    .querySelectorAll("img")
+    .forEach(setImageFallback);
 }
 
 function openProduct(product) {
@@ -1453,11 +1289,10 @@ function openProduct(product) {
 
   renderDialog(product);
 
-  if (
-    typeof elements.dialog.showModal ===
-    "function"
-  ) {
-    elements.dialog.showModal();
+  if (typeof elements.dialog.showModal === "function") {
+    if (!elements.dialog.open) {
+      elements.dialog.showModal();
+    }
   } else {
     elements.dialog.setAttribute("open", "");
   }
@@ -1468,8 +1303,11 @@ function closeDialog() {
     return;
   }
 
+  state.activeDialogProductId = null;
+
   if (
-    typeof elements.dialog.close === "function"
+    typeof elements.dialog.close === "function" &&
+    elements.dialog.open
   ) {
     elements.dialog.close();
   } else {
@@ -1481,18 +1319,14 @@ function resetFilters() {
   state.activeCollection = "all";
   state.sort = "price-desc";
   state.priceRange = "all";
-  state.selectedColorIndex = {};
-  state.selectedImageIndex = {};
 
   if (elements.sortSelect) {
-    elements.sortSelect.value =
-      "price-desc";
+    elements.sortSelect.value = state.sort;
   }
 
-  const allPriceInput =
-    document.querySelector(
-      'input[name="price-range"][value="all"]'
-    );
+  const allPriceInput = document.querySelector(
+    'input[name="price-range"][value="all"]'
+  );
 
   if (allPriceInput) {
     allPriceInput.checked = true;
@@ -1501,69 +1335,190 @@ function resetFilters() {
   renderAll();
 }
 
-function bindStaticEvents() {
-  if (elements.sortSelect) {
-    elements.sortSelect.addEventListener(
-      "change",
-      (event) => {
-        state.sort = event.target.value;
-        renderProducts();
-      }
-    );
-  }
-
-  document
-    .querySelectorAll(
-      'input[name="price-range"]'
-    )
-    .forEach((input) => {
-      input.addEventListener(
-        "change",
-        (event) => {
-          state.priceRange =
-            event.target.value;
-
-          renderProducts();
-        }
-      );
-    });
-
-  if (elements.clearFiltersButton) {
-    elements.clearFiltersButton.addEventListener(
-      "click",
-      resetFilters
-    );
-  }
-
-  if (elements.dialogClose) {
-    elements.dialogClose.addEventListener(
-      "click",
-      closeDialog
-    );
-  }
-
-  if (elements.dialog) {
-    elements.dialog.addEventListener(
-      "click",
-      (event) => {
-        if (event.target === elements.dialog) {
-          closeDialog();
-        }
-      }
-    );
-  }
-
-  document.addEventListener(
-    "keydown",
-    (event) => {
-      if (
-        event.key === "Escape" &&
-        elements.dialog?.open
-      ) {
-        closeDialog();
-      }
-    }
+function handleDocumentClick(event) {
+  const collectionButton = event.target.closest(
+    "[data-collection]"
   );
+
+  if (collectionButton) {
+    state.activeCollection =
+      collectionButton.dataset.collection || "all";
+
+    renderAll();
+    return;
+  }
+
+  const viewButton = event.target.closest("[data-view]");
+
+  if (viewButton) {
+    const product = getProductById(viewButton.dataset.view);
+
+    if (product) {
+      openProduct(product);
+    }
+
+    return;
+  }
+
+  const colorButton = event.target.closest(
+    "[data-product-id][data-color-index]"
+  );
+
+  if (colorButton) {
+    const product = getProductById(
+      colorButton.dataset.productId
+    );
+
+    if (product) {
+      selectColor(product, colorButton.dataset.colorIndex);
+      renderProducts();
+    }
+
+    return;
+  }
+
+  const dialogColorButton = event.target.closest(
+    "[data-dialog-product][data-dialog-color-index]"
+  );
+
+  if (dialogColorButton) {
+    const product = getProductById(
+      dialogColorButton.dataset.dialogProduct
+    );
+
+    if (product) {
+      selectColor(
+        product,
+        dialogColorButton.dataset.dialogColorIndex
+      );
+
+      renderDialog(product);
+      renderProducts();
+    }
+
+    return;
+  }
+
+  const thumbnailButton = event.target.closest(
+    "[data-thumb-index]"
+  );
+
+  if (thumbnailButton && state.activeDialogProductId) {
+    const product = getProductById(
+      state.activeDialogProductId
+    );
+
+    if (product) {
+      selectImage(
+        product,
+        thumbnailButton.dataset.thumbIndex
+      );
+
+      renderDialog(product);
+      renderProducts();
+    }
+  }
+}
+
+function handleDocumentChange(event) {
+  const target = event.target;
+
+  if (
+    !(
+      target instanceof HTMLInputElement ||
+      target instanceof HTMLSelectElement
+    )
+  ) {
+    return;
+  }
+
+  if (target.matches('input[name="collection-filter"]')) {
+    state.activeCollection = target.value;
+    renderAll();
+    return;
+  }
+
+  if (target.matches('input[name="price-range"]')) {
+    state.priceRange = target.value;
+    renderProducts();
+    return;
+  }
+
+  if (target === elements.sortSelect) {
+    state.sort = target.value;
+    renderProducts();
+  }
+}
+
+function bindStaticEvents() {
+  document.addEventListener("click", handleDocumentClick);
+  document.addEventListener("change", handleDocumentChange);
+
+  elements.clearFiltersButton?.addEventListener(
+    "click",
+    resetFilters
+  );
+
+  elements.dialogClose?.addEventListener(
+    "click",
+    closeDialog
+  );
+
+  elements.dialog?.addEventListener("click", (event) => {
+    if (event.target === elements.dialog) {
+      closeDialog();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && elements.dialog?.open) {
+      closeDialog();
+    }
+  });
+}
+
+function validateProducts() {
+  const seenIds = new Set();
+
+  for (const product of products) {
+    if (seenIds.has(product.id)) {
+      console.warn(`Duplicate product id: ${product.id}`);
+    }
+
+    seenIds.add(product.id);
+
+    if (
+      !Array.isArray(product.images) ||
+      product.images.length === 0
+    ) {
+      console.warn(`Product has no images: ${product.name}`);
+    }
+
+    if (
+      !Array.isArray(product.colors) ||
+      product.colors.length === 0
+    ) {
+      console.warn(`Product has no colors: ${product.name}`);
+    }
+
+    if (product.colors.length !== product.images.length) {
+      console.warn(
+        `Color/image count mismatch for ${product.name}: ` +
+          `${product.colors.length} colors, ` +
+          `${product.images.length} images`
+      );
+    }
+
+    if (
+      !/^https:\/\/buy\.stripe\.com\//.test(
+        product.paymentLink
+      )
+    ) {
+      console.warn(
+        `Unexpected payment link for ${product.name}`
+      );
+    }
+  }
 }
 
 function renderAll() {
@@ -1572,8 +1527,23 @@ function renderAll() {
 }
 
 function initializeStore() {
+  cacheElements();
+  validateProducts();
   bindStaticEvents();
+
+  if (elements.sortSelect) {
+    elements.sortSelect.value = state.sort;
+  }
+
   renderAll();
 }
 
-initializeStore();
+if (document.readyState === "loading") {
+  document.addEventListener(
+    "DOMContentLoaded",
+    initializeStore,
+    { once: true }
+  );
+} else {
+  initializeStore();
+}
