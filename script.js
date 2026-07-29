@@ -559,30 +559,30 @@ const products = [
     paymentLink: "https://buy.stripe.com/fZu6oH0Nl1og11D4hec3m06",
     description:
       "A lightweight aviator statement with mirrored energy and city-ready color.",
-    features: [
-      "Solar Frame",
-      "Gilded Tortoise",
-      "Ultraviolet",
-      "Cobalt Command",
-      "Violet Vibe",
-      "Chrome Cloud"
-    ],
-    colors: [
-      "Solar Frame",
-      "Gilded Tortoise",
-      "Ultraviolet",
-      "Cobalt Command",
-      "Violet Vibe",
-      "Chrome Cloud"
-    ],
-    images: [
-      "./KL_8AV5239-1YLOW.jpg",
-      "./KL_8AV5239-2GFLM.jpg",
-      "./KL_8AV5239 Ultraviolet.jpg",
-      "./KL_8AV5239-5BLUE.jpg",
-      "./8AV5239-4.jpg",
-      "./KL_8AV5239-6GRYS.jpg"
-    ]
+   features: [
+  "Solar Frame",
+  "Gilded Tortoise",
+  "Ultraviolet",
+  "Cobalt Command",
+  "Violet Vibe",
+  "Chrome Cloud"
+],
+colors: [
+  "Solar Frame",
+  "Gilded Tortoise",
+  "Ultraviolet",
+  "Cobalt Command",
+  "Violet Vibe",
+  "Chrome Cloud"
+],
+images: [
+  "./KL_8AV5239-1YLOW.jpg",
+  "./KL_8AV5239-2GFLM.jpg",
+  "./KL_8AV5239 Ultraviolet.jpg",
+  "./KL_8AV5239-5BLUE.jpg",
+  "./8AV5239 Skyline Aviator Violet Vibe.jpg",
+  "./KL_8AV5239-6GRYS.jpg"
+]
   },
   {
     id: "flight-ryder-aviator",
