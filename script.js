@@ -564,7 +564,7 @@ const products = [
       "Gilded Tortoise",
       "Ultraviolet",
       "Cobalt Command",
-      "Cypress Azure",
+      "Violet Vibe",
       "Chrome Cloud"
     ],
     colors: [
@@ -572,7 +572,7 @@ const products = [
       "Gilded Tortoise",
       "Ultraviolet",
       "Cobalt Command",
-      "Cypress Azure",
+      "Violet Vibe",
       "Chrome Cloud"
     ],
     images: [
