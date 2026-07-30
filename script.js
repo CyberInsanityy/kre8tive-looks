@@ -556,7 +556,7 @@ const products = [
     collectionKey: "flight",
     itemCode: "8AV5239",
     price: 9.99,
-    paymentLink: "https://buy.stripe.com/fZu6oH0Nl1og11D4hec3m06",
+    paymentLink: "https://buy.stripe.com/6oU7sL0NlgjabGhfZWc3m0s",
     description:
       "A lightweight aviator statement with mirrored energy and city-ready color.",
    features: [
