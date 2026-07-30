@@ -267,13 +267,13 @@ const products = [
       "Purple Reign"
     ],
     images: [
-      "./KL_8VG29589-4.jpg",
-      "./KL_8VG29589-2.jpg",
-      "./KL_8VG29589-3.jpg",
-      "./KL_8VG29589-5.jpg",
-      "./KL_8VG29589-1.jpg",
-      "./KL_8VG29589 Purple Reign.jpg"
-    ]
+  "./KL_8VG29589-1 VRGO Mocha Luxe.jpg",
+  "./KL_8VG29589-2.jpg",
+  "./KL_8VG29589-3.jpg",
+  "./KL_8VG29589-5.jpg",
+  "./KL_8VG29589 Wine.jpg",
+  "./KL_8VG29589 Purple Reign.jpg"
+]
   },
   {
     id: "halo-everyday",
