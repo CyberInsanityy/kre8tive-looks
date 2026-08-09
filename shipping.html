@@ -1,38 +1,368 @@
-<h2>Handling Fee</h2>
+<!-- FILE: shipping.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<div class="policy-highlight">
-  <strong>
-    A $5.99 handling fee will be applied to every order to cover
-    order processing, packaging, and fulfillment.
-  </strong>
-</div>
+  <title>Shipping & Fulfillment Policy | Kre8tive Looks</title>
 
-<h2>Order Fulfillment</h2>
+  <style>
+    :root {
+      --bg: #f5f3ee;
+      --surface: #ffffff;
+      --surface-soft: #f8f5ee;
+      --text: #151515;
+      --muted: #6f6b64;
+      --border: #ddd4c4;
+      --gold: #b9984d;
+      --gold-dark: #8e7235;
+      --black: #0a0a0a;
+      --shadow: 0 18px 45px rgba(10, 10, 10, 0.08);
+    }
 
-<p>
-  Please allow 7–10 business days for your order to be fulfilled.
-  Once your order has shipped, you will receive tracking information
-  when available.
-</p>
+    * {
+      box-sizing: border-box;
+    }
 
-<h2>Larger Orders &amp; Special Shipping Arrangements</h2>
+    html {
+      scroll-behavior: smooth;
+    }
 
-<p>
-  For larger orders or orders requiring special shipping arrangements,
-  additional shipping charges may apply. Please contact Kre8tive Looks
-  for a shipping quote.
-</p>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(
+          circle at top,
+          rgba(185, 152, 77, 0.08),
+          transparent 38%
+        ),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
 
-<h2>Contact Us</h2>
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-<p>
-  For shipping questions or to request a shipping quote, please contact:
-</p>
+    .topbar {
+      background: var(--black);
+      color: var(--gold);
+      padding: 13px 20px;
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
 
-<p>
-  <strong>Kre8tive Looks</strong><br>
-  Email:
-  <a href="mailto:kre8tivelooks@gmail.com">
-    kre8tivelooks@gmail.com
-  </a>
-</p>
+    .page-shell {
+      width: min(100% - 32px, 980px);
+      margin: 46px auto;
+    }
+
+    .policy-card {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .policy-header {
+      padding: 52px 48px 40px;
+      background:
+        linear-gradient(
+          135deg,
+          #0f0f0f 0%,
+          #1c1a15 58%,
+          #30240f 100%
+        );
+      color: #fff;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.5rem, 7vw, 4.8rem);
+      font-weight: 500;
+      line-height: 0.95;
+    }
+
+    .effective-date {
+      margin: 18px 0 0;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+    }
+
+    .policy-body {
+      display: grid;
+      gap: 22px;
+      padding: 42px 48px 50px;
+    }
+
+    .intro {
+      margin: 0 0 6px;
+      color: var(--muted);
+      font-size: 1.03rem;
+    }
+
+    .policy-section {
+      padding: 28px 30px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: var(--surface-soft);
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .policy-section:hover {
+      transform: translateY(-3px);
+      border-color: rgba(185, 152, 77, 0.55);
+      box-shadow: 0 14px 30px rgba(10, 10, 10, 0.07);
+    }
+
+    .policy-section h2 {
+      margin: 0 0 10px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.65rem;
+      font-weight: 600;
+    }
+
+    .policy-section p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .highlight {
+      position: relative;
+      overflow: hidden;
+      border-color: rgba(185, 152, 77, 0.5);
+      background:
+        linear-gradient(
+          135deg,
+          rgba(185, 152, 77, 0.15),
+          #fff
+        );
+    }
+
+    .highlight::before {
+      content: "$5.99";
+      position: absolute;
+      top: -20px;
+      right: 22px;
+      color: rgba(185, 152, 77, 0.09);
+      font-size: 5rem;
+      font-weight: 900;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .highlight strong {
+      color: var(--gold-dark);
+    }
+
+    .contact-card {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .contact-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 20px;
+      border-radius: 999px;
+      background: var(--gold);
+      color: #111;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .contact-button:hover {
+      transform: translateY(-2px);
+      background: var(--gold-dark);
+      color: #fff;
+    }
+
+    .policy-footer {
+      padding: 28px 48px 34px;
+      border-top: 1px solid var(--border);
+      background: #fff;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px 22px;
+      margin-bottom: 14px;
+    }
+
+    .footer-links a {
+      color: var(--gold-dark);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .copyright {
+      margin: 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 700px) {
+      .page-shell {
+        width: min(100% - 20px, 980px);
+        margin: 20px auto;
+      }
+
+      .policy-header,
+      .policy-body,
+      .policy-footer {
+        padding-right: 24px;
+        padding-left: 24px;
+      }
+
+      .policy-header {
+        padding-top: 38px;
+        padding-bottom: 32px;
+      }
+
+      .policy-body {
+        padding-top: 28px;
+        padding-bottom: 34px;
+      }
+
+      .policy-section {
+        padding: 22px;
+      }
+
+      .contact-card {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    Kre8tive Looks · Luxury Eyewear House
+  </div>
+
+  <main class="page-shell">
+    <article class="policy-card">
+
+      <header class="policy-header">
+        <p class="eyebrow">Shipping & Fulfillment</p>
+
+        <h1>Shipping Policy</h1>
+
+        <p class="effective-date">
+          Effective Date: July 29, 2026
+        </p>
+      </header>
+
+      <section class="policy-body">
+        <p class="intro">
+          Thank you for shopping with Kre8tive Looks. This policy explains
+          our handling fee, fulfillment timeframe, and special shipping
+          arrangements.
+        </p>
+
+        <section class="policy-section highlight">
+          <h2>Handling Fee</h2>
+
+          <p>
+            <strong>
+              A $5.99 handling fee will be applied to every order
+            </strong>
+            to cover order processing, packaging, and fulfillment.
+          </p>
+        </section>
+
+        <section class="policy-section">
+          <h2>Order Fulfillment</h2>
+
+          <p>
+            Please allow 7–10 business days for your order to be fulfilled.
+            Once your order has shipped, you will receive tracking
+            information when available.
+          </p>
+        </section>
+
+        <section class="policy-section">
+          <h2>Larger Orders &amp; Special Shipping Arrangements</h2>
+
+          <p>
+            For larger orders or orders requiring special shipping
+            arrangements, additional shipping charges may apply.
+            Please contact Kre8tive Looks for a shipping quote.
+          </p>
+        </section>
+
+        <section class="policy-section contact-card">
+          <div>
+            <h2>Contact Us</h2>
+
+            <p>
+              For shipping questions or to request a shipping quote,
+              contact Kre8tive Looks.
+            </p>
+          </div>
+
+          <a
+            class="contact-button"
+            href="mailto:kre8tivelooks@gmail.com"
+          >
+            Email Kre8tive Looks
+          </a>
+        </section>
+      </section>
+
+      <footer class="policy-footer">
+        <nav class="footer-links" aria-label="Policy navigation">
+          <a href="index.html">Back to Shop</a>
+          <a href="privacy.html">Privacy Policy</a>
+        </nav>
+
+        <p class="copyright">
+          © 2026 Kre8tive Looks. All Rights Reserved.
+        </p>
+      </footer>
+
+    </article>
+  </main>
+</body>
+</html>
