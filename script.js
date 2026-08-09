@@ -1263,7 +1263,8 @@ function renderDialog(product) {
       ...productFeatures.map(
         (feature) => `<li>${escapeHtml(feature)}</li>`
       ),
-      "<li>Shipping included in the price</li>",
+      "<li>$5.99 handling fee applied to every order</li>
+<li>Please allow 7–10 business days for fulfillment</li>",
       "<li>Out-of-Box Warranty included</li>"
     ].join("");
   }
